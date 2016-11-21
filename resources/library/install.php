@@ -4,7 +4,7 @@
 db_connect(false);
 
 // Create a new database if one doesn't already exist
-$db_connection->exec("DROP DATABASE IF EXISTS `".$db_config['name']."`;");
+// $db_connection->exec("DROP DATABASE IF EXISTS `".$db_config['name']."`;");
 $db_connection->exec("CREATE DATABASE IF NOT EXISTS `" . $db_config['name'] . "`");
 
 // Select the database
