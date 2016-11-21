@@ -1,7 +1,4 @@
-<?php
-include('config.php');
-include('functions.php');
-global $db_config, $db_connection;
+<?php require_once('resources/library/load.php');
 
 // Connect to the database (false means we are just connecting)
 db_connect(false);

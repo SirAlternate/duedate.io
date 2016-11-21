@@ -1,10 +1,14 @@
 <?php require_once('resources/library/load.php');
 
-if(isset($_SESSION['user_id'])) {
-    header('Location: dashboard.php');
-} else {
+if(!isset($_SESSION['user_id'])) {
     header('Location: login.php');
 }
+
+// Handle logging out
+if (isset($_POST['logout'])) {
+    logout($_SESSION['email']);
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,6 +24,12 @@ if(isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body>
+    <?php echo "Welcome " . $_SESSION['email'] ?>
+    <form method="post" class="logout">
+        <div class="form_group">
+            <input type="submit" name="logout" value="Logout" />
+        </div>
+    </form>
 
     <!-- Scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
