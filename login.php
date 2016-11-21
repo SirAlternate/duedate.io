@@ -2,8 +2,8 @@
 
 // Handle login
 if (isset($_POST['login'])) {
-    $email = isset( $_POST['email'] ) ? $_POST['email'] : '';
-    $password = isset( $_POST['password'] ) ? $_POST['password'] : '';
+    $email = isset( $_POST['email'] ) ? make_safe($_POST['email']) : '';
+    $password = isset( $_POST['password'] ) ? make_safe($_POST['password']) : '';
 
     // Check if fields are filled
     if (!$email || !$password) {
@@ -20,11 +20,11 @@ if (isset($_POST['login'])) {
 
 // Handle registering
 if (isset($_POST['register'])) {
-    $first_name = isset( $_POST['first_name'] ) ? $_POST['first_name'] : '';
-    $last_name = isset( $_POST['last_name'] ) ? $_POST['last_name'] : '';
-    $email = isset( $_POST['email'] ) ? $_POST['email'] : '';
-    $password = isset( $_POST['password'] ) ? $_POST['password'] : '';
-    $password_c = isset( $_POST['password_c'] ) ? $_POST['password_c'] : '';
+    $first_name = isset( $_POST['first_name'] ) ? make_safe($_POST['first_name']) : '';
+    $last_name = isset( $_POST['last_name'] ) ? make_safe($_POST['last_name']) : '';
+    $email = isset( $_POST['email'] ) ? make_safe($_POST['email']) : '';
+    $password = isset( $_POST['password'] ) ? make_safe($_POST['password']) : '';
+    $password_c = isset( $_POST['password_c'] ) ? make_safe($_POST['password_c']) : '';
 
     if (!$first_name || !$last_name || !$email || !$password || !$password_c) {
         $register_error = "All fields are required";

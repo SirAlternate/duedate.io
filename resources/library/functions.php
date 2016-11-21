@@ -71,6 +71,7 @@ function user_exists($email) {
     }
 }
 
+// Attempt to log in with given info
 function login($email, $password) {
     global $db_connection;
 
@@ -110,4 +111,16 @@ function logout() {
 
     // Refresh page - TODO: Should be a better way to do this
     header("Refresh:0");
+}
+
+// For cleaning data and being safe from vulnerabilities
+function make_safe($string) {
+    $string = htmlentities($string, ENT_QUOTES);
+    if (get_magic_quotes_gpc()) {
+       $string = stripslashes($string);
+    }
+    $string = strip_tags($string);
+    $string = mysql_real_escape_string(trim($string));
+
+    return $string;
 }
