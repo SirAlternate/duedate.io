@@ -6,7 +6,7 @@ if(!isset($_SESSION['user_id'])) {
 
 // Handle logging out
 if (isset($_POST['logout'])) {
-    logout($_SESSION['email']);
+    logout();
 }
 
 ?>

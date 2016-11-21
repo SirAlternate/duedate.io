@@ -96,7 +96,8 @@ function login($email, $password) {
     }
 }
 
-function logout($email) {
+// Log out current user
+function logout() {
     // Unset session variables
     unset($_SESSION['user_id']);
     unset($_SESSION['email']);
