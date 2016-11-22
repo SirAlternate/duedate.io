@@ -174,6 +174,7 @@ html {
 
 #dashboard {
     header {
+        margin: 0;
         background-color: $color_black;
         border-radius: 0;
         border: none;
@@ -247,6 +248,176 @@ html {
                 &:hover {
                     @include opacity(0.9);
                     cursor: pointer;
+                }
+            }
+        }
+    }
+    .display {
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        min-height: 400px;
+        padding: 40px 20px 20px;
+        margin: 0;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        .class {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            min-height: 100%;
+            width: 400px;
+            margin-right: 20px;
+            background-color: #fff;
+            @include box-shadow(2px, 2px, 2px, 3px, rgba(0,0,0,0.04));
+
+            .header {
+                position: relative;
+                width: 100%;
+                height: 50px;
+                padding: 0 20px;
+                background-color: #a7adb4;
+                border-bottom: 1px solid #9ea3aa;
+                color: #ffffff;
+                @include font-size(18px);
+                line-height: 50px;
+
+                &:hover {
+                    background-color: darken(#a5acb3, 10%);
+                    cursor: pointer;
+                }
+
+                a.settings-btn {
+                    float: right;
+                    width: 25px;
+                    height: 8px;
+                    padding: 0;
+                    margin: 21px 0;
+                    border: none;
+                    background-color: #ffffff;
+
+                    &:hover {
+                        @include opacity(0.9);
+                        cursor: pointer;
+                    }
+                }
+                a.close-btn {
+                    float: right;
+                    width: 20px;
+                    height: 20px;
+                    padding: 0;
+                    margin: 15px 0;
+                    border: none;
+                    background-color: #ffffff;
+
+                    &:hover {
+                        @include opacity(0.9);
+                        cursor: pointer;
+                    }
+                }
+            }
+            ul {
+                position: absolute;
+                top: 50px;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 0;
+                margin: 0;
+                overflow-y: auto;
+
+                li {
+                    position: relative;
+                    list-style: none;
+                    padding: 10px 15px;
+                    border-bottom: 1px solid #e4e4e4;
+                    @include transition( background 0.05s ease-out );
+
+                    &:hover {
+                        background-color: #f8f8f8;
+                        cursor: pointer;
+                    }
+
+                    &.selected {
+                        background-color: darken(#f8f8f8, 8%);
+
+                        &:hover {
+                            background-color: darken(#f8f8f8, 8%);
+                        }
+
+                        span.arrow {
+                            background-color: darken(#d0d6da, 8%);
+                        }
+                    }
+
+                    p.title {
+                        margin-bottom: 5px;
+                        @include font-size(15px);
+                        font-weight: 700;
+                    }
+
+                    p.due {
+                        margin: 0;
+                        color: #787c81;
+                        @include font-size(13px);
+
+                        b {
+                            color: #ffffff;
+                            padding: 1px 5px;
+                            background-color: #a7adb4;
+                            border-radius: 6px;
+                        }
+
+                        em {
+                            color: #a7adb4;
+                            font-weight: 700;
+                            font-style: normal;
+                        }
+                    }
+
+                    p.duration {
+                        margin-bottom: 4px;
+                        color: #787c81;
+                        @include font-size(13px);
+                    }
+
+                    span.arrow {
+                        position: absolute;
+                        right: 15px;
+                        top: 50%;
+                        bottom: 0;
+                        width: 8px;
+                        height: 32px;
+                        margin-top: -15px;
+                        background-color: #d0d6da;
+                    }
+                }
+            }
+        }
+        .class[color="green"] {
+            $color: $color_accent;
+
+            .header {
+                background-color: $color;
+
+                &:hover {
+                    background-color: darken($color, 8%);
+                }
+            }
+            ul {
+                li {
+                    p.due {
+                        b {
+                            background-color: $color;
+                        }
+                        em {
+                            color: $color;
+                        }
+                    }
                 }
             }
         }

@@ -47,8 +47,146 @@ if (isset($_POST['logout'])) {
         </div>
     </header>
     <div class="row display">
+        <div class="class" color="green">
+            <div class="header">
+                Class A <a class="settings-btn"></a>
+            </div>
+            <ul class="assignments">
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due <b>this</b> Tuesday</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due <em>next</em> Tuesday</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="class" color="green">
+            <div class="header">
+                Class A <a class="settings-btn"></a>
+            </div>
+            <ul class="assignments">
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="class" color="green">
+            <div class="header">
+                Class A <a class="settings-btn"></a>
+            </div>
+            <ul class="assignments">
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="class" color="green">
+            <div class="header">
+                Class A <a class="settings-btn"></a>
+            </div>
+            <ul class="assignments">
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="class" color="green">
+            <div class="header">
+                Class A <a class="settings-btn"></a>
+            </div>
+            <ul class="assignments">
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="class" color="green">
+            <div class="header">
+                Class A <a class="settings-btn"></a>
+            </div>
+            <ul class="assignments">
+                <li>
+                    <p class="title">Assignment 1</p>
+                    <p class="due">Due Tuesday 11/22</p>
+                    <p class="duration">Est Time: 1:00</p>
+                    <span class="arrow"></span>
+                </li>
+            </ul>
+        </div>
     </div>
-    
+
     <!-- Scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
