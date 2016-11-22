@@ -6,9 +6,9 @@ if(isset($_SESSION['user_id'])) {
 }
 
 // Handle users logging in
-if (isset($_POST['login'])) {
-    $email = isset( $_POST['email'] ) ? make_safe($_POST['email']) : '';
-    $password = isset( $_POST['password'] ) ? make_safe($_POST['password']) : '';
+if (isset($_POST['login_submit'])) {
+    $email = isset( $_POST['email'] ) ? make_safe($_POST['login_email']) : '';
+    $password = isset( $_POST['password'] ) ? make_safe($_POST['login_password']) : '';
 
     // Check if fields are filled
     if (!$email || !$password) {
@@ -24,12 +24,12 @@ if (isset($_POST['login'])) {
 }
 
 // Handle new users signing up
-if (isset($_POST['sign_up'])) {
-    $first_name = isset( $_POST['first_name'] ) ? make_safe($_POST['first_name']) : '';
-    $last_name = isset( $_POST['last_name'] ) ? make_safe($_POST['last_name']) : '';
-    $email = isset( $_POST['email'] ) ? make_safe($_POST['email']) : '';
-    $password = isset( $_POST['password'] ) ? make_safe($_POST['password']) : '';
-    $password_c = isset( $_POST['password_c'] ) ? make_safe($_POST['password_c']) : '';
+if (isset($_POST['register_submit'])) {
+    $first_name = isset( $_POST['register_firstname'] ) ? make_safe($_POST['register_firstname']) : '';
+    $last_name = isset( $_POST['register_lastname'] ) ? make_safe($_POST['register_lastname']) : '';
+    $email = isset( $_POST['register_email'] ) ? make_safe($_POST['register_email']) : '';
+    $password = isset( $_POST['register_password'] ) ? make_safe($_POST['register_password']) : '';
+    $password_c = isset( $_POST['register_passwordc'] ) ? make_safe($_POST['register_passwordc']) : '';
 
     if (!$first_name || !$last_name || !$email || !$password || !$password_c) {
         echo "<script>console.log( 'All fields must be filled in' );</script>";
@@ -58,7 +58,7 @@ if (isset($_POST['sign_up'])) {
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300,400,400i,600" rel="stylesheet">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/style.min.css">
+    <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body id="index">
     <header class="navbar">
@@ -66,7 +66,7 @@ if (isset($_POST['sign_up'])) {
             <div class="navbar-header">
                 <div class="navbar-brand" href="">duedate.io</div>
             </div>
-            <div class="navbar-login navbar-right">
+            <div class="navbar-login">
                 <form class="login" method="post"> <!-- TODO: Should probably be done as a popup instead -->
                     <div class="form-group">
                         <input type="email" name="email" required="required" placeholder="Email" />
@@ -75,7 +75,7 @@ if (isset($_POST['sign_up'])) {
                         <input type="password" name="password" required="required" placeholder="Password" />
                     </div>
                     <div class="form-group">
-                        <input type="submit" name="login" value="Login" /></br>
+                        <input type="submit" name="login_submit" value="Login" /></br>
                         <!-- TODO: Add forgot password functionality -->
                         <!-- <a class="forgot_pwd" href="">Forgot password?</a> -->
                     </div>
@@ -88,30 +88,30 @@ if (isset($_POST['sign_up'])) {
             <div class="col-md-7">
                 <!-- TODO: Add blurb about what duedate.io is and how it can help students/teachers -->
             </div>
-            <form class="col-md-5 sign-up" method="post"> <!-- TODO: Proper form validation (probably use validator.js) -->
+            <form class="col-md-5 register" method="post"> <!-- TODO: Proper form validation (probably use validator.js) -->
                 <h1>Sign up now</h1>
                 <div class="form-group">
-                    <label for="first_name">First Name:</label></br>
-                    <input type="text" name="first_name" required="required" />
+                    <label for="register_firstname">First Name:</label></br>
+                    <input type="text" name="register_firstname" required="required" />
                 </div>
                 <div class="form-group">
-                    <label for="last_name">Last Name:</label></br>
-                    <input type="text" name="last_name" required="required" />
+                    <label for="register_lastname">Last Name:</label></br>
+                    <input type="text" name="register_lastname" required="required" />
                 </div>
                 <div class="form-group">
-                    <label for="email">Email:</label></br>
-                    <input type="email" name="email" required="required" />
+                    <label for="register_email">Email:</label></br>
+                    <input type="email" name="register_email" required="required" />
                 </div>
                 <div class="form-group">
-                    <label for="password">Password:</label></br>
-                    <input type="password" name="password" required="required" />
+                    <label for="register_password">Password:</label></br>
+                    <input type="password" name="register_password" required="required" />
                 </div>
                 <div class="form-group">
-                    <label for="password_c">Confirm:</label></br>
-                    <input type="password" name="password_c" required="required" />
+                    <label for="register_passwordc">Confirm:</label></br>
+                    <input type="password" name="register_passwordc" required="required" />
                 </div>
                 <div class="form-group">
-                    <input type="submit" name="sign_up" value="Sign me up!" />
+                    <input type="submit" name="register_submit" value="Sign me up!" />
                     <p class="terms">By signing up, you agree to the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a>.</p>
                 </div>
             </form>

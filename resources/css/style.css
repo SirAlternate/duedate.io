@@ -1,18 +1,14 @@
-html,
-body {
+body,
+html {
   width: 100%;
   height: 100%;
   background-color: #eeeeee;
   font-family: 'Open Sans', sans-serif;
 }
 
-.fullpage {
-  height: 100%;
-}
-
-.centered-y {
-  display: flex;
-  align-items: center;
+#index {
+  background: url("../img/background.jpg");
+  background-size: cover;
 }
 
 #index header {
@@ -34,6 +30,7 @@ body {
 }
 
 #index header .navbar-login {
+  float: right;
   height: 80px;
 }
 
@@ -48,25 +45,16 @@ body {
 }
 
 #index header .navbar-login form.login .form-group {
-  margin: 0;
-  margin-right: 26px;
+  margin: 0 26px 0 0;
 }
 
 #index header .navbar-login form.login .form-group:last-child {
   margin-right: 0;
 }
 
-#index header .navbar-login form.login .form-group label {
-  color: #9a9a9a;
-  font-size: 15px;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  font-weight: normal;
-}
-
 #index header .navbar-login form.login .form-group input {
   width: 250px;
-  padding: 8px 8px;
+  padding: 8px;
   background-color: #f1f1f1;
   border: 1px solid #dadada;
   font-size: 15px;
@@ -78,10 +66,10 @@ body {
   outline: 0;
 }
 
-#index header .navbar-login form.login .form-group input[name="login"] {
+#index header .navbar-login form.login .form-group input[name="login_submit"] {
   width: 140px;
-  border: 1px solid #51cf66;
   background-color: #51cf66;
+  border: 1px solid #51cf66;
   color: #ffffff;
   font-size: 15px;
   font-size: 1.5rem;
@@ -89,23 +77,27 @@ body {
   font-weight: 700;
 }
 
-#index header .navbar-login form.login .form-group input[name="login"]:hover {
-  background-color: #33ba4a;
+#index header .navbar-login form.login .form-group input[name="login_submit"]:hover {
+  background-color: #35c24d;
 }
 
 #index .page {
   margin: 40px auto;
 }
 
-#index .page form.sign-up {
-  padding: 50px 30px 40px;
-  background-color: #ffffff;
-  -webkit-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
-  -moz-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
-  box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
+#index .page .row {
+  margin: 0;
 }
 
-#index .page form.sign-up h1 {
+#index .page form.register {
+  padding: 50px 30px 40px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+#index .page form.register h1 {
   width: 230px;
   margin: 0 auto;
   padding-bottom: 15px;
@@ -117,19 +109,19 @@ body {
   border-bottom: 1px solid #d6dbdf;
 }
 
-#index .page form.sign-up .form-group {
+#index .page form.register .form-group {
   margin-top: 20px;
 }
 
-#index .page form.sign-up .form-group label {
-  color: #9a9a9a;
+#index .page form.register .form-group label {
+  color: #878787;
   font-size: 15px;
   font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: normal;
 }
 
-#index .page form.sign-up .form-group input {
+#index .page form.register .form-group input {
   width: 100%;
   padding: 13px 10px;
   background-color: #f1f1f1;
@@ -138,14 +130,14 @@ body {
   font-size: 1.5rem;
 }
 
-#index .page form.sign-up .form-group input:focus {
+#index .page form.register .form-group input:focus {
   border: 1px solid #51cf66;
   outline: 0;
 }
 
-#index .page form.sign-up .form-group input[name="sign_up"] {
+#index .page form.register .form-group input[name="register_submit"] {
   margin-top: 25px;
-  padding: 18px 10px;
+  padding: 17px 10px;
   border: 1px solid #51cf66;
   background-color: #51cf66;
   color: #ffffff;
@@ -155,11 +147,11 @@ body {
   font-weight: 700;
 }
 
-#index .page form.sign-up .form-group input[name="sign_up"]:hover {
-  background-color: #33ba4a;
+#index .page form.register .form-group input[name="register_submit"]:hover {
+  background-color: #35c24d;
 }
 
-#index .page form.sign-up .form-group p.terms {
+#index .page form.register .form-group p.terms {
   margin-top: 13px;
   font-size: 13px;
   font-size: 1.3rem;
