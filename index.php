@@ -86,7 +86,7 @@ if (isset($_POST['sign_up'])) {
     <div class="container page">
         <div class="row">
             <div class="col-md-7">
-                <!-- TODO: Add blurb about what duedate.io is and how it can help students/teachers. -->
+                <!-- TODO: Add blurb about what duedate.io is and how it can help students/teachers -->
             </div>
             <form class="col-md-5 sign-up" method="post"> <!-- TODO: Proper form validation (probably use validator.js) -->
                 <h1>Sign up now</h1>

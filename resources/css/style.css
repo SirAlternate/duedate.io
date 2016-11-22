@@ -65,8 +65,7 @@ body {
             #index header .navbar-login form.login .form-group input[name="login"]:hover {
               background-color: #33ba4a; }
 #index .page {
-  position: absolute;
-  margin: 40px 0; }
+  margin: 40px auto; }
   #index .page form.sign-up {
     padding: 50px 30px 40px;
     background-color: #ffffff;
