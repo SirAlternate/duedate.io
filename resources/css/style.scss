@@ -174,10 +174,11 @@ body {
         }
     }
     .page {
-        margin-top: 40px;
+        position: absolute;
+        margin: 40px 0;
 
         form.sign-up {
-            padding: 50px 30px;
+            padding: 50px 30px 40px;
             background-color: #ffffff;
             @include box-shadow(2px, 2px, 2px, 3px, rgba(0,0,0,0.04));
 
@@ -191,43 +192,46 @@ body {
                 text-align: center;
                 border-bottom: 1px solid lighten($color_black, 70%);
             }
-            label {
+            .form-group {
                 margin-top: 20px;
-                color: #9a9a9a;
-                @include font-size(15px);
-                text-transform: uppercase;
-                font-weight: normal;
-            }
-            input {
-                width: 100%;
-                padding: 13px 10px;
-                background-color: #f1f1f1;
-                border: 1px solid #dadada;
-                @include font-size(15px);
 
-                &:focus {
-                    border: 1px solid $color_accent;
-                    outline: 0;
-                }
-                &[name="sign_up"] {
-                    margin-top: 30px;
-                    padding: 18px 10px;
-                    border: 1px solid $color_accent;
-                    background-color: $color_accent;
-                    color: #ffffff;
-                    @include font-size(17px);
+                label {
+                    color: #9a9a9a;
+                    @include font-size(15px);
                     text-transform: uppercase;
-                    font-weight: 700;
+                    font-weight: normal;
+                }
+                input {
+                    width: 100%;
+                    padding: 13px 10px;
+                    background-color: #f1f1f1;
+                    border: 1px solid #dadada;
+                    @include font-size(15px);
 
-                    &:hover {
-                        background-color: darken($color_accent, 10%);
+                    &:focus {
+                        border: 1px solid $color_accent;
+                        outline: 0;
+                    }
+                    &[name="sign_up"] {
+                        margin-top: 25px;
+                        padding: 18px 10px;
+                        border: 1px solid $color_accent;
+                        background-color: $color_accent;
+                        color: #ffffff;
+                        @include font-size(17px);
+                        text-transform: uppercase;
+                        font-weight: 700;
+
+                        &:hover {
+                            background-color: darken($color_accent, 10%);
+                        }
                     }
                 }
-            }
-            p.terms {
-                margin-top: 13px;
-                @include font-size(13px);
-                text-align: center;
+                p.terms {
+                    margin-top: 13px;
+                    @include font-size(13px);
+                    text-align: center;
+                }
             }
         }
     }
