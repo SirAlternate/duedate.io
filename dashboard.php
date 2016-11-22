@@ -1,7 +1,8 @@
 <?php require_once('resources/library/load.php');
 
+// If user is not logged in send back to index page
 if(!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+    header('Location: index.php');
 }
 
 // Handle logging out

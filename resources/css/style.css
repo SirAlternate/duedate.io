@@ -2,7 +2,8 @@ html,
 body {
   width: 100%;
   height: 100%;
-  background-color: #eeeeee; }
+  background-color: #eeeeee;
+  font-family: 'Open Sans', sans-serif; }
 
 .fullpage {
   height: 100%; }
@@ -11,56 +12,109 @@ body {
   display: flex;
   align-items: center; }
 
-form.login, form.register {
-  width: 450px;
-  margin: 0 auto;
-  padding: 20px 30px;
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  -webkit-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
-  -moz-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
-  box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04); }
-  form.login h2, form.register h2 {
-    margin: 20px 10px 10px;
-    padding-bottom: 20px;
-    text-align: center;
-    font-size: 26px;
-    font-size: 2.6rem;
-    border-bottom: 1px solid #e6e6e6; }
-  form.login .form_group, form.register .form_group {
-    position: relative;
-    width: 100%;
-    margin: 30px 0;
-    font-size: 15px;
-    font-size: 1.5rem; }
-    form.login .form_group label, form.register .form_group label {
-      width: 100%;
+#index header {
+  background-color: #23282d;
+  border-radius: 0;
+  border: none; }
+  #index header .navbar-header {
+    display: flex;
+    align-items: center;
+    height: 80px; }
+    #index header .navbar-header .navbar-brand {
+      color: #ffffff;
+      font-size: 26px;
+      font-size: 2.6rem; }
+  #index header .navbar-login {
+    height: 80px; }
+    #index header .navbar-login form.login {
+      display: flex;
+      align-items: center;
+      height: 100%; }
+      #index header .navbar-login form.login > * {
+        display: inline-block; }
+      #index header .navbar-login form.login .form-group {
+        margin: 0;
+        margin-right: 26px; }
+        #index header .navbar-login form.login .form-group:last-child {
+          margin-right: 0; }
+        #index header .navbar-login form.login .form-group label {
+          color: #9a9a9a;
+          font-size: 15px;
+          font-size: 1.5rem;
+          text-transform: uppercase;
+          font-weight: normal; }
+        #index header .navbar-login form.login .form-group input {
+          width: 250px;
+          padding: 8px 8px;
+          background-color: #f1f1f1;
+          border: 1px solid #dadada;
+          font-size: 15px;
+          font-size: 1.5rem; }
+          #index header .navbar-login form.login .form-group input:focus {
+            border: 1px solid #51cf66;
+            outline: 0; }
+          #index header .navbar-login form.login .form-group input[name="login"] {
+            width: 140px;
+            border: 1px solid #51cf66;
+            background-color: #51cf66;
+            color: #ffffff;
+            font-size: 15px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 700; }
+            #index header .navbar-login form.login .form-group input[name="login"]:hover {
+              background-color: #33ba4a; }
+#index .page {
+  margin-top: 40px; }
+  #index .page form.sign-up {
+    padding: 50px 30px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04); }
+    #index .page form.sign-up h1 {
+      width: 230px;
+      margin: 0 auto;
+      padding-bottom: 15px;
+      color: #23282d;
+      font-size: 22px;
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      text-align: center;
+      border-bottom: 1px solid #d6dbdf; }
+    #index .page form.sign-up label {
+      margin-top: 20px;
+      color: #9a9a9a;
+      font-size: 15px;
+      font-size: 1.5rem;
       text-transform: uppercase;
       font-weight: normal; }
-    form.login .form_group input, form.register .form_group input {
+    #index .page form.sign-up input {
       width: 100%;
-      padding: 10px; }
-      form.login .form_group input[name="login"], form.register .form_group input[name="login"] {
-        width: 50%;
-        padding: 0;
-        border: none;
+      padding: 13px 10px;
+      background-color: #f1f1f1;
+      border: 1px solid #dadada;
+      font-size: 15px;
+      font-size: 1.5rem; }
+      #index .page form.sign-up input:focus {
+        border: 1px solid #51cf66;
+        outline: 0; }
+      #index .page form.sign-up input[name="sign_up"] {
+        margin-top: 30px;
+        padding: 18px 10px;
+        border: 1px solid #51cf66;
+        background-color: #51cf66;
+        color: #ffffff;
+        font-size: 17px;
+        font-size: 1.7rem;
         text-transform: uppercase;
-        line-height: 50px; }
-      form.login .form_group input[name="register"], form.register .form_group input[name="register"] {
-        padding: 0;
-        border: none;
-        text-transform: uppercase;
-        line-height: 50px; }
-    form.login .form_group a.forgot_pwd, form.register .form_group a.forgot_pwd {
-      margin-left: 20px;
-      line-height: 50px;
-      text-transform: uppercase; }
-    form.login .form_group p.form_error, form.register .form_group p.form_error, form.login .form_group p.form_success, form.register .form_group p.form_success {
-      padding: 10px;
-      margin-bottom: 20px;
-      background-color: #f5bcbc; }
-    form.login .form_group p.form_success, form.register .form_group p.form_success {
-      background-color: #d8f4d8; }
+        font-weight: 700; }
+        #index .page form.sign-up input[name="sign_up"]:hover {
+          background-color: #33ba4a; }
+    #index .page form.sign-up p.terms {
+      margin-top: 13px;
+      font-size: 13px;
+      font-size: 1.3rem;
+      text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
