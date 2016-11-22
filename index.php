@@ -7,8 +7,8 @@ if(isset($_SESSION['user_id'])) {
 
 // Handle users logging in
 if (isset($_POST['login_submit'])) {
-    $email = isset( $_POST['email'] ) ? make_safe($_POST['login_email']) : '';
-    $password = isset( $_POST['password'] ) ? make_safe($_POST['login_password']) : '';
+    $email = isset( $_POST['email'] ) ? make_safe($_POST['email']) : '';
+    $password = isset( $_POST['password'] ) ? make_safe($_POST['password']) : '';
 
     // Check if fields are filled
     if (!$email || !$password) {
