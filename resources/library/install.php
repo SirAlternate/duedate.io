@@ -1,4 +1,4 @@
-<?php require_once('resources/library/load.php');
+<?php require_once('load.php');
 
 // Connect to the database (false means we are just connecting)
 db_connect(false);
