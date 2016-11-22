@@ -252,6 +252,7 @@ html {
             }
         }
     }
+
     .display {
         position: absolute;
         top: 60px;
@@ -305,6 +306,7 @@ html {
                         cursor: pointer;
                     }
                 }
+
                 a.close-btn {
                     float: right;
                     width: 20px;
@@ -320,6 +322,7 @@ html {
                     }
                 }
             }
+
             ul {
                 position: absolute;
                 top: 50px;
@@ -398,6 +401,7 @@ html {
                 }
             }
         }
+
         .class[color="green"] {
             $color: $color_accent;
 
@@ -408,12 +412,14 @@ html {
                     background-color: darken($color, 8%);
                 }
             }
+
             ul {
                 li {
                     p.due {
                         b {
                             background-color: $color;
                         }
+
                         em {
                             color: $color;
                         }
