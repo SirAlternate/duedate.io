@@ -276,6 +276,15 @@ html {
             background-color: #fff;
             @include box-shadow(2px, 2px, 2px, 3px, rgba(0,0,0,0.04));
 
+            &.draggable {
+                .header {
+                    &:hover {
+                        background-color: darken(#a5acb3, 5%);
+                        cursor: pointer;
+                    }
+                }
+            }
+
             .header {
                 position: relative;
                 width: 100%;
@@ -286,11 +295,6 @@ html {
                 color: #ffffff;
                 @include font-size(18px);
                 line-height: 50px;
-
-                &:hover {
-                    background-color: darken(#a5acb3, 10%);
-                    cursor: pointer;
-                }
 
                 a.settings-btn {
                     float: right;
@@ -400,10 +404,59 @@ html {
                     }
                 }
             }
+
+            form.add-class {
+                width: 100%;
+                margin-top: 20px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #d6d9db;
+
+                .form-group {
+                    label {
+                        color: #9a9a9a;
+                        @include font-size(15px);
+                        text-transform: uppercase;
+                        font-weight: normal;
+                    }
+
+                    input {
+                        width: 100%;
+                        padding: 13px 10px;
+                        background-color: #f1f1f1;
+                        border: 1px solid #dadada;
+                        @include font-size(15px);
+
+                        &:focus {
+                            border: 1px solid #a7adb4;
+                            outline: 0;
+                        }
+
+                        &[name="add_class"] {
+                            margin-top: 25px;
+                            padding: 18px 10px;
+                            border: 1px solid #a7adb4;
+                            background-color: #a7adb4;
+                            color: #ffffff;
+                            @include font-size(17px);
+                            text-transform: uppercase;
+                            font-weight: 700;
+
+                            &:hover {
+                                background-color: darken(#a7adb4, 8%);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .class[color="green"] {
             $color: $color_accent;
+
+            &.draggable .header &:hover {
+                background-color: darken($color, 5%);
+                cursor: pointer;
+            }
 
             .header {
                 background-color: $color;
@@ -413,18 +466,25 @@ html {
                 }
             }
 
-            ul {
-                li {
-                    p.due {
-                        b {
-                            background-color: $color;
-                        }
-
-                        em {
-                            color: $color;
-                        }
-                    }
+            ul li p.due {
+                b {
+                    background-color: $color;
                 }
+
+                em {
+                    color: $color;
+                }
+            }
+        }
+        .add-class-btn {
+            @extend .class;
+
+            width: 100px;
+            @include opacity(0.8);
+
+            &:hover {
+                @include opacity(1);
+                cursor: pointer;
             }
         }
     }

@@ -256,7 +256,7 @@ html {
   overflow-y: hidden;
 }
 
-#dashboard .display .class {
+#dashboard .display .class, #dashboard .display .add-class-btn {
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -269,7 +269,12 @@ html {
   box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
 }
 
-#dashboard .display .class .header {
+#dashboard .display .class.draggable .header:hover, #dashboard .display .draggable.add-class-btn .header:hover {
+  background-color: #979fa7;
+  cursor: pointer;
+}
+
+#dashboard .display .class .header, #dashboard .display .add-class-btn .header {
   position: relative;
   width: 100%;
   height: 50px;
@@ -282,12 +287,7 @@ html {
   line-height: 50px;
 }
 
-#dashboard .display .class .header:hover {
-  background-color: #89939c;
-  cursor: pointer;
-}
-
-#dashboard .display .class .header a.settings-btn {
+#dashboard .display .class .header a.settings-btn, #dashboard .display .add-class-btn .header a.settings-btn {
   float: right;
   width: 25px;
   height: 8px;
@@ -297,13 +297,13 @@ html {
   background-color: #ffffff;
 }
 
-#dashboard .display .class .header a.settings-btn:hover {
+#dashboard .display .class .header a.settings-btn:hover, #dashboard .display .add-class-btn .header a.settings-btn:hover {
   opacity: 0.9;
   filter: alpha(opacity=90);
   cursor: pointer;
 }
 
-#dashboard .display .class .header a.close-btn {
+#dashboard .display .class .header a.close-btn, #dashboard .display .add-class-btn .header a.close-btn {
   float: right;
   width: 20px;
   height: 20px;
@@ -313,13 +313,13 @@ html {
   background-color: #ffffff;
 }
 
-#dashboard .display .class .header a.close-btn:hover {
+#dashboard .display .class .header a.close-btn:hover, #dashboard .display .add-class-btn .header a.close-btn:hover {
   opacity: 0.9;
   filter: alpha(opacity=90);
   cursor: pointer;
 }
 
-#dashboard .display .class ul {
+#dashboard .display .class ul, #dashboard .display .add-class-btn ul {
   position: absolute;
   top: 50px;
   bottom: 0;
@@ -330,7 +330,7 @@ html {
   overflow-y: auto;
 }
 
-#dashboard .display .class ul li {
+#dashboard .display .class ul li, #dashboard .display .add-class-btn ul li {
   position: relative;
   list-style: none;
   padding: 10px 15px;
@@ -342,58 +342,58 @@ html {
   transition: background 0.05s ease-out;
 }
 
-#dashboard .display .class ul li:hover {
+#dashboard .display .class ul li:hover, #dashboard .display .add-class-btn ul li:hover {
   background-color: #f8f8f8;
   cursor: pointer;
 }
 
-#dashboard .display .class ul li.selected {
+#dashboard .display .class ul li.selected, #dashboard .display .add-class-btn ul li.selected {
   background-color: #e4e4e4;
 }
 
-#dashboard .display .class ul li.selected:hover {
+#dashboard .display .class ul li.selected:hover, #dashboard .display .add-class-btn ul li.selected:hover {
   background-color: #e4e4e4;
 }
 
-#dashboard .display .class ul li.selected span.arrow {
+#dashboard .display .class ul li.selected span.arrow, #dashboard .display .add-class-btn ul li.selected span.arrow {
   background-color: #b9c2c8;
 }
 
-#dashboard .display .class ul li p.title {
+#dashboard .display .class ul li p.title, #dashboard .display .add-class-btn ul li p.title {
   margin-bottom: 5px;
   font-size: 15px;
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-#dashboard .display .class ul li p.due {
+#dashboard .display .class ul li p.due, #dashboard .display .add-class-btn ul li p.due {
   margin: 0;
   color: #787c81;
   font-size: 13px;
   font-size: 1.3rem;
 }
 
-#dashboard .display .class ul li p.due b {
+#dashboard .display .class ul li p.due b, #dashboard .display .add-class-btn ul li p.due b {
   color: #ffffff;
   padding: 1px 5px;
   background-color: #a7adb4;
   border-radius: 6px;
 }
 
-#dashboard .display .class ul li p.due em {
+#dashboard .display .class ul li p.due em, #dashboard .display .add-class-btn ul li p.due em {
   color: #a7adb4;
   font-weight: 700;
   font-style: normal;
 }
 
-#dashboard .display .class ul li p.duration {
+#dashboard .display .class ul li p.duration, #dashboard .display .add-class-btn ul li p.duration {
   margin-bottom: 4px;
   color: #787c81;
   font-size: 13px;
   font-size: 1.3rem;
 }
 
-#dashboard .display .class ul li span.arrow {
+#dashboard .display .class ul li span.arrow, #dashboard .display .add-class-btn ul li span.arrow {
   position: absolute;
   right: 15px;
   top: 50%;
@@ -404,18 +404,80 @@ html {
   background-color: #d0d6da;
 }
 
-#dashboard .display .class[color="green"] .header {
+#dashboard .display .class form.add-class, #dashboard .display .add-class-btn form.add-class {
+  width: 100%;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d6d9db;
+}
+
+#dashboard .display .class form.add-class .form-group label, #dashboard .display .add-class-btn form.add-class .form-group label {
+  color: #9a9a9a;
+  font-size: 15px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+#dashboard .display .class form.add-class .form-group input, #dashboard .display .add-class-btn form.add-class .form-group input {
+  width: 100%;
+  padding: 13px 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #dadada;
+  font-size: 15px;
+  font-size: 1.5rem;
+}
+
+#dashboard .display .class form.add-class .form-group input:focus, #dashboard .display .add-class-btn form.add-class .form-group input:focus {
+  border: 1px solid #a7adb4;
+  outline: 0;
+}
+
+#dashboard .display .class form.add-class .form-group input[name="add_class"], #dashboard .display .add-class-btn form.add-class .form-group input[name="add_class"] {
+  margin-top: 25px;
+  padding: 18px 10px;
+  border: 1px solid #a7adb4;
+  background-color: #a7adb4;
+  color: #ffffff;
+  font-size: 17px;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+#dashboard .display .class form.add-class .form-group input[name="add_class"]:hover, #dashboard .display .add-class-btn form.add-class .form-group input[name="add_class"]:hover {
+  background-color: #9198a1;
+}
+
+#dashboard .display .class[color="green"].draggable .header #dashboard .display .class[color="green"]:hover, #dashboard .display [color="green"].draggable.add-class-btn .header #dashboard .display .class[color="green"]:hover, #dashboard .display .class[color="green"].draggable .header #dashboard .display [color="green"].add-class-btn:hover, #dashboard .display [color="green"].draggable.add-class-btn .header #dashboard .display [color="green"].add-class-btn:hover {
+  background-color: #3dc954;
+  cursor: pointer;
+}
+
+#dashboard .display .class[color="green"] .header, #dashboard .display [color="green"].add-class-btn .header {
   background-color: #51cf66;
 }
 
-#dashboard .display .class[color="green"] .header:hover {
+#dashboard .display .class[color="green"] .header:hover, #dashboard .display [color="green"].add-class-btn .header:hover {
   background-color: #35c24d;
 }
 
-#dashboard .display .class[color="green"] ul li p.due b {
+#dashboard .display .class[color="green"] ul li p.due b, #dashboard .display [color="green"].add-class-btn ul li p.due b {
   background-color: #51cf66;
 }
 
-#dashboard .display .class[color="green"] ul li p.due em {
+#dashboard .display .class[color="green"] ul li p.due em, #dashboard .display [color="green"].add-class-btn ul li p.due em {
   color: #51cf66;
+}
+
+#dashboard .display .add-class-btn {
+  width: 100px;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+#dashboard .display .add-class-btn:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  cursor: pointer;
 }

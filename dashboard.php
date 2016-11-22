@@ -47,7 +47,7 @@ if (isset($_POST['logout'])) {
         </div>
     </header>
     <div class="row display">
-        <div class="class" color="green">
+        <div class="class draggable" color="green">
             <div class="header">
                 Class A <a class="settings-btn"></a>
             </div>
@@ -120,7 +120,7 @@ if (isset($_POST['logout'])) {
                 </li>
             </ul>
         </div>
-        <div class="class" color="green">
+        <div class="class draggable" color="green">
             <div class="header">
                 Class A <a class="settings-btn"></a>
             </div>
@@ -133,7 +133,7 @@ if (isset($_POST['logout'])) {
                 </li>
             </ul>
         </div>
-        <div class="class" color="green">
+        <div class="class draggable" color="green">
             <div class="header">
                 Class A <a class="settings-btn"></a>
             </div>
@@ -146,7 +146,7 @@ if (isset($_POST['logout'])) {
                 </li>
             </ul>
         </div>
-        <div class="class" color="green">
+        <div class="class draggable" color="green">
             <div class="header">
                 Class A <a class="settings-btn"></a>
             </div>
@@ -159,32 +159,25 @@ if (isset($_POST['logout'])) {
                 </li>
             </ul>
         </div>
-        <div class="class" color="green">
+        <div class="class">
             <div class="header">
-                Class A <a class="settings-btn"></a>
+                New Class <a class="close-btn"></a>
             </div>
-            <ul class="assignments">
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-            </ul>
+            <form class="col-md-5 add-class" method="post">
+                <div class="form-group">
+                    <label for="class_name">Class Name:</label></br>
+                    <input type="text" name="class_name" required="required" />
+                </div>
+                <div class="form-group">
+                    <label for="class_desc">Description:</label></br>
+                    <input type="text" name="class_desc" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="add_class" value="Create class" />
+                </div>
+            </form>
         </div>
-        <div class="class" color="green">
-            <div class="header">
-                Class A <a class="settings-btn"></a>
-            </div>
-            <ul class="assignments">
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-            </ul>
-        </div>
+        <div class="add-class-btn"></div>
     </div>
 
     <!-- Scripts -->
