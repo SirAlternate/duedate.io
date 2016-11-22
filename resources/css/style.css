@@ -157,3 +157,86 @@ html {
   font-size: 1.3rem;
   text-align: center;
 }
+
+#dashboard header {
+  background-color: #23282d;
+  border-radius: 0;
+  border: none;
+}
+
+#dashboard header .container {
+  width: 100%;
+  padding: 0 20px;
+}
+
+#dashboard header .navbar-header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+#dashboard header .navbar-header .navbar-brand {
+  color: #ffffff;
+  font-size: 24px;
+  font-size: 2.4rem;
+}
+
+#dashboard header .navbar-user {
+  float: right;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  margin-right: 0;
+}
+
+#dashboard header .navbar-user > * {
+  display: inline-block;
+}
+
+#dashboard header .navbar-user a.user {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 0 5px;
+}
+
+#dashboard header .navbar-user a.user:hover {
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#dashboard header .navbar-user a.user > * {
+  display: inline-block;
+}
+
+#dashboard header .navbar-user a.user p.name {
+  margin: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+#dashboard header .navbar-user a.user img.avatar {
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+  background-color: #ffffff;
+  border-radius: 999px;
+}
+
+#dashboard header .navbar-user a.settings-btn {
+  width: 8px;
+  height: 25px;
+  padding: 0;
+  margin-left: 15px;
+  border: none;
+  background-color: #ffffff;
+}
+
+#dashboard header .navbar-user a.settings-btn:hover {
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  cursor: pointer;
+}

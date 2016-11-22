@@ -171,3 +171,84 @@ html {
         }
     }
 }
+
+#dashboard {
+    header {
+        background-color: $color_black;
+        border-radius: 0;
+        border: none;
+
+        .container {
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .navbar-header {
+            display: flex;
+            align-items: center;
+            height: 60px;
+
+            .navbar-brand {
+                color: #ffffff;
+                @include font-size(24px);
+            }
+        }
+
+        .navbar-user {
+            float: right;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            margin-right: 0;
+
+            > * {
+                display: inline-block;
+            }
+
+            a.user {
+                display: flex;
+                align-items: center;
+                padding: 5px 10px;
+                margin: 0 5px;
+
+                &:hover {
+                    @include opacity(0.9);
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+
+                > * {
+                    display: inline-block;
+                }
+
+                p.name {
+                    margin: 0;
+                    color: #ffffff;
+                    @include font-size(16px);
+                }
+
+                img.avatar {
+                    width: 30px;
+                    height: 30px;
+                    margin-left: 15px;
+                    background-color: #ffffff;
+                    border-radius: 999px;
+                }
+            }
+
+            a.settings-btn {
+                width: 8px;
+                height: 25px;
+                padding: 0;
+                margin-left: 15px;
+                border: none;
+                background-color: #ffffff;
+
+                &:hover {
+                    @include opacity(0.9);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

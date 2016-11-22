@@ -71,6 +71,28 @@ function user_exists($email) {
     }
 }
 
+// Get the current user's information
+function get_user() {
+    global $db_connection, $_SSESSION;
+    $user_id = $_SESSION['user_id'];
+
+    // Query database for the current user
+    $query = $db_connection->query("SELECT * FROM `users` WHERE `user_id`='$user_id';");
+    $query = $query->fetch(PDO::FETCH_ASSOC);
+
+    // Create user array with relevent info
+    $user = array(
+        'user_id'  =>  $query['user_id'],
+        'first_name'  =>  $query['first_name'],
+        'last_name'  =>  $query['last_name'],
+        'name'  =>  $query['first_name'] . " " . $query['last_name'],
+        'email'  =>  $query['email']
+    );
+
+    // Return the user array back to caller
+    return $user;
+}
+
 // Attempt to log in with given info
 function login($email, $password) {
     global $db_connection;
