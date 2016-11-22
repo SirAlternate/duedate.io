@@ -22,7 +22,7 @@ if (isset($_POST['logout'])) {
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/style.min.css">
 </head>
 <body>
     <?php echo "Welcome " . $_SESSION['email'] ?>
