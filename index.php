@@ -53,7 +53,7 @@ if (isset($_POST['sign_up'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>duedate.io</title> <!-- TODO: Should probably style this more -->
+    <title>duedate.io</title>
 
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300,400,400i,600" rel="stylesheet">
