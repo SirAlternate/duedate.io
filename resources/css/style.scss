@@ -291,6 +291,8 @@ html {
 
             &.draggable {
                 .header {
+                    @include transition( background 0.2s ease-out );
+
                     &:hover {
                         background-color: darken(#a5acb3, 5%);
                         cursor: pointer;
@@ -308,7 +310,6 @@ html {
                 color: #ffffff;
                 @include font-size(18px);
                 line-height: 50px;
-                @include transition( background 0.2s ease-out );
 
                 a.settings-btn {
                     float: right;
@@ -467,17 +468,17 @@ html {
         .class[color="green"] {
             $color: $color_accent;
 
-            &.draggable .header &:hover {
-                background-color: darken($color, 5%);
-                cursor: pointer;
+            &.draggable {
+                .header {
+                    &:hover {
+                        background-color: darken($color, 8%);
+                        cursor: pointer;
+                    }
+                }
             }
 
             .header {
                 background-color: $color;
-
-                &:hover {
-                    background-color: darken($color, 8%);
-                }
             }
 
             ul li p.due {
