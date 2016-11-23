@@ -57,8 +57,8 @@ if (isset($_POST['register_submit'])) {
 
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300,400,400i,600" rel="stylesheet">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/style.min.css">
 </head>
 <body id="index">
     <header class="navbar">
@@ -117,10 +117,19 @@ if (isset($_POST['register_submit'])) {
             </form>
         </div>
     </div>
+
     <!-- Scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="resources/js/validator.min.js"></script>
     <script src="resources/js/scripts.min.js"></script>
+
+    <!-- Fallbacks for jQuery and Bootstrap CDNs -->
+    <script>
+    if (!window.jQuery) {
+        document.write("<script src='resources/js/jquery.min.js'><\/script>");
+        document.write("<script src='resources/js/bootstrap.min.js'><\/script>");
+    }
+    </script>
 </body>
 </html>
