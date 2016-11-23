@@ -47,7 +47,8 @@ if(!isset($_SESSION['user_id'])) {
     </header>
     <div class="row display">
         <?php
-        foreach (get_class_ids($_SESSION['user_id']) as $class_id) {
+        $classes = get_class_ids($_SESSION['user_id']);
+        foreach ($classes as $class_id) {
             $class_info = get_class_info($class_id);
         ?>
             <div class="class" color="green" class-id="<?php echo $class_id; ?>">
@@ -64,9 +65,30 @@ if(!isset($_SESSION['user_id'])) {
                     </li> -->
                 </ul>
             </div>
-        <?php } ?>
+        <?php
+        }
 
-        <div class="add-class-btn"></div>
+        $show_form = (count($classes) == 0) ? true : false;
+        ?>
+        <div class="class new" hide="<?php echo var_export(!$show_form); ?>">
+            <div class="header">
+                New Class <a class="close-btn"></a>
+            </div>
+            <form class="col-md-5 add-class" method="post">
+                <div class='form-group'>
+                    <label idfor="class_name">Class Name:</label></br>
+                    <input type="text" name="class_name" required="required" />
+                </div>
+                <div class="form-group">
+                    <label for="class_desc">Description:</label></br>
+                    <input type="text" name="class_desc" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="add_class" value="Create class" />
+                </div>
+            </form>
+        </div>
+        <div class="add-class-btn" hide="<?php echo var_export($show_form); ?>"></div>
     </div>
 
     <!-- Scripts -->

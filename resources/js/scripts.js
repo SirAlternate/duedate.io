@@ -1,63 +1,37 @@
 $(function() {
 
     if ($('body').attr('id') == 'dashboard') {
-        var button = $('.add-class-btn');
+        var add_button = $('.add-class-btn');
+        var add_form = $('form.add-class');
+
+        add_form.on('submit', function(e) {
+            e.preventDefault(); // Prevent default form reloading
+
+            // Tell the server create the new class
+            $.post('resources/library/actions.php', {
+                action: 'add',
+                type: 'class',
+                data: {
+                    name: $(this).find("input[name='class_name']").val(),
+                    desc: $(this).find("input[name='class_desc']").val()
+                }
+            }, function(response) {
+                // Reload page if we were successful so that we can see the
+                // new class we just added
+                if (response == true) {
+                    location.reload();
+                }
+            });
+        });
 
         // Handling generating add class form
         $('body').on('click', '.add-class-btn', function(e) {
-            // Remove the button
-            $(e.target).remove();
-
-            // Insert the add class form at the end of the DOM
-            $('.display').append("\
-                <div class='class new'>\
-                    <div class='header'>\
-                        New Class <a class='close-btn'></a>\
-                    </div>\
-                    <form class='col-md-5 add-class' method='post'>\
-                        <div class='form-group'>\
-                            <label idfor='class_name'>Class Name:</label></br>\
-                            <input type='text' name='class_name' required='required' />\
-                        </div>\
-                        <div class='form-group'>\
-                            <label for='class_desc'>Description:</label></br>\
-                            <input type='text' name='class_desc' />\
-                        </div>\
-                        <div class='form-group'>\
-                            <input type='submit' name='add_class' value='Create class' />\
-                        </div>\
-                    </form>\
-                </div>\
-            ");
-
-            $('form.add-class').on('submit', function(e) {
-                // Tell the server create the new class
-                $.post('resources/library/actions.php', {
-                    action: 'add',
-                    type: 'class',
-                    data: {
-                        name: $(this).find("input[name='class_name']").val(),
-                        desc: $(this).find("input[name='class_desc']").val()
-                    }
-                }, function(response) {
-                    if (respone == true) {
-                        // Remove the form
-                        $(e.target).parent().remove();
-                    }
-                });
-            });
-
-            // Scroll the class list all the way to the right
-            $('.display').scrollLeft($('.display').width());
+            show_form();
         });
 
         // Handle removing an add class form
         $('body').on('click', '.display .new .close-btn', function(e) {
-            // Remove the form from the DOM
-            $(e.target).parent().parent().remove();
-
-            // Re-insert the button
-            $('.display').append(button);
+            hide_form();
         });
 
         // Handle deleting classes
@@ -76,6 +50,11 @@ $(function() {
                 if (response == true) {
                     // Remove the class
                     $(e.target).parent().parent().remove();
+
+                    // If all classes have been removed show form
+                    if ($('.display').children().length == 2) {
+                        show_form();
+                    }
                 }
 
                 return false;
@@ -83,3 +62,31 @@ $(function() {
         });
     }
 });
+
+function show_form() {
+    var add_button = $('.add-class-btn');
+    var add_form = $('form.add-class');
+
+    // Hide the button, show the form
+    add_button.attr('hide', 'true');
+    add_form.parent().attr('hide', 'false');
+
+    // Focus on the name field
+    add_form.find('input[name="class_name"]').focus();
+
+    // Scroll the class list all the way to the right
+    $('.display').scrollLeft($('.display').width());
+}
+
+function hide_form() {
+    var add_button = $('.add-class-btn');
+    var add_form = $('form.add-class');
+
+    // Clear the input fields for next time
+    add_form.find('input[name="class_name"]').val('');
+    add_form.find('input[name="class_desc"]').val('');
+
+    // Hide the form, show the button
+    add_form.parent().attr('hide', 'true');
+    add_button.attr('hide', 'false');
+}

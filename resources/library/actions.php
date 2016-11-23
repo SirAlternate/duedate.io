@@ -9,19 +9,13 @@ if (isset($_POST['action']) && isset($_POST['type'])) {
                     $name = isset($_POST['data']['name'] ) ? make_safe($_POST['data']['name']) : '';
                     $desc = isset($_POST['data']['desc'] ) ? make_safe($_POST['data']['desc']) : '';
 
-                    if (create_class($name, $desc, true))
-                        echo true;
-                    else
-                        echo false;
-
+                    if (create_class($name, $desc, true)) { echo true; }
+                    else { echo false; }
                     break;
                 }
                 case 'delete': {
-                    if (remove_class($_POST['id']))
-                        echo true;
-                    else
-                        echo false;
-
+                    if (remove_class($_POST['id'])) { echo true; }
+                    else { echo false; }
                     break;
                 }
             }

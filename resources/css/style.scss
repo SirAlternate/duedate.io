@@ -276,9 +276,15 @@ html {
             background-color: #fff;
             @include box-shadow(2px, 2px, 2px, 3px, rgba(0,0,0,0.04));
 
+            &[hide="true"] {
+                display: none;
+                visibility: hidden;
+            }
+
             &:first-child {
                 margin-left: 0;
             }
+
             &:last-child {
                 margin-right: 20px;
             }

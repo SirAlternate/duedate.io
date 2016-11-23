@@ -269,6 +269,11 @@ html {
   box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
 }
 
+#dashboard .display .class[hide="true"], #dashboard .display [hide="true"].add-class-btn {
+  display: none;
+  visibility: hidden;
+}
+
 #dashboard .display .class:first-child, #dashboard .display .add-class-btn:first-child {
   margin-left: 0;
 }
