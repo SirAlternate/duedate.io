@@ -72,8 +72,9 @@ function user_exists($email) {
 }
 
 // Get the current user's information
-function get_user() {
+function get_user_info() {
     global $db_connection, $_SSESSION;
+
     $user_id = $_SESSION['user_id'];
 
     // Query database for the current user
@@ -144,4 +145,97 @@ function make_safe($string) {
     $string = mysql_real_escape_string(trim($string));
 
     return $string;
+}
+
+function create_class($name, $desc, $add_current_user = false) {
+    global $db_connection;
+
+    // Just a fail-safe
+    if ($name == '') {
+        return false;
+    }
+
+    // Add the user to our database
+    $db_connection->exec("INSERT INTO `classes`
+    ( `title`, `desc` )
+    VALUES
+    ( '$name', '$desc' )");
+
+    // Get the id for the class we just inserted
+    $class_id = $db_connection->lastInsertId();
+
+    // Add the current user to the new class if specified
+    if ($add_current_user) {
+        $user_id = $_SESSION['user_id'];
+        $db_connection->exec("INSERT INTO `users-classes`
+        ( `user_id`, `class_id`, `role`, `color` )
+        VALUES
+        ( '$user_id', '$class_id', 'owner', 'green' )");
+    }
+
+    // Success message
+    return true;
+}
+
+function remove_class($class_id) {
+    global $db_connection, $_SESSION;
+
+    // Get the current user's role in this class
+    $role = get_user_role($_SESSION['user_id'], $class_id);
+
+    // Preform different type of 'remove' depending on user role
+    switch($role) {
+        case 'owner': {
+            $db_connection->exec("DELETE FROM `users-classes` WHERE `class_id`='$class_id'");
+            $db_connection->exec("DELETE FROM `classes` WHERE `class_id`='$class_id'");
+
+            return true;
+        }
+        default: {
+            $db_connection->exec("DELETE FROM `users-classes` WHERE `class_id`='$class_id' AND `user_id`='$user_id'");
+
+            return true;
+        }
+    }
+
+    // Return false if we make it this far, we did nothing
+    return false;
+}
+
+function get_user_role($user_id, $class_id) {
+    global $db_connection;
+
+    // Search for an entry in users-classes with the two id's
+    $query = $db_connection->query("SELECT `role` FROM `users-classes` WHERE `user_id`='$user_id' AND `class_id`='$class_id';");
+    $query = $query->fetch(PDO::FETCH_ASSOC);
+    $role = ($query) ? $query['role'] : '';
+
+    // Return the role to the caller
+    return $role;
+}
+
+// Returns a list of the classes for a given user_id
+function get_class_ids($user_id) {
+    global $db_connection;
+
+    // Query 'users-classes' for entry's with this id
+    $query = $db_connection->query("SELECT `class_id` FROM `users-classes` WHERE `user_id`='$user_id';");
+    $query = $query->fetchAll(PDO::FETCH_COLUMN);
+
+    // Get just an array of the class_id's
+    $classes = array_values($query);
+
+    // Return the array of classes
+    return $classes;
+}
+
+function get_class_info($class_id) {
+    global $db_connection;
+
+    // Query 'users-classes' for entry's with this id
+    $query = $db_connection->query("SELECT `title`, `desc` FROM `classes` WHERE `class_id`='$class_id';");
+    $class_info = $query->fetchAll(PDO::FETCH_ASSOC)[0];
+
+    // Return the class's info
+    return $class_info;
 }

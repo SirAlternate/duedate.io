@@ -262,11 +262,19 @@ html {
   vertical-align: top;
   min-height: 100%;
   width: 400px;
-  margin-right: 20px;
+  margin-left: 20px;
   background-color: #fff;
   -webkit-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
   -moz-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
   box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
+}
+
+#dashboard .display .class:first-child, #dashboard .display .add-class-btn:first-child {
+  margin-left: 0;
+}
+
+#dashboard .display .class:last-child, #dashboard .display .add-class-btn:last-child {
+  margin-right: 20px;
 }
 
 #dashboard .display .class.draggable .header:hover, #dashboard .display .draggable.add-class-btn .header:hover {
@@ -280,7 +288,7 @@ html {
   height: 50px;
   padding: 0 20px;
   background-color: #a7adb4;
-  border-bottom: 1px solid #9ea3aa;
+  border-bottom: 1px solid #b0b3b9;
   color: #ffffff;
   font-size: 18px;
   font-size: 1.8rem;

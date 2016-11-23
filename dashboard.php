@@ -9,9 +9,6 @@ if (isset($_POST['logout'])) {
 if(!isset($_SESSION['user_id'])) {
     header('Location: index.php');
 }
-
-}
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -39,7 +36,7 @@ if(!isset($_SESSION['user_id'])) {
                         <input type="submit" name="logout" value="Logout" />
                     </div>
                 </form>
-                <?php $user = get_user(); ?>
+                <?php $user = get_user_info(); ?>
                 <a class="user">
                     <p class="name"><?php echo $user["name"] ?></p>
                     <img class="avatar" />
@@ -49,136 +46,26 @@ if(!isset($_SESSION['user_id'])) {
         </div>
     </header>
     <div class="row display">
-        <div class="class draggable" color="green">
-            <div class="header">
-                Class A <a class="settings-btn"></a>
-            </div>
-            <ul class="assignments">
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due <b>this</b> Tuesday</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due <em>next</em> Tuesday</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-            </ul>
-        </div>
-        <div class="class draggable" color="green">
-            <div class="header">
-                Class A <a class="settings-btn"></a>
-            </div>
-            <ul class="assignments">
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-            </ul>
-        </div>
-        <div class="class draggable" color="green">
-            <div class="header">
-                Class A <a class="settings-btn"></a>
-            </div>
-            <ul class="assignments">
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-            </ul>
-        </div>
-        <div class="class draggable" color="green">
-            <div class="header">
-                Class A <a class="settings-btn"></a>
-            </div>
-            <ul class="assignments">
-                <li>
-                    <p class="title">Assignment 1</p>
-                    <p class="due">Due Tuesday 11/22</p>
-                    <p class="duration">Est Time: 1:00</p>
-                    <span class="arrow"></span>
-                </li>
-            </ul>
-        </div>
-        <div class="class">
-            <div class="header">
-                New Class <a class="close-btn"></a>
-            </div>
-            <form class="col-md-5 add-class" method="post">
-                <div class="form-group">
-                    <label for="class_name">Class Name:</label></br>
-                    <input type="text" name="class_name" required="required" />
+        <?php
+        foreach (get_class_ids($_SESSION['user_id']) as $class_id) {
+            $class_info = get_class_info($class_id);
+        ?>
+            <div class="class" color="green" class-id="<?php echo $class_id; ?>">
+                <div class="header">
+                    <?php echo $class_info['title']; ?>
+                    <!-- <a class="settings-btn"></a> TODO: Add back later -->
+                    <a class="close-btn"></a>
                 </div>
-                <div class="form-group">
-                    <label for="class_desc">Description:</label></br>
-                    <input type="text" name="class_desc" />
-                </div>
-                <div class="form-group">
-                    <input type="submit" name="add_class" value="Create class" />
-                </div>
-            </form>
-        </div>
+                    <!-- <li>
+                        <p class="title">Assignment 1</p>
+                        <p class="due">Due Tuesday 11/22</p>
+                        <p class="duration">Est Time: 1:00</p>
+                        <span class="arrow"></span>
+                    </li> -->
+                </ul>
+            </div>
+        <?php } ?>
+
         <div class="add-class-btn"></div>
     </div>
 

@@ -33,11 +33,12 @@ $db_connection->exec("CREATE TABLE IF NOT EXISTS `classes` (
 )");
 
 // Create 'memberships' table if doesn't already exist
-$db_connection->exec("CREATE TABLE IF NOT EXISTS `memberships` (
+$db_connection->exec("CREATE TABLE IF NOT EXISTS `users-classes` (
     `id` int(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` int(7) NOT NULL,
     `class_id` int(7) NOT NULL,
-    `role` varchar(32) NULL
+    `role` varchar(32) NULL,
+    `color` varchar(10) NOT NULL
 )");
 
 // Success message

@@ -272,9 +272,16 @@ html {
             vertical-align: top;
             min-height: 100%;
             width: 400px;
-            margin-right: 20px;
+            margin-left: 20px;
             background-color: #fff;
             @include box-shadow(2px, 2px, 2px, 3px, rgba(0,0,0,0.04));
+
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 20px;
+            }
 
             &.draggable {
                 .header {
@@ -291,7 +298,7 @@ html {
                 height: 50px;
                 padding: 0 20px;
                 background-color: #a7adb4;
-                border-bottom: 1px solid #9ea3aa;
+                border-bottom: 1px solid #b0b3b9;
                 color: #ffffff;
                 @include font-size(18px);
                 line-height: 50px;
@@ -477,9 +484,9 @@ html {
                 }
             }
         }
+
         .add-class-btn {
             @extend .class;
-
             width: 100px;
             @include opacity(0.8);
 
