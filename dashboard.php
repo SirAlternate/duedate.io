@@ -1,13 +1,15 @@
 <?php require_once('resources/library/load.php');
 
+// Handle logging out
+if (isset($_POST['logout'])) {
+    logout();
+}
+
 // If user is not logged in send back to index page
 if(!isset($_SESSION['user_id'])) {
     header('Location: index.php');
 }
 
-// Handle logging out
-if (isset($_POST['logout'])) {
-    logout();
 }
 
 ?>

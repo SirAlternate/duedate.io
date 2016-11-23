@@ -95,7 +95,7 @@ function get_user() {
 
 // Attempt to log in with given info
 function login($email, $password) {
-    global $db_connection;
+    global $db_connection, $_SESSION;
 
     // Search for the salt of a user with this email, if none salt is blank string
     $query = $db_connection->query("SELECT `salt` FROM `users` WHERE `email`='$email';");
@@ -121,6 +121,8 @@ function login($email, $password) {
 
 // Log out current user
 function logout() {
+    global $_SESSION;
+
     // Unset session variables
     unset($_SESSION['user_id']);
     unset($_SESSION['email']);
@@ -130,9 +132,6 @@ function logout() {
 
     // Destroy session
     session_destroy();
-
-    // Refresh page - TODO: Should be a better way to do this
-    header("Refresh:0");
 }
 
 // For cleaning data and being safe from vulnerabilities
