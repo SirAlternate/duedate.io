@@ -294,10 +294,19 @@ html {
   padding: 0 20px;
   background-color: #a7adb4;
   border-bottom: 1px solid #b0b3b9;
+}
+
+#dashboard .display .class .header h1, #dashboard .display .add-class-btn .header h1 {
+  margin: 0;
+  margin-right: 35px;
   color: #ffffff;
   font-size: 18px;
   font-size: 1.8rem;
   line-height: 50px;
+  font-weight: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 #dashboard .display .class .header a.settings-btn, #dashboard .display .add-class-btn .header a.settings-btn {
@@ -321,7 +330,7 @@ html {
   width: 20px;
   height: 20px;
   padding: 0;
-  margin: 15px 0;
+  margin: -35px 0 0;
   border: none;
   background-color: #ffffff;
 }

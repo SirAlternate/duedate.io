@@ -53,7 +53,7 @@ if(!isset($_SESSION['user_id'])) {
         ?>
             <div class="class" color="green" class-id="<?php echo $class_id; ?>">
                 <div class="header">
-                    <?php echo $class_info['title']; ?>
+                    <h1><?php echo $class_info['title']; ?></h1>
                     <!-- <a class="settings-btn"></a> TODO: Add back later -->
                     <a class="close-btn"></a>
                 </div>
@@ -72,7 +72,8 @@ if(!isset($_SESSION['user_id'])) {
         ?>
         <div class="class new" hide="<?php echo var_export(!$show_form); ?>">
             <div class="header">
-                New Class <a class="close-btn"></a>
+                <h1>New Class</h1>
+                <a class="close-btn"></a>
             </div>
             <form class="col-md-5 add-class" method="post">
                 <div class='form-group'>
