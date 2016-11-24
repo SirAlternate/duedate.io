@@ -1,12 +1,12 @@
 <?php require_once('resources/library/load.php');
 
-// If user is already logged in go straight to the dashboard
-if(isset($_SESSION['user_id'])) {
+// If user is already logged in go straight to dashboard
+if(isset($_SESSION['user_id']))
     header('Location: dashboard.php');
-}
 
 // Handle users logging in
 if (isset($_POST['login_submit'])) {
+    // Get input values from form
     $email = isset( $_POST['email'] ) ? make_safe($_POST['email']) : '';
     $password = isset( $_POST['password'] ) ? make_safe($_POST['password']) : '';
 
@@ -25,6 +25,7 @@ if (isset($_POST['login_submit'])) {
 
 // Handle new users signing up
 if (isset($_POST['register_submit'])) {
+    // Get input values form form
     $first_name = isset( $_POST['register_firstname'] ) ? make_safe($_POST['register_firstname']) : '';
     $last_name = isset( $_POST['register_lastname'] ) ? make_safe($_POST['register_lastname']) : '';
     $email = isset( $_POST['register_email'] ) ? make_safe($_POST['register_email']) : '';
@@ -32,16 +33,16 @@ if (isset($_POST['register_submit'])) {
     $password_c = isset( $_POST['register_passwordc'] ) ? make_safe($_POST['register_passwordc']) : '';
 
     if (!$first_name || !$last_name || !$email || !$password || !$password_c) {
-        echo "<script>console.log( 'All fields must be filled in' );</script>";
+        echo "<script>alert( 'All fields must be filled in' );</script>";
     } else if (user_exists($email)) {
-        echo "<script>console.log( 'A user with that email already exists' );</script>";
+        echo "<script>alert( 'A user with that email already exists' );</script>";
     } else if ($password != $password_c) {
-        echo "<script>console.log( 'Passwords must match' );</script>";
+        echo "<script>alert( 'Passwords must match' );</script>";
     } else {
         if (create_user($first_name, $last_name, $email, $password)) {
-            echo "<script>console.log( 'User successfully created!' );</script>";
+            echo "<script>alert( 'User successfully created!' );</script>";
         } else {
-            echo "<script>console.log( 'Woops! Something seems to have went wrong' );</script>";
+            echo "<script>alert( 'Woops! Something seems to have went wrong' );</script>";
         }
     }
 }

@@ -1,14 +1,15 @@
 <?php require_once('resources/library/load.php');
 
-// Handle logging out
-if (isset($_POST['logout'])) {
+// Handle user logging out
+if (isset($_POST['logout']))
     logout();
-}
 
-// If user is not logged in send back to index page
-if(!isset($_SESSION['user_id'])) {
+// If user is not logged in send them to the index page
+if(!isset($_SESSION['user_id']))
     header('Location: index.php');
-}
+
+// Get current user's information for populating page
+$user = get_user_info($_SESSION['email']);
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,9 +37,8 @@ if(!isset($_SESSION['user_id'])) {
                         <input type="submit" name="logout" value="Logout" />
                     </div>
                 </form>
-                <?php $user = get_user_info(); ?>
                 <a class="user">
-                    <p class="name"><?php echo $user["name"] ?></p>
+                    <p class="name"><?php echo $user['full_name'] ?></p>
                     <img class="avatar" />
                 </a>
                 <a class="settings-btn"></a>
@@ -47,7 +47,7 @@ if(!isset($_SESSION['user_id'])) {
     </header>
     <div class="row display">
         <?php
-        $classes = get_class_ids($_SESSION['user_id']);
+        $classes = get_class_ids($user['id']);
         foreach ($classes as $class_id) {
             $class_info = get_class_info($class_id);
         ?>

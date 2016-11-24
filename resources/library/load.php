@@ -1,9 +1,13 @@
 <?php
-require_once('config.php');
-require_once('functions.php');
 
-global $db_config, $db_connection;
-
+// Start session
 session_start();
 
+// Require functions file
+include_once('functions.php');
+
+// Fetch global variables
+global $db_config, $db_connection;
+
+// Connect to database
 db_connect();
