@@ -71,6 +71,9 @@ function show_form() {
     add_button.attr('hide', 'true');
     add_form.parent().attr('hide', 'false');
 
+    // Swap positions
+    add_button.after(add_form.parent());
+
     // Focus on the name field
     add_form.find('input[name="class_name"]').focus();
 
@@ -82,11 +85,14 @@ function hide_form() {
     var add_button = $('.add-class-btn');
     var add_form = $('form.add-class');
 
-    // Clear the input fields for next time
-    add_form.find('input[name="class_name"]').val('');
-    add_form.find('input[name="class_desc"]').val('');
-
     // Hide the form, show the button
     add_form.parent().attr('hide', 'true');
     add_button.attr('hide', 'false');
+
+    // Swap positions
+    add_form.parent().after(add_button);
+
+    // Clear the input fields for next time
+    add_form.find('input[name="class_name"]').val('');
+    add_form.find('input[name="class_desc"]').val('');
 }

@@ -249,7 +249,7 @@ html {
   left: 0;
   right: 0;
   min-height: 400px;
-  padding: 40px 20px 20px;
+  padding: 40px 0 20px;
   margin: 0;
   white-space: nowrap;
   overflow-x: auto;
@@ -272,14 +272,6 @@ html {
 #dashboard .display .class[hide="true"], #dashboard .display [hide="true"].add-class-btn {
   display: none;
   visibility: hidden;
-}
-
-#dashboard .display .class:first-child, #dashboard .display .add-class-btn:first-child {
-  margin-left: 0;
-}
-
-#dashboard .display .class:last-child, #dashboard .display .add-class-btn:last-child {
-  margin-right: 20px;
 }
 
 #dashboard .display .class.draggable .header, #dashboard .display .draggable.add-class-btn .header {
@@ -497,4 +489,8 @@ html {
   opacity: 1;
   filter: alpha(opacity=100);
   cursor: pointer;
+}
+
+#dashboard .display :last-child {
+  margin-right: 20px;
 }
