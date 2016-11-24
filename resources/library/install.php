@@ -21,8 +21,7 @@ $db_connection->exec("CREATE TABLE IF NOT EXISTS `users` (
     `password` varchar(64) NULL,
     `salt` varchar(64) NULL,
     `first_name` varchar(32) NULL,
-    `last_name` varchar(32) NULL,
-    `session` varchar(32) NULL
+    `last_name` varchar(32) NULL
 )");
 
 // Create 'classes' table if doesn't already exist
