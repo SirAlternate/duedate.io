@@ -230,11 +230,24 @@ function get_class_ids($user_id) {
 }
 
 function get_class_info($class_id) {
-    global $db_connection;
+    global $db_connection, $_SESSION;
+    $user_id = $_SESSION['user_id'];
 
-    // Query 'users-classes' for entry's with this id
-    $query = $db_connection->query("SELECT `title`, `desc` FROM `classes` WHERE `class_id`='$class_id';");
-    $class_info = $query->fetchAll(PDO::FETCH_ASSOC)[0];
+    // Query 'classes'
+    $query1 = $db_connection->query("SELECT `title`, `desc` FROM `classes` WHERE `class_id`='$class_id';");
+    $query1 = $query1->fetchAll(PDO::FETCH_ASSOC)[0];
+
+    // Query 'users-classes'
+    $query2 = $db_connection->query("SELECT `color`, `role` FROM `users-classes` WHERE `class_id`='$class_id' AND `user_id`=$user_id;");
+    $query2 = $query2->fetchAll(PDO::FETCH_ASSOC)[0];
+
+    // Create array with useful info
+    $class_info = array(
+        'title'    =>   $query1['title'],
+        'desc'    =>   $query1['desc'],
+        'color'    =>   $query2['color'],
+        'role'    =>   $query2['role']
+    );
 
     // Return the class's info
     return $class_info;

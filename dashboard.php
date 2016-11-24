@@ -51,7 +51,7 @@ if(!isset($_SESSION['user_id'])) {
         foreach ($classes as $class_id) {
             $class_info = get_class_info($class_id);
         ?>
-            <div class="class" color="green" class-id="<?php echo $class_id; ?>">
+            <div class="class" color="<?php echo $class_info['color']; ?>" class-id="<?php echo $class_id; ?>">
                 <div class="header">
                     <h1><?php echo $class_info['title']; ?></h1>
                     <!-- <a class="settings-btn"></a> TODO: Add back later -->
