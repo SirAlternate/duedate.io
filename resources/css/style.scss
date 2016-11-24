@@ -266,10 +266,10 @@ html {
         overflow-x: auto;
         overflow-y: hidden;
 
-        >:last-child {
+        > :last-child {
             margin-right: 20px;
         }
-        
+
         .class {
             position: relative;
             display: inline-block;
@@ -305,8 +305,7 @@ html {
                 border-bottom: 1px solid #b0b3b9;
 
                 h1 {
-                    margin: 0;
-                    margin-right: 35px;
+                    margin: 0 35px 0 0;
                     color: #ffffff;
                     @include font-size(18px);
                     line-height: 50px;
