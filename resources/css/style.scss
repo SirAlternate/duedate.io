@@ -266,6 +266,10 @@ html {
         overflow-x: auto;
         overflow-y: hidden;
 
+        >:last-child {
+            margin-right: 20px;
+        }
+        
         .class {
             position: relative;
             display: inline-block;
@@ -502,10 +506,6 @@ html {
                 @include opacity(1);
                 cursor: pointer;
             }
-        }
-
-        :last-child {
-            margin-right: 20px;
         }
     }
 }

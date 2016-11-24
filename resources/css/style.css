@@ -256,6 +256,10 @@ html {
   overflow-y: hidden;
 }
 
+#dashboard .display > :last-child {
+  margin-right: 20px;
+}
+
 #dashboard .display .class, #dashboard .display .add-class-btn {
   position: relative;
   display: inline-block;
@@ -498,8 +502,4 @@ html {
   opacity: 1;
   filter: alpha(opacity=100);
   cursor: pointer;
-}
-
-#dashboard .display :last-child {
-  margin-right: 20px;
 }
