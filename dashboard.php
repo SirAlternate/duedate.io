@@ -57,6 +57,7 @@ $user = get_user_info($_SESSION['email']);
                     <!-- <a class="settings-btn"></a> TODO: Add back later -->
                     <a class="close-btn"></a>
                 </div>
+                <ul>
                     <!-- <li>
                         <p class="title">Assignment 1</p>
                         <p class="due">Due Tuesday 11/22</p>
