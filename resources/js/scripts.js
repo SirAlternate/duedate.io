@@ -4,6 +4,12 @@ $(function() {
         var add_button = $('.add-class-btn');
         var add_form = $('form.add-class');
 
+        // Check if there are any classes, if not show the form by default
+        if ($('.display').children().length == 2) {
+            show_form();
+        }
+
+        // Handle adding new classes
         add_form.on('submit', function(e) {
             e.preventDefault(); // Prevent default form reloading
 
