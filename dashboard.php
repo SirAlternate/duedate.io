@@ -52,18 +52,42 @@ $user = get_user_info($_SESSION['email']);
             $class_info = get_class_info($class_id);
         ?>
             <div class="class" color="<?php echo $class_info['color']; ?>" class-id="<?php echo $class_id; ?>">
-                <div class="header">
+                <div class="header" background="<?php $class_info['color']; ?>">
                     <h1><?php echo $class_info['title']; ?></h1>
-                    <!-- <a class="settings-btn"></a> TODO: Add back later -->
+                    <!--<a class="settings-btn"></a> <!--TODO: Add back later -->
                     <a class="close-btn"></a>
                 </div>
                 <ul>
-                    <!-- <li>
-                        <p class="title">Assignment 1</p>
-                        <p class="due">Due Tuesday 11/22</p>
-                        <p class="duration">Est Time: 1:00</p>
-                        <span class="arrow"></span>
-                    </li> -->
+				<form method ="post">
+					<?php $assignments = get_assignments_info($class_id);
+						foreach ($assignments as $assignment){ 
+							echo '<li>Assignment Name: ' . $assignment['title'] . '</li><li>Due Date: ' . $assignment['due_date'] . '</li><li><input type="checkbox" name= "' . $assignment['assg_id'] . '" id = "'. $assignment['assg_id'] . '" value = "yes" > Assignment Complete?</li>';
+						
+						
+						}
+					
+					?>
+					<li>
+						
+							<input type ="submit" name = "update_completion" value="Update Assignment Prgoress" />
+						</form>
+					</li>
+					<li>
+						<form method = "post">
+							<div class="form-group">
+								<label for="title">Assignment Name:</label></br>
+								<input type="text" name="title" required="required" />
+							</div>
+							
+							<div class="form-group">
+								<label for="due_date">Description:</label></br>
+								<input type="date" name="due_date" />
+							</div>
+							<div class="form-group">
+								<input type="submit" name="add_assignment" value="Create Assignment" />
+							</div>
+						</form>
+					</li>
                 </ul>
             </div>
         <?php
@@ -91,8 +115,8 @@ $user = get_user_info($_SESSION['email']);
 
                             foreach ($colors as $color) {
                             ?>
-                                <input id="<?php echo $color; ?>" type="radio" name="color" value="<?php echo $color; ?>">
-                                <label for="<?php echo $color; ?>"></label>
+                               <!--<input id="<?php echo $color; ?>" type="radio" name="color" value="<?php echo $color; ?>">
+                               <label for="<?php echo $color; ?>"></label> -->
                             <?php
                             }
                         ?>
