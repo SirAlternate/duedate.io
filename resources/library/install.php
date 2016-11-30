@@ -8,7 +8,7 @@ logout();
 
 // Create a new database if one doesn't already exist
 $db_connection->exec("DROP DATABASE IF EXISTS `".$db_config['name']."`;");
-$db_connection->exec("CREATE DATABASE IF NOT EXISTS `" . $db_config['name'] . " COLLATE utf8_general_ci`");
+$db_connection->exec("CREATE DATABASE IF NOT EXISTS `" . $db_config['name'] . "` COLLATE utf8_general_ci");
 
 // Select the database
 try {
