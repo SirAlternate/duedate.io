@@ -13,8 +13,6 @@ $(function() {
         add_form.on('submit', function(e) {
             e.preventDefault(); // Prevent default form reloading
 
-            console.log($(this).find(".colors input:checked").val());
-
             // Tell the server create the new class
             $.post('resources/library/actions.php', {
                 action: 'add',
