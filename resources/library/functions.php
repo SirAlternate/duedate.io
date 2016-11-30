@@ -38,7 +38,6 @@ function make_safe($string) {
        $string = stripslashes($string);
     }
     $string = strip_tags($string);
-    $string = mysql_real_escape_string(trim($string));
 
     return $string;
 }
