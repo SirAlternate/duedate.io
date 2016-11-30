@@ -1,7 +1,7 @@
 <?php
 
 // Create a new class and add it to the `classes` database, adds current user to class if specified.
-function create_class($title, $desc, $add_user = false) {
+function create_class($title, $desc, $color, $add_user = false) {
     global $db_connection;
 
     // Fail-safe
@@ -23,7 +23,7 @@ function create_class($title, $desc, $add_user = false) {
         $db_connection->exec("INSERT INTO `users-classes`
         ( `user_id`, `class_id`, `role`, `color` )
         VALUES
-        ( $user_id, $class_id, 'owner', 'green' )");
+        ( $user_id, $class_id, 'owner', '$color' )");
     }
 
     // If we made it this far we were successful

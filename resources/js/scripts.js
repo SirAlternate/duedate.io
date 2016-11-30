@@ -13,13 +13,16 @@ $(function() {
         add_form.on('submit', function(e) {
             e.preventDefault(); // Prevent default form reloading
 
+            console.log($(this).find(".colors input:checked").val());
+
             // Tell the server create the new class
             $.post('resources/library/actions.php', {
                 action: 'add',
                 type: 'class',
                 data: {
                     name: $(this).find("input[name='class_name']").val(),
-                    desc: $(this).find("input[name='class_desc']").val()
+                    desc: $(this).find("input[name='class_desc']").val(),
+                    color: $(this).find(".colors input:checked").val()
                 }
             }, function(response) {
                 // Reload page if we were successful so that we can see the
@@ -28,6 +31,11 @@ $(function() {
                     location.reload();
                 }
             });
+        });
+
+        add_form.find('.colors').on('mouseup', function(e) {
+            var color = $(e.target).attr('for');
+            add_form.parent().attr('color', color);
         });
 
         // Handling generating add class form
@@ -101,4 +109,5 @@ function hide_form() {
     // Clear the input fields for next time
     add_form.find('input[name="class_name"]').val('');
     add_form.find('input[name="class_desc"]').val('');
+    add_form.parent().removeAttr('color')
 }

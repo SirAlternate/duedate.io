@@ -1,0 +1,55 @@
+$colors: ( red: #f03e3e, violet: #7950f2, blue: #228ae6, cyan: #1098ad, green: #51cf66, yellow: #fcc419, orange: #ff922b );
+@each $name, $color in $colors {
+    .class[color="#{$name}"] {
+        &.draggable {
+            .header {
+                &:hover {
+                    background-color: darken($color, 8%);
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .header {
+            background-color: $color;
+        }
+
+        ul li p.due {
+            b {
+                background-color: $color;
+            }
+
+            em {
+                color: $color;
+            }
+        }
+
+        form.add-class {
+            .form-group {
+                input[name="add_class"] {
+                    background-color: $color;
+
+                    &:hover {
+                        background-color: darken($color, 8%);
+                    }
+                }
+            }
+        }
+    }
+
+    .class.new {
+        form.add-class {
+            .form-group {
+                .colors {
+                    label[for="#{$name}"] {
+                        background-color: lighten($color, 5%);
+                    }
+
+                    input:checked + label[for="#{$name}"] {
+                        background-color: $color;
+                    }
+                }
+            }
+        }
+    }
+}

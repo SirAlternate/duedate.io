@@ -303,6 +303,7 @@ html {
                 padding: 0 20px;
                 background-color: #a7adb4;
                 border-bottom: 1px solid #b0b3b9;
+                @include transition( background 0.5s ease-out );
 
                 h1 {
                     margin: 0 35px 0 0;
@@ -438,7 +439,7 @@ html {
                         font-weight: normal;
                     }
 
-                    input {
+                    input[type="text"] {
                         width: 100%;
                         padding: 13px 10px;
                         background-color: #f1f1f1;
@@ -449,60 +450,55 @@ html {
                             border: 1px solid #a7adb4;
                             outline: 0;
                         }
+                    }
 
-                        &[name="add_class"] {
-                            margin-top: 25px;
-                            padding: 18px 10px;
-                            border: 1px solid #a7adb4;
+                    input[name="add_class"] {
+                        width: 100%;
+                        margin-top: 25px;
+                        padding: 18px 10px;
+                        border: 1px solid #a7adb4;
+                        background-color: #a7adb4;
+                        color: #ffffff;
+                        @include font-size(17px);
+                        text-transform: uppercase;
+                        font-weight: 700;
+                        @include transition( background 0.5s ease-out );
+
+                        &:hover {
+                            background-color: darken(#a7adb4, 8%);
+                        }
+                    }
+
+                    .colors {
+                        input {
+                            display: none;
+                        }
+
+                        input + label {
+                            display: inline-block;
+                            width: 40px;
+                            height: 40px;
+                            margin-right: 11px;
                             background-color: #a7adb4;
-                            color: #ffffff;
-                            @include font-size(17px);
-                            text-transform: uppercase;
-                            font-weight: 700;
+                            border: 4px solid #dadada;
+                            cursor: pointer;
+                        }
 
-                            &:hover {
-                                background-color: darken(#a7adb4, 8%);
-                            }
+                        input:checked + label {
+                            border: 4px solid darken(#dadada, 10%);
                         }
                     }
                 }
             }
         }
-
-        .class[color="green"] {
-            $color: $color_accent;
-
-            &.draggable {
-                .header {
-                    &:hover {
-                        background-color: darken($color, 8%);
-                        cursor: pointer;
-                    }
-                }
-            }
-
-            .header {
-                background-color: $color;
-            }
-
-            ul li p.due {
-                b {
-                    background-color: $color;
-                }
-
-                em {
-                    color: $color;
-                }
-            }
-        }
+        @import "colors";
 
         .add-class-btn {
             @extend .class;
             width: 100px;
-            @include opacity(0.8);
+            @include transition( background 0.5s ease-out );
 
             &:hover {
-                @include opacity(1);
                 cursor: pointer;
             }
         }

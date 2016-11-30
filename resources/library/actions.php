@@ -6,10 +6,11 @@ if (isset($_POST['action']) && isset($_POST['type'])) {
         case 'class': {
             switch ($_POST['action']) {
                 case 'add': {
-                    $name = isset($_POST['data']['name'] ) ? make_safe($_POST['data']['name']) : '';
-                    $desc = isset($_POST['data']['desc'] ) ? make_safe($_POST['data']['desc']) : '';
+                    $name = isset($_POST['data']['name']) ? make_safe($_POST['data']['name']) : '';
+                    $desc = isset($_POST['data']['desc']) ? make_safe($_POST['data']['desc']) : '';
+                    $color = isset($_POST['data']['color']) ? make_safe($_POST['data']['color']) : '';
 
-                    if (create_class($name, $desc, true)) { echo true; }
+                    if (create_class($name, $desc, $color, true)) { echo true; }
                     else { echo false; }
                     break;
                 }

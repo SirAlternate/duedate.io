@@ -77,9 +77,26 @@ $user = get_user_info($_SESSION['email']);
                 <a class="close-btn"></a>
             </div>
             <form class="col-md-5 add-class" method="post">
-                <div class='form-group'>
-                    <label idfor="class_name">Class Name:</label></br>
+                <div class="form-group">
+                    <label for="class_name">Class Name:</label></br>
                     <input type="text" name="class_name" required="required" />
+                </div>
+                <div class="form-group">
+                    <label>Color:</label>
+                    <div class="colors">
+                        <?php
+                            $colors = array (
+                                'red', 'violet', 'blue', 'cyan', 'green', 'yellow', 'orange'
+                            );
+
+                            foreach ($colors as $color) {
+                            ?>
+                                <input id="<?php echo $color; ?>" type="radio" name="color" value="<?php echo $color; ?>">
+                                <label for="<?php echo $color; ?>"></label>
+                            <?php
+                            }
+                        ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="class_desc">Description:</label></br>
