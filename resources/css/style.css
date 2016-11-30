@@ -520,6 +520,10 @@ html {
   color: #f03e3e;
 }
 
+#dashboard .display .class[color="red"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="red"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+  border: 1px solid #f03e3e;
+}
+
 #dashboard .display .class[color="red"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="red"].add-class-btn form.add-class .form-group input[name="add_class"] {
   background-color: #f03e3e;
 }
@@ -551,6 +555,10 @@ html {
 
 #dashboard .display .class[color="violet"] ul li p.due em, #dashboard .display [color="violet"].add-class-btn ul li p.due em {
   color: #7950f2;
+}
+
+#dashboard .display .class[color="violet"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="violet"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+  border: 1px solid #7950f2;
 }
 
 #dashboard .display .class[color="violet"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="violet"].add-class-btn form.add-class .form-group input[name="add_class"] {
@@ -586,6 +594,10 @@ html {
   color: #228ae6;
 }
 
+#dashboard .display .class[color="blue"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="blue"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+  border: 1px solid #228ae6;
+}
+
 #dashboard .display .class[color="blue"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="blue"].add-class-btn form.add-class .form-group input[name="add_class"] {
   background-color: #228ae6;
 }
@@ -617,6 +629,10 @@ html {
 
 #dashboard .display .class[color="cyan"] ul li p.due em, #dashboard .display [color="cyan"].add-class-btn ul li p.due em {
   color: #1098ad;
+}
+
+#dashboard .display .class[color="cyan"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="cyan"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+  border: 1px solid #1098ad;
 }
 
 #dashboard .display .class[color="cyan"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="cyan"].add-class-btn form.add-class .form-group input[name="add_class"] {
@@ -652,6 +668,10 @@ html {
   color: #51cf66;
 }
 
+#dashboard .display .class[color="green"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="green"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+  border: 1px solid #51cf66;
+}
+
 #dashboard .display .class[color="green"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="green"].add-class-btn form.add-class .form-group input[name="add_class"] {
   background-color: #51cf66;
 }
@@ -685,6 +705,10 @@ html {
   color: #fcc419;
 }
 
+#dashboard .display .class[color="yellow"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="yellow"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+  border: 1px solid #fcc419;
+}
+
 #dashboard .display .class[color="yellow"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="yellow"].add-class-btn form.add-class .form-group input[name="add_class"] {
   background-color: #fcc419;
 }
@@ -716,6 +740,10 @@ html {
 
 #dashboard .display .class[color="orange"] ul li p.due em, #dashboard .display [color="orange"].add-class-btn ul li p.due em {
   color: #ff922b;
+}
+
+#dashboard .display .class[color="orange"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="orange"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+  border: 1px solid #ff922b;
 }
 
 #dashboard .display .class[color="orange"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="orange"].add-class-btn form.add-class .form-group input[name="add_class"] {
