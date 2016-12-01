@@ -6,5 +6,5 @@ $db_config = array(
     'name'    =>  'duedate.io',
     'host'    =>  'localhost',
     'user'    =>  'user',
-    'pass'    =>  ''
+    'pass'    =>  'userpass123'
 );

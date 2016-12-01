@@ -40,7 +40,10 @@ if (isset($_POST['register_submit'])) {
         echo "<script>alert( 'Passwords must match' );</script>";
     } else {
         if (create_user($first_name, $last_name, $email, $password)) {
-            echo "<script>alert( 'User successfully created!' );</script>";
+            if (login($email, $password)) {
+                header('Location: dashboard.php?new_user=1')
+            }
+            // echo "<script>alert( 'User successfully created!' );</script>";
         } else {
             echo "<script>alert( 'Woops! Something seems to have went wrong' );</script>";
         }
