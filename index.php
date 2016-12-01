@@ -41,7 +41,7 @@ if (isset($_POST['register_submit'])) {
     } else {
         if (create_user($first_name, $last_name, $email, $password)) {
             if (login($email, $password)) {
-                header('Location: dashboard.php?new_user=1')
+                header('Location: dashboard.php?new_user=1');
             }
             // echo "<script>alert( 'User successfully created!' );</script>";
         } else {

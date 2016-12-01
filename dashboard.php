@@ -39,16 +39,16 @@ $user = get_user_info($_SESSION['email']);
                 <div class="navbar-brand" href="">duedate.io</div>
             </div>
             <div class="navbar-user">
-                <form method="post" class="logout">
-                    <div class="form_group">
-                        <input type="submit" name="logout" value="Logout" />
-                    </div>
-                </form>
                 <a class="user">
                     <p class="name"><?php echo $user['full_name'] ?></p>
                     <img class="avatar" />
                 </a>
                 <a class="settings-btn"></a>
+                <form method="post" class="logout">
+                    <div class="form_group">
+                        <input type="submit" class="btn btn-default" name="logout" value="Logout" />
+                    </div>
+                </form>
             </div>
         </div>
     </header>
