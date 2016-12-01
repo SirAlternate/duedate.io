@@ -23,11 +23,11 @@ $user = get_user_info($_SESSION['email']);
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300,400,400i,600" rel="stylesheet">
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/style.min.css">
+    <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body id="dashboard">
     <?php if ($_GET["new_user"] == 1) {echo '
-    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+    <div class="alert alert-success alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
