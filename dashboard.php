@@ -26,6 +26,9 @@ $user = get_user_info($_SESSION['email']);
     <link rel="stylesheet" href="resources/css/style.min.css">
 </head>
 <body id="dashboard">
+    <?php if ($_GET["new_user"] == 1) {echo '<div class="alert alert-success" role="alert">
+  <strong>Welcome to duedate.io,' . $user["first_name"] . '!</strong>
+</div>'}?>
     <header class="navbar">
         <div class="container">
             <div class="navbar-header">
