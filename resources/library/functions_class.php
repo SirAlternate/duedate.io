@@ -1,7 +1,7 @@
 <?php
 
 // Create a new class and add it to the `classes` database, adds current user to class if specified.
-function create_class($title, $desc, $color ='cyan', $add_user = true) {
+function create_class($title, $desc, $color, $add_user = false) {
     global $db_connection;
 
     // Fail-safe
@@ -17,14 +17,14 @@ function create_class($title, $desc, $color ='cyan', $add_user = true) {
     // Grab the id of the class we just added
     $class_id = $db_connection->lastInsertId();
 
-    // Add the current user to the new class if specified (IMPORTANT DOESNT WORK)
-    
+    // Add the current user to the new class if specified
+    if ($add_user) {
         $user_id = $_SESSION['user_id'];
         $db_connection->exec("INSERT INTO `users-classes`
 		(`user_id`, `class_id`, `role`, `color`)
 		VALUES
-		( '$user_id', '$class_id', 'owner', '$color' )");
-    
+		( $user_id, $class_id, 'owner', '$color' )");
+    }
 
     // If we made it this far we were successful
     return true;
@@ -112,9 +112,9 @@ function get_assignments_info($class_id) {
 
     // Query database for the current classes assignemnts
     $query = $db_connection->query("SELECT * FROM `assignments` WHERE `class_id`='$class_id';");
-    
 
-   
+
+
 
     // Return the assignment array back to caller
     return $query;
