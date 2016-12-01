@@ -62,7 +62,7 @@ if (isset($_POST['register_submit'])) {
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300,400,400i,600" rel="stylesheet">
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/style.min.css">
+    <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body id="index">
     <header class="navbar">
