@@ -63,6 +63,7 @@ function logout() {
 
     // Destroy session
     session_destroy();
+    header('Location: index.php?logged_out=1');
 }
 
 // Check if user with specifed email exists `users` database

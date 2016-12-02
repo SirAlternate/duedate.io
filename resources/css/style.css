@@ -784,8 +784,20 @@ html {
   background-color: rgba(178,219,161,.9);
   z-index: 10000;
   color: #2b542c;
+  border-color: #d6e9c6;
 }
 
 .alert span {
   color: #2b542c;
+}
+
+.alert-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #31708f;
+  background-color: rgba(154,207,234,.9);
+  z-index: 10000;
+  border-color: #bce8f1;
 }
