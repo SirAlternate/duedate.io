@@ -23,6 +23,7 @@ $user = get_user_info($_SESSION['email']);
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300,400,400i,600" rel="stylesheet">
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body id="dashboard">
@@ -43,12 +44,13 @@ $user = get_user_info($_SESSION['email']);
                     <p class="name"><?php echo $user['full_name'] ?></p>
                     <img class="avatar" />
                 </a>
-                <a class="settings-btn"></a>
-                <form method="post" class="logout">
-                    <div class="form_group">
-                        <input type="submit" class="btn btn-default" name="logout" value="Logout" />
-                    </div>
-                </form>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-gear"></i>
+                      <span class="caret"></span></button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#" id="logout_button">Log out</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
@@ -122,8 +124,8 @@ $user = get_user_info($_SESSION['email']);
 
                             foreach ($colors as $color) {
                             ?>
-                               <!--<input id="<?php echo $color; ?>" type="radio" name="color" value="<?php echo $color; ?>">
-                               <label for="<?php echo $color; ?>"></label> -->
+                               <input id="<?php echo $color; ?>" type="radio" name="color" value="<?php echo $color; ?>">
+                               <label for="<?php echo $color; ?>"></label> 
                             <?php
                             }
                         ?>
@@ -148,5 +150,11 @@ $user = get_user_info($_SESSION['email']);
     <script> window.jQuery || document.write("<script src='resources/js/bootstrap.min.js'><\/script>") </script>
     <script src="resources/js/validator.min.js"></script>
     <script src="resources/js/scripts.min.js"></script>
+    <script>
+        $("logout_button").click(function(e) {
+            e.preventDefault();
+            $.post( window.location.href, {logout: "logout"} );
+        });
+    </script>
 </body>
 </html>
