@@ -1,6 +1,6 @@
 <?php require_once('resources/library/load.php');
 
-if ($_GET["logout"] == 1) {
+if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
     logout();
 }
 
@@ -31,7 +31,7 @@ $user = get_user_info($_SESSION['email']);
     <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body id="dashboard">
-    <?php if ($_GET["new_user"] == 1) {echo '
+    <?php if (isset($_GET["new_user"]) && $_GET["new_user"] == 1) {echo '
     <div class="alert alert-success alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
