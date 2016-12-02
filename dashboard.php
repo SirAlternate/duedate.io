@@ -4,6 +4,10 @@
 if (isset($_GET["logout"]) && $_GET["logout"] == 1)
     logout();
 
+// Handle user deleting account
+if (isset($_GET["deleteaccount"]) && $_GET["deleteaccount"] == 1)
+	delete_account($_SESSION['user_id']);
+
 // If user is not logged in send them to the index page
 if(!isset($_SESSION['user_id']))
     header('Location: index.php');
@@ -50,6 +54,7 @@ $user = get_user_info($_SESSION['email']);
                       <span class="caret"></span></button>
                       <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="?logout=1" id="logout_button">Log out</a></li>
+						<li><a href="?deleteaccount=1" id = "delete_account_button">Delete Account</a></li>
                     </ul>
                 </div>
             </div>
