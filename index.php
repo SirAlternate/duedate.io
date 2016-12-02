@@ -65,13 +65,14 @@ if (isset($_POST['register_submit'])) {
     <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body id="index">
-    <?php if (isset($_GET["logged_out"]) && $_GET["logged_out"] == 1) {echo '
-        <div class="alert alert-info alert-dismissible fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>You\'ve been logged out</strong>
-        </div>';}?>
+    <?php if (isset($_GET["logged_out"]) && $_GET["logged_out"] == 1) { ?>
+    <div class="alert alert-info alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>You've been logged out</strong>
+    </div>
+    <?php } ?>
     <header class="navbar">
         <div class="container">
             <div class="navbar-header">

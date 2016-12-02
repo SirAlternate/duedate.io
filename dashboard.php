@@ -1,11 +1,7 @@
 <?php require_once('resources/library/load.php');
 
-if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
-    logout();
-}
-
 // Handle user logging out
-if (isset($_POST['logout']))
+if (isset($_GET["logout"]) && $_GET["logout"] == 1)
     logout();
 
 // If user is not logged in send them to the index page
@@ -31,13 +27,14 @@ $user = get_user_info($_SESSION['email']);
     <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body id="dashboard">
-    <?php if (isset($_GET["new_user"]) && $_GET["new_user"] == 1) {echo '
+    <?php if (isset($_GET["new_user"]) && $_GET["new_user"] == 1) { ?>
     <div class="alert alert-success alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-        <strong>Welcome to duedate.io,' . $user["first_name"] . '!</strong>
-    </div>';}?>
+        <strong>Welcome to duedate.io, <?php echo $user["first_name"] ?>!</strong>
+    </div>
+    <?php } ?>
     <header class="navbar">
         <div class="container">
             <div class="navbar-header">
