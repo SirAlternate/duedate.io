@@ -387,7 +387,7 @@ html {
 
 #dashboard .display .class ul li, #dashboard .display .add-class-btn ul li {
   position: relative;
-  height: 86px;
+  height: 90px;
   list-style: none;
   padding: 10px 15px;
   border-bottom: 1px solid #e4e4e4;
@@ -425,8 +425,8 @@ html {
 #dashboard .display .class ul li p.due, #dashboard .display .add-class-btn ul li p.due {
   margin: 0;
   color: #787c81;
-  font-size: 13px;
-  font-size: 1.3rem;
+  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 #dashboard .display .class ul li p.due b, #dashboard .display .add-class-btn ul li p.due b {
@@ -445,8 +445,8 @@ html {
 #dashboard .display .class ul li p.duration, #dashboard .display .add-class-btn ul li p.duration {
   margin-bottom: 4px;
   color: #787c81;
-  font-size: 13px;
-  font-size: 1.3rem;
+  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 #dashboard .display .class ul li span.arrow, #dashboard .display .add-class-btn ul li span.arrow {
@@ -543,7 +543,7 @@ html {
 }
 
 #dashboard .display .class[color="red"] ul li p.due em, #dashboard .display [color="red"].add-class-btn ul li p.due em {
-  color: #f03e3e;
+  color: #e91212;
 }
 
 #dashboard .display .class[color="red"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="red"].add-class-btn form.add-class .form-group input[type="text"]:focus {
@@ -580,7 +580,7 @@ html {
 }
 
 #dashboard .display .class[color="violet"] ul li p.due em, #dashboard .display [color="violet"].add-class-btn ul li p.due em {
-  color: #7950f2;
+  color: #5521ee;
 }
 
 #dashboard .display .class[color="violet"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="violet"].add-class-btn form.add-class .form-group input[type="text"]:focus {
@@ -617,7 +617,7 @@ html {
 }
 
 #dashboard .display .class[color="blue"] ul li p.due em, #dashboard .display [color="blue"].add-class-btn ul li p.due em {
-  color: #228ae6;
+  color: #1670bf;
 }
 
 #dashboard .display .class[color="blue"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="blue"].add-class-btn form.add-class .form-group input[type="text"]:focus {
@@ -654,7 +654,7 @@ html {
 }
 
 #dashboard .display .class[color="cyan"] ul li p.due em, #dashboard .display [color="cyan"].add-class-btn ul li p.due em {
-  color: #1098ad;
+  color: #0c6f7e;
 }
 
 #dashboard .display .class[color="cyan"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="cyan"].add-class-btn form.add-class .form-group input[type="text"]:focus {
@@ -691,7 +691,7 @@ html {
 }
 
 #dashboard .display .class[color="green"] ul li p.due em, #dashboard .display [color="green"].add-class-btn ul li p.due em {
-  color: #51cf66;
+  color: #33ba4a;
 }
 
 #dashboard .display .class[color="green"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="green"].add-class-btn form.add-class .form-group input[type="text"]:focus {
@@ -728,7 +728,7 @@ html {
 }
 
 #dashboard .display .class[color="yellow"] ul li p.due em, #dashboard .display [color="yellow"].add-class-btn ul li p.due em {
-  color: #fcc419;
+  color: #dfa903;
 }
 
 #dashboard .display .class[color="yellow"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="yellow"].add-class-btn form.add-class .form-group input[type="text"]:focus {
@@ -765,7 +765,7 @@ html {
 }
 
 #dashboard .display .class[color="orange"] ul li p.due em, #dashboard .display [color="orange"].add-class-btn ul li p.due em {
-  color: #ff922b;
+  color: #f77800;
 }
 
 #dashboard .display .class[color="orange"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="orange"].add-class-btn form.add-class .form-group input[type="text"]:focus {

@@ -20,7 +20,7 @@ $colors: ( red: #f03e3e, violet: #7950f2, blue: #228ae6, cyan: #1098ad, green: #
             }
 
             em {
-                color: $color;
+                color: darken($color, 10%);
             }
         }
 
@@ -29,7 +29,7 @@ $colors: ( red: #f03e3e, violet: #7950f2, blue: #228ae6, cyan: #1098ad, green: #
                 input[type="text"]:focus {
                     border: 1px solid $color;
                 }
-                
+
                 input[name="add_class"] {
                     background-color: $color;
 

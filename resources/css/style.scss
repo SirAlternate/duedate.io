@@ -384,7 +384,7 @@ html {
 
                 li {
                     position: relative;
-                    height: 86px;
+                    height: 90px;
                     list-style: none;
                     padding: 10px 15px;
                     border-bottom: 1px solid #e4e4e4;
@@ -416,7 +416,7 @@ html {
                     p.due {
                         margin: 0;
                         color: #787c81;
-                        @include font-size(13px);
+                        @include font-size(14px);
 
                         b {
                             color: #ffffff;
@@ -435,7 +435,7 @@ html {
                     p.duration {
                         margin-bottom: 4px;
                         color: #787c81;
-                        @include font-size(13px);
+                        @include font-size(14px);
                     }
 
                     span.arrow {
