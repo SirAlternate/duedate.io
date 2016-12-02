@@ -30,6 +30,30 @@ html {
     font-family: 'Open Sans', sans-serif;
 }
 
+.alert {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+
+    span {
+        color: #2b542c;
+    }
+
+    &.alert-success {
+        color: #2b542c;
+        background-color: rgba(178,219,161,.9);
+        border-color: #d6e9c6;
+    }
+
+    &.alert-info {
+        color: #31708f;
+        background-color: rgba(154,207,234,.9);
+        border-color: #bce8f1;
+    }
+}
+
 #index {
     background: url('../img/background.jpg');
     background-size: cover;
@@ -242,6 +266,7 @@ html {
                 height: 25px;
                 padding: 0;
                 margin-left: 15px;
+                margin-right: 15px;
                 border: none;
                 background-color: #ffffff;
 
@@ -359,6 +384,7 @@ html {
 
                 li {
                     position: relative;
+                    height: 86px;
                     list-style: none;
                     padding: 10px 15px;
                     border-bottom: 1px solid #e4e4e4;

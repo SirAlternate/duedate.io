@@ -3,6 +3,7 @@
 // Include seperate function files
 include('functions_user.php');
 include('functions_class.php');
+include('functions_assignment.php');
 
 // Attempt to connect to the database
 function db_connect($select_db = true) {

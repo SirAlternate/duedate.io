@@ -107,15 +107,3 @@ function get_class_info($class_id) {
     // Return the array to caller
     return $class_info;
 }
-function get_assignments_info($class_id) {
-    global $db_connection;
-
-    // Query database for the current classes assignemnts
-    $query = $db_connection->query("SELECT * FROM `assignments` WHERE `class_id`='$class_id';");
-
-
-
-
-    // Return the assignment array back to caller
-    return $query;
-}

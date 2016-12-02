@@ -72,35 +72,37 @@ $user = get_user_info($_SESSION['email']);
                 </div>
                 <ul>
 				<form method ="post">
-					<?php $assignments = get_assignments_info($class_id);
-						foreach ($assignments as $assignment){ 
-							echo '<li>Assignment Name: ' . $assignment['title'] . '</li><li>Due Date: ' . $assignment['due_date'] . '</li><li><input type="checkbox" name= "' . $assignment['assg_id'] . '" id = "'. $assignment['assg_id'] . '" value = "yes" > Assignment Complete?</li>';
-						
-						
+					<?php
+                        $assignments = get_assignments($class_id);
+						foreach ($assignments as $assignment) {
+                            $post_date = isset($assignments['post_date']) ? strtotime($assignments['post_date']) : '';
+                            if ($post_date == '' || $post_date > strtotime('today')) {
+                        ?>
+                        <li>
+                            <p class="title"><?php echo $assignment['title'] ?></p>
+                            <p class="due">Due
+                                <?php
+                                $due = strtotime($assignment['due_date']);
+
+                                if (date('W', $due) == date('W'))
+                                    echo "<b>this</b> " . date("l", $due);
+                                else if (date('W', $due) == date('W')+1)
+                                    echo "<em>next</em> " . date("l", $due);
+                                else
+                                    echo date("l n/j", $due);
+                                ?>
+                            </p>
+                            <p class='duration'>
+                            <?php if (isset($assignment['duration'])) {
+                                echo "Est Time: " . $assignment['duration'];
+                            } ?>
+                        </p>
+                            <span class="arrow"></span>
+                        </li>
+					<?php
+                            }
 						}
-					
 					?>
-					<li>
-						
-							<input type ="submit" name = "update_completion" value="Update Assignment Prgoress" />
-						</form>
-					</li>
-					<li>
-						<form method = "post">
-							<div class="form-group">
-								<label for="title">Assignment Name:</label></br>
-								<input type="text" name="title" required="required" />
-							</div>
-							
-							<div class="form-group">
-								<label for="due_date">Description:</label></br>
-								<input type="date" name="due_date" />
-							</div>
-							<div class="form-group">
-								<input type="submit" name="add_assignment" value="Create Assignment" />
-							</div>
-						</form>
-					</li>
                 </ul>
             </div>
         <?php
