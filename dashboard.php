@@ -1,5 +1,9 @@
 <?php require_once('resources/library/load.php');
 
+if ($_GET["logout"] == 1) {
+    logout();
+}
+
 // Handle user logging out
 if (isset($_POST['logout']))
     logout();
@@ -48,7 +52,7 @@ $user = get_user_info($_SESSION['email']);
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-gear"></i>
                       <span class="caret"></span></button>
                       <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="#" id="logout_button">Log out</a></li>
+                        <li><a href="?logout=1" id="logout_button">Log out</a></li>
                     </ul>
                 </div>
             </div>
@@ -150,11 +154,5 @@ $user = get_user_info($_SESSION['email']);
     <script> window.jQuery || document.write("<script src='resources/js/bootstrap.min.js'><\/script>") </script>
     <script src="resources/js/validator.min.js"></script>
     <script src="resources/js/scripts.min.js"></script>
-    <script>
-        $("logout_button").click(function(e) {
-            e.preventDefault();
-            $.post( window.location.href, {logout: "logout"} );
-        });
-    </script>
 </body>
 </html>
