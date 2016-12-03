@@ -800,3 +800,42 @@ html {
 #dashboard .display .add-class-btn:hover {
   cursor: pointer;
 }
+
+a.close-btn {
+  color: #a7adb4;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: color 0.5s ease-out;
+  -moz-transition: color 0.5s ease-out;
+  -ms-transition: color 0.5s ease-out;
+  -o-transition: color 0.5s ease-out;
+  transition: color 0.5s ease-out;
+}
+
+a.close-btn[color="orange"] {
+  color: #f77800 
+}
+
+a.close-btn[color="red"] {
+  color: #f03e3e;
+}
+
+a.close-btn[color="violet"] {
+  color: #7950f2;
+}
+
+a.close-btn[color="blue"] {
+  color: #1775c9;
+}
+
+a.close-btn[color="cyan"] {
+  color: #1098ad;
+}
+
+a.close-btn[color="green"] {
+  color: #35c24d;
+}
+
+a.close-btn[color="yellow"] {
+  color: #e9b003;
+}

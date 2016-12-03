@@ -72,7 +72,7 @@ $user = get_user_info($_SESSION['email']);
                 <div class="header" background="<?php $class_info['color']; ?>">
                     <h1><?php echo $class_info['title']; ?></h1>
                     <!--<a class="settings-btn"></a> <!--TODO: Add back later -->
-                    <a class="close-btn"></a>
+                    <a class="class close-btn">&times;</a>
                 </div>
                 <ul>
 				<form method ="post">
@@ -117,7 +117,7 @@ $user = get_user_info($_SESSION['email']);
         <div class="class new" hide="<?php echo var_export(!$show_form); ?>">
             <div class="header">
                 <h1>New Class</h1>
-                <a class="close-btn"></a>
+                <a class="close-btn">&times;</a>
             </div>
             <form class="col-md-5 add-class" method="post">
                 <div class="form-group">
@@ -159,6 +159,6 @@ $user = get_user_info($_SESSION['email']);
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script> window.jQuery || document.write("<script src='resources/js/bootstrap.min.js'><\/script>") </script>
     <script src="resources/js/validator.min.js"></script>
-    <script src="resources/js/scripts.min.js"></script>
+    <script src="resources/js/scripts.js"></script>
 </body>
 </html>
