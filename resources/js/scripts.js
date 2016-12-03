@@ -34,7 +34,6 @@ $(function() {
         add_form.find('.colors').on('mouseup', function(e) {
             var color = $(e.target).attr('for');
             add_form.parent().attr('color', color);
-            add_form.parent().children(".header").children('a.close-btn').attr('color',color);
         });
 
         // Handling generating add class form
