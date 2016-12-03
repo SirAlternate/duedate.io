@@ -1,14 +1,18 @@
 <?php require_once('resources/library/load.php');
+
 // Handle user logging out
-if (isset($_GET["logout"]) && $_GET["logout"] == 1)
+if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
     logout();
+    header("Location: index.php?logged_out=1");
+}
 
 // Handle user deleting account
 if (isset($_GET["deleteaccount"]) && $_GET["deleteaccount"] == 1)
 	delete_account($_SESSION['user_id']);
 
+// Handle redirecting to settings TODO: can probably just be link?
 if (isset($_GET["changesettings"]) && $_GET["changesettings"] == 1)
-	header('Location: settings.php');
+    header('Location: settings.php');
 
 // If user is not logged in send them to the index page
 if(!isset($_SESSION['user_id']))
@@ -56,8 +60,8 @@ $user = get_user_info($_SESSION['email']);
                       <span class="caret"></span></button>
                       <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="?logout=1" id="logout_button">Log out</a></li>
-						<li><a href="?deleteaccount=1" id = "delete_account_button">Delete account</a></li>
-						<li><a href="?changesettings=1" id = "change_button">Settings</a></li>
+                        <!-- <li><a href="?deleteaccount=1" id = "delete_account_button">Delete Account</a></li> -->
+						<li><a href="?changesettings=1" id = "change_settings_button">Account Settings</a></li>
                     </ul>
                 </div>
             </div>
@@ -73,21 +77,21 @@ $user = get_user_info($_SESSION['email']);
                 <div class="header" background="<?php $class_info['color']; ?>">
                     <h1><?php echo $class_info['title']; ?></h1>
                     <!--<a class="settings-btn"></a> <!--TODO: Add back later -->
-                    <a class="class close-btn">&times;</a>
+                    <a class="close-btn">&times;</a>
                 </div>
                 <ul>
-				<form method ="post">
 					<?php
                         $assignments = get_assignments($class_id);
 						foreach ($assignments as $assignment) {
                             $post_date = isset($assignments['post_date']) ? strtotime($assignments['post_date']) : '';
                             if ($post_date == '' || $post_date > strtotime('today')) {
                         ?>
-                        <li>
+                        <li class="item" assg-id="<?php echo $assignment['assg_id'] ?>">
                             <p class="title"><?php echo $assignment['title'] ?></p>
                             <p class="due">Due
                                 <?php
                                 $due = strtotime($assignment['due_date']);
+
                                 if (date('W', $due) == date('W'))
                                     echo "<b>this</b> " . date("l", $due);
                                 else if (date('W', $due) == date('W')+1)
@@ -107,10 +111,14 @@ $user = get_user_info($_SESSION['email']);
                             }
 						}
 					?>
+                    <li class="add-btn">
+                        <span class="icon">&plus;</span>
+                    </li>
                 </ul>
             </div>
         <?php
         }
+
         $show_form = (count($classes) == 0) ? true : false;
         ?>
         <div class="class new" hide="<?php echo var_export(!$show_form); ?>">
@@ -130,10 +138,11 @@ $user = get_user_info($_SESSION['email']);
                             $colors = array (
                                 'red', 'violet', 'blue', 'cyan', 'green', 'yellow', 'orange'
                             );
+
                             foreach ($colors as $color) {
                             ?>
                                <input id="<?php echo $color; ?>" type="radio" name="color" value="<?php echo $color; ?>">
-                               <label for="<?php echo $color; ?>"></label> 
+                               <label for="<?php echo $color; ?>"></label>
                             <?php
                             }
                         ?>

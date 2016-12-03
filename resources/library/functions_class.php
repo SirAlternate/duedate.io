@@ -5,7 +5,7 @@ function create_class($title, $desc, $color, $add_user = false) {
     global $db_connection;
 
     // Fail-safe
-    if ($title == '')
+    if ($title == '' || ($add_user && !isset($_SESSION['user_id'])))
         return false;
 
     // Inset the new class into the `classes` database

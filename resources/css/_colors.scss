@@ -12,15 +12,31 @@ $colors: ( red: #f03e3e, violet: #7950f2, blue: #228ae6, cyan: #1098ad, green: #
 
         .header {
             background-color: $color;
+
+            a.close-btn {
+                color: $color;
+            }
         }
 
-        ul li p.due {
-            b {
-                background-color: $color;
+        ul li {
+            &.add-btn {
+                // &:hover span.icon {
+                //     background-color: lighten($color, 15%);
+                // }
+                //
+                // span.icon {
+                //     background-color: lighten($color, 20%);
+                // }
             }
 
-            em {
-                color: darken($color, 10%);
+            p.due {
+                b {
+                    background-color: $color;
+                }
+
+                em {
+                    color: darken($color, 10%);
+                }
             }
         }
 

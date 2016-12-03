@@ -72,6 +72,12 @@ $(function() {
                 return false;
             });
         });
+
+        // Handle opening assignments
+        $('body').on('click', '.display .class ul li.item', function(e) {
+            var assignment = $(e.target).closest("li");
+            console.log(assignment.attr('assg-id'));
+        });
     }
 });
 
