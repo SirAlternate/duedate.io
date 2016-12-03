@@ -1,8 +1,10 @@
 <?php require_once('resources/library/load.php');
 
 // Handle user logging out
-if (isset($_GET["logout"]) && $_GET["logout"] == 1)
+if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
     logout();
+    header("Location: index.php?logged_out=1");
+}
 
 // Handle user deleting account
 if (isset($_GET["deleteaccount"]) && $_GET["deleteaccount"] == 1)
@@ -54,7 +56,7 @@ $user = get_user_info($_SESSION['email']);
                       <span class="caret"></span></button>
                       <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="?logout=1" id="logout_button">Log out</a></li>
-						<li><a href="?deleteaccount=1" id = "delete_account_button">Delete Account</a></li>
+						<li><a href="?deleteaccount=1" id = "delete_account_button">Delete account</a></li>
                     </ul>
                 </div>
             </div>
