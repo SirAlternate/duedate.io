@@ -1,14 +1,14 @@
 <?php require_once('resources/library/load.php');
-
 // Handle user logging out
-if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
+if (isset($_GET["logout"]) && $_GET["logout"] == 1)
     logout();
-    header("Location: index.php?logged_out=1");
-}
 
 // Handle user deleting account
 if (isset($_GET["deleteaccount"]) && $_GET["deleteaccount"] == 1)
 	delete_account($_SESSION['user_id']);
+
+if (isset($_GET["changesettings"]) && $_GET["changesettings"] == 1)
+	header('Location: settings.php');
 
 // If user is not logged in send them to the index page
 if(!isset($_SESSION['user_id']))
@@ -57,6 +57,7 @@ $user = get_user_info($_SESSION['email']);
                       <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="?logout=1" id="logout_button">Log out</a></li>
 						<li><a href="?deleteaccount=1" id = "delete_account_button">Delete account</a></li>
+						<li><a href="?changesettings=1" id = "change_button">Settings</a></li>
                     </ul>
                 </div>
             </div>
@@ -87,7 +88,6 @@ $user = get_user_info($_SESSION['email']);
                             <p class="due">Due
                                 <?php
                                 $due = strtotime($assignment['due_date']);
-
                                 if (date('W', $due) == date('W'))
                                     echo "<b>this</b> " . date("l", $due);
                                 else if (date('W', $due) == date('W')+1)
@@ -111,7 +111,6 @@ $user = get_user_info($_SESSION['email']);
             </div>
         <?php
         }
-
         $show_form = (count($classes) == 0) ? true : false;
         ?>
         <div class="class new" hide="<?php echo var_export(!$show_form); ?>">
@@ -131,7 +130,6 @@ $user = get_user_info($_SESSION['email']);
                             $colors = array (
                                 'red', 'violet', 'blue', 'cyan', 'green', 'yellow', 'orange'
                             );
-
                             foreach ($colors as $color) {
                             ?>
                                <input id="<?php echo $color; ?>" type="radio" name="color" value="<?php echo $color; ?>">
