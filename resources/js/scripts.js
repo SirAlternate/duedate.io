@@ -80,7 +80,7 @@ $(function() {
             if (item.hasClass('selected')) {
                 hide_assignment_form(item);
             } else {
-                close_assignments();
+                close_assignments(item.parent().parent());
                 show_assignment_form(item);
 
                 item.parent().delay(100).animate({
@@ -95,13 +95,13 @@ $(function() {
 
             // If the item is already selected hide the open assignment
             if (item.hasClass('selected')) {
-                close_assignments();
+                close_assignments(item.parent().parent());
             }
 
             // Otherwise we want to open it
             else {
                 // Close any open assignments / this class's add form
-                close_assignments();
+                close_assignments(item.parent().parent());
                 hide_assignment_form(item.parent().find('.add-btn'));
 
                 // Select this assignmnet
@@ -175,12 +175,13 @@ function hide_class_form() {
     add_class_form.parent().removeAttr('color')
 }
 
-function close_assignments() {
+function close_assignments(parent) {
     // Un-select items
-    $('.display .class ul li.item.selected').removeClass('selected');
+    parent.find('ul li.item.selected').removeClass('selected');
 
     // Remove any existing assignment pages
-    $('.display .assignment').remove();
+    if (parent.next().hasClass('assignment'))
+        parent.next().remove();
 }
 
 function show_assignment_form(btn) {
@@ -203,4 +204,9 @@ function hide_assignment_form(btn) {
 
     // Hide the form
     btn.parent().find('form.add-assignment').attr('hide', 'true');
+
+    // Clear the input fields for next time
+    btn.parent().find('input[name="assg_title"]').val('');
+    btn.parent().find('input[name="assg_due"]').val('');
+    btn.parent().find('input[name="assg_desc"]').val('');
 }
