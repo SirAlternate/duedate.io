@@ -407,7 +407,8 @@ html {
                         }
 
                         span.arrow {
-                            background-color: darken(#d0d6da, 8%);
+                            // background-color: darken(#d0d6da, 8%);
+                            background: url('../img/arrow_selected.png') no-repeat center;
                         }
                     }
 
@@ -450,7 +451,8 @@ html {
                         width: 8px;
                         height: 32px;
                         margin-top: -15px;
-                        background-color: #d0d6da;
+                        // background-color: #d0d6da;
+                        background: url('../img/arrow.png') no-repeat center;
                     }
                 }
 
@@ -566,12 +568,12 @@ html {
                 border-right: 1px solid lighten(#a7adb4, 15%);
                 border-left: 1px solid lighten(#a7adb4, 15%);
                 overflow: hidden;
-                // @include opacity(1);
                 @include transition(opacity 0.3s ease-out, height 0.3s ease-out);
+                @include opacity(1);
 
                 &[hide="true"] {
                     height: 0;
-                    // @include opacity(0);
+                    @include opacity(0);
                 }
 
                 .form-group {
@@ -635,16 +637,17 @@ html {
             width: 450px;
             background-color: #fff;
             @include box-shadow(2px, 2px, 2px, 3px, rgba(0,0,0,0.04));
+            @include transition(width 0.3s ease-out, opacity 0.3s ease-out);
+            @include opacity(1);
+
+            &[hide="true"] {
+                width: 0;
+                @include opacity(0);
+            }
 
             h1 {
                 margin: 30px 15px 10px;
                 @include font-size(26px);
-            }
-
-            form {
-                input[type="text"] {
-                    padding: 6px 4px;
-                }
             }
         }
 

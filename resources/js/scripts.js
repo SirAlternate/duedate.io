@@ -1,8 +1,7 @@
 $(function() {
-
     if ($('body').attr('id') == 'dashboard') {
         var add_button = $('.add-class-btn');
-        var add_class_form = $('form.add-class');
+        var add_class_form = $();
 
         // Check if there are any classes, if not show the form by default
         if ($('.display').children().length == 2) {
@@ -10,7 +9,7 @@ $(function() {
         }
 
         // Handle adding new classes
-        add_class_form.on('submit', function(e) {
+        $('body').on('submit', '.display .new form.add-class', function(e) {
             e.preventDefault(); // Prevent default form reloading
 
             // Tell the server create the new class
@@ -31,9 +30,11 @@ $(function() {
             });
         });
 
-        add_class_form.find('.colors').on('mouseup', function(e) {
+        // Update form color as user changes color
+        $('body').on('mouseup', '.display .new form.add-class .colors', function(e) {
             var color = $(e.target).attr('for');
-            add_class_form.parent().attr('color', color);
+            $(e.target).closest('.new').attr('color', color);
+
         });
 
         // Handling generating add class form
@@ -80,9 +81,11 @@ $(function() {
             if (item.hasClass('selected')) {
                 hide_assignment_form(item);
             } else {
-                close_assignments(item.parent().parent());
+                close_all_assignments();
+                hide_all_assignment_forms();
                 show_assignment_form(item);
 
+                // Make sure form is within scroll
                 item.parent().delay(100).animate({
                     scrollTop: item.parent().height()
                 }, 300);
@@ -93,25 +96,32 @@ $(function() {
         $('body').on('click', '.display .class ul li.item', function(e) {
             var item = $(e.target).closest('li');
 
+            // Close any open assignment forms
+            hide_all_assignment_forms();
+
             // If the item is already selected hide the open assignment
             if (item.hasClass('selected')) {
-                close_assignments(item.parent().parent());
+                close_assignment(item);
             }
 
-            // Otherwise we want to open it
+            else if (item.parent().find('li.item.selected').length > 0) {
+                var old_item = item.parent().find('li.item.selected');
+                var old_id = old_item.attr('assg-id');
+                var page = $('.display .assignment[assg-id="'+old_id+'"]');
+
+                // Open assignment into page
+                open_assignment(item, page);
+
+                // Un-select old item
+                old_item.removeClass('selected');
+            }
+
+            // Otherwise we want to open the assignment normally
             else {
-                // Close any open assignments / this class's add form
-                close_assignments(item.parent().parent());
-                hide_assignment_form(item.parent().find('.add-btn'));
-
-                // Select this assignmnet
-                item.addClass('selected');
-
-                // Generate assignment page
-                item.closest('.class').after('\
-                    <div class="assignment">\
-                    </div>\
-                ');
+                // Close any open assignments / forms
+                close_all_assignments(function() {
+                    open_assignment(item);
+                });
             }
         });
 
@@ -175,20 +185,79 @@ function hide_class_form() {
     add_class_form.parent().removeAttr('color')
 }
 
-function close_assignments(parent) {
-    // Un-select items
-    parent.find('ul li.item.selected').removeClass('selected');
+function open_assignment(item, replace) {
+    $.get('resources/library/actions.php', {
+        type: 'assignment',
+        id: item.attr('assg-id')
+    }, function(response) {
+        var data = $.parseJSON(response);
 
-    // Remove any existing assignment pages
-    if (parent.next().hasClass('assignment'))
-        parent.next().remove();
+        if (data) {
+            if (replace == undefined) {
+                // Generate assignment page and insert after current class
+                item.closest('.class').after('\
+                    <div class="assignment" assg-id="'+item.attr('assg-id')+'" hide="true">\
+                        <h1>'+data.title+'</h1>\
+                    </div>\
+                ');
+            } else {
+                // Generate assignment page and insert after current class
+                replace.replaceWith('\
+                    <div class="assignment" assg-id="'+item.attr('assg-id')+'" hide="false">\
+                        <h1>'+data.title+'</h1>\
+                    </div>\
+                ');
+            }
+
+            // Make assignment visible
+            var assg = $('.assignment[assg-id="'+item.attr('assg-id')+'"]');
+            if (assg.hasClass('assignment')) {
+                assg.focus().attr('hide', 'false');
+            }
+
+            // Select this item
+            item.addClass('selected');
+        }
+    });
+}
+
+function close_assignment(item, cb) {
+    var assg = $('.assignment[assg-id="'+item.attr('assg-id')+'"]');
+
+    // Hide the assignment page
+    assg.attr('hide', 'true').delay(300).hide(0, function() {
+        $(this).remove();
+
+        if (typeof cb === "function") {
+            cb();
+        }
+    });
+
+    // Un-select this item
+    item.removeClass('selected');
+}
+
+function close_all_assignments(cb) {
+    var items = $('.display').find('ul li.item.selected');
+
+    // Hide all open assignments
+    close_assignment(items, function() {
+        if (typeof cb === "function") {
+            cb();
+        }
+    });
+
+    // If not assignments are open just call callback
+    if (items.length == 0 && typeof cb === "function") {
+        cb();
+    }
 }
 
 function show_assignment_form(btn) {
     // Select this item
     btn.addClass('selected');
 
-    // Set text to minus
+    // Switch span text to minus sign
     btn.find('span').text('-');
 
     // Show the form
@@ -199,7 +268,7 @@ function hide_assignment_form(btn) {
     // Un-select this item
     btn.removeClass('selected');
 
-    // Set text to plus
+    // Switch span text to plus sign
     btn.find('span').text('+');
 
     // Hide the form
@@ -209,4 +278,10 @@ function hide_assignment_form(btn) {
     btn.parent().find('input[name="assg_title"]').val('');
     btn.parent().find('input[name="assg_due"]').val('');
     btn.parent().find('input[name="assg_desc"]').val('');
+}
+
+function hide_all_assignment_forms() {
+    // Un-select buttons
+    var btns = $('.display .class .add-btn.selected');
+    hide_assignment_form(btns);
 }

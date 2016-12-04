@@ -24,10 +24,6 @@ if (isset($_POST['action']) && isset($_POST['type'])) {
         }
         case 'assignment': {
             switch ($_POST['action']) {
-                case 'get': {
-                    echo get_assignment($assg_id);
-                    break;
-                }
                 case 'add': {
                     $class_id = isset($_POST['data']['class_id']) ? make_safe($_POST['data']['class_id']) : '';
                     $title = isset($_POST['data']['title']) ? make_safe($_POST['data']['title']) : '';
@@ -39,17 +35,27 @@ if (isset($_POST['action']) && isset($_POST['type'])) {
                     break;
                 }
                 case 'delete': {
-
+                    if (remove_assignment($_POST['id'])) { echo true; }
+                    else { echo false; }
                     break;
                 }
                 case 'finish': {
-
+                    if (finish_assignment($_POST['id'])) { echo true; }
+                    else { echo false; }
                     break;
                 }
             }
             break;
         }
-        // TODO: Add assignment actions
     }
+}
 
+// Handle getting info
+if (isset($_GET['type'])) {
+    switch ($_GET['type']) {
+        case 'assignment': {
+            echo json_encode(get_assignment($_GET['id']));
+            break;
+        }
+    }
 }

@@ -420,7 +420,7 @@ html {
 }
 
 #dashboard .display .class ul li.selected span.arrow, #dashboard .display .add-class-btn ul li.selected span.arrow {
-  background-color: #b9c2c8;
+  background: url("../img/arrow_selected.png") no-repeat center;
 }
 
 #dashboard .display .class ul li p.title, #dashboard .display .add-class-btn ul li p.title {
@@ -465,7 +465,7 @@ html {
   width: 8px;
   height: 32px;
   margin-top: -15px;
-  background-color: #d0d6da;
+  background: url("../img/arrow.png") no-repeat center;
 }
 
 #dashboard .display .class ul li.add-btn, #dashboard .display .add-class-btn ul li.add-btn {
@@ -593,10 +593,14 @@ html {
   -ms-transition: opacity 0.3s ease-out, height 0.3s ease-out;
   -o-transition: opacity 0.3s ease-out, height 0.3s ease-out;
   transition: opacity 0.3s ease-out, height 0.3s ease-out;
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 
 #dashboard .display .class form.add-assignment[hide="true"], #dashboard .display .add-class-btn form.add-assignment[hide="true"] {
   height: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 
 #dashboard .display .class form.add-assignment .form-group, #dashboard .display .add-class-btn form.add-assignment .form-group {
@@ -665,16 +669,25 @@ html {
   -webkit-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
   -moz-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
   box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
+  -webkit-transition: width 0.3s ease-out, opacity 0.3s ease-out;
+  -moz-transition: width 0.3s ease-out, opacity 0.3s ease-out;
+  -ms-transition: width 0.3s ease-out, opacity 0.3s ease-out;
+  -o-transition: width 0.3s ease-out, opacity 0.3s ease-out;
+  transition: width 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+#dashboard .display .assignment[hide="true"] {
+  width: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 
 #dashboard .display .assignment h1 {
   margin: 30px 15px 10px;
   font-size: 26px;
   font-size: 2.6rem;
-}
-
-#dashboard .display .assignment form input[type="text"], #dashboard .display .assignment .class form.add-assignment .form-group input[type="date"], #dashboard .display .class .assignment form.add-assignment .form-group input[type="date"], #dashboard .display .assignment .add-class-btn form.add-assignment .form-group input[type="date"], #dashboard .display .add-class-btn .assignment form.add-assignment .form-group input[type="date"] {
-  padding: 6px 4px;
 }
 
 #dashboard .display .class[color="red"].draggable .header:hover, #dashboard .display [color="red"].draggable.add-class-btn .header:hover {
