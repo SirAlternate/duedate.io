@@ -126,7 +126,7 @@ $user = get_user_info($_SESSION['email']);
                 <h1>New Class</h1>
                 <a class="close-btn">&times;</a>
             </div>
-            <form class="col-md-5 add-class" method="post">
+            <form class="add-class" method="post">
                 <div class="form-group">
                     <label for="class_name">Class Name:</label></br>
                     <input type="text" name="class_name" required="required" />

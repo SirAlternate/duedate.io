@@ -22,6 +22,33 @@ if (isset($_POST['action']) && isset($_POST['type'])) {
             }
             break;
         }
+        case 'assignment': {
+            switch ($_POST['action']) {
+                case 'get': {
+                    echo get_assignment($assg_id);
+                    break;
+                }
+                case 'add': {
+                    $class_id = isset($_POST['data']['class_id']) ? make_safe($_POST['data']['class_id']) : '';
+                    $title = isset($_POST['data']['title']) ? make_safe($_POST['data']['title']) : '';
+                    $due_date = isset($_POST['data']['due_date']) ? make_safe($_POST['data']['due_date']) : '';
+                    $desc = isset($_POST['data']['desc']) ? make_safe($_POST['data']['desc']) : '';
+
+                    if (create_assignment($class_id, $title, null, $due_date, $desc)) { echo true; }
+                    else { echo false; }
+                    break;
+                }
+                case 'delete': {
+
+                    break;
+                }
+                case 'finish': {
+
+                    break;
+                }
+            }
+            break;
+        }
         // TODO: Add assignment actions
     }
 

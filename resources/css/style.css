@@ -412,7 +412,7 @@ html {
 }
 
 #dashboard .display .class ul li.selected, #dashboard .display .add-class-btn ul li.selected {
-  background-color: #e4e4e4;
+  background-color: #eeeeee;
 }
 
 #dashboard .display .class ul li.selected:hover, #dashboard .display .add-class-btn ul li.selected:hover {
@@ -481,6 +481,18 @@ html {
   background-color: #d0d3d7;
 }
 
+#dashboard .display .class ul li.add-btn.selected, #dashboard .display .add-class-btn ul li.add-btn.selected {
+  background-color: inherit;
+}
+
+#dashboard .display .class ul li.add-btn.selected span.icon, #dashboard .display .add-class-btn ul li.add-btn.selected span.icon {
+  background-color: #b5bac0;
+}
+
+#dashboard .display .class ul li.add-btn.selected:hover span.icon, #dashboard .display .add-class-btn ul li.add-btn.selected:hover span.icon {
+  background-color: #a1a8af;
+}
+
 #dashboard .display .class ul li.add-btn span.icon, #dashboard .display .add-class-btn ul li.add-btn span.icon {
   display: block;
   margin: 8px auto;
@@ -497,14 +509,17 @@ html {
   transition: background 0.1s ease-out;
 }
 
-#dashboard .display .class form.add-class, #dashboard .display .add-class-btn form.add-class {
+#dashboard .display .class form, #dashboard .display .add-class-btn form {
   width: 100%;
   margin-top: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #e4e4e4;
 }
 
-#dashboard .display .class form.add-class .form-group label, #dashboard .display .add-class-btn form.add-class .form-group label {
+#dashboard .display .class form .form-group, #dashboard .display .add-class-btn form .form-group {
+  padding: 0 10px;
+}
+
+#dashboard .display .class form .form-group label, #dashboard .display .add-class-btn form .form-group label {
   color: #9a9a9a;
   font-size: 15px;
   font-size: 1.5rem;
@@ -512,7 +527,7 @@ html {
   font-weight: normal;
 }
 
-#dashboard .display .class form.add-class .form-group input[type="text"], #dashboard .display .add-class-btn form.add-class .form-group input[type="text"] {
+#dashboard .display .class form .form-group input[type="text"], #dashboard .display .add-class-btn form .form-group input[type="text"], #dashboard .display .class form .form-group input[type="date"], #dashboard .display .add-class-btn form .form-group input[type="date"] {
   width: 100%;
   padding: 13px 10px;
   background-color: #f1f1f1;
@@ -521,12 +536,12 @@ html {
   font-size: 1.5rem;
 }
 
-#dashboard .display .class form.add-class .form-group input[type="text"]:focus, #dashboard .display .add-class-btn form.add-class .form-group input[type="text"]:focus {
+#dashboard .display .class form .form-group input[type="text"]:focus, #dashboard .display .add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class form .form-group input[type="date"]:focus, #dashboard .display .add-class-btn form .form-group input[type="date"]:focus {
   border: 1px solid #a7adb4;
   outline: 0;
 }
 
-#dashboard .display .class form.add-class .form-group input[name="add_class"], #dashboard .display .add-class-btn form.add-class .form-group input[name="add_class"] {
+#dashboard .display .class form .form-group input[type="submit"], #dashboard .display .add-class-btn form .form-group input[type="submit"] {
   width: 100%;
   margin-top: 25px;
   padding: 18px 10px;
@@ -544,15 +559,15 @@ html {
   transition: background 0.5s ease-out;
 }
 
-#dashboard .display .class form.add-class .form-group input[name="add_class"]:hover, #dashboard .display .add-class-btn form.add-class .form-group input[name="add_class"]:hover {
+#dashboard .display .class form .form-group input[type="submit"]:hover, #dashboard .display .add-class-btn form .form-group input[type="submit"]:hover {
   background-color: #9198a1;
 }
 
-#dashboard .display .class form.add-class .form-group .colors input, #dashboard .display .add-class-btn form.add-class .form-group .colors input {
+#dashboard .display .class form .form-group .colors input, #dashboard .display .add-class-btn form .form-group .colors input {
   display: none;
 }
 
-#dashboard .display .class form.add-class .form-group .colors input + label, #dashboard .display .add-class-btn form.add-class .form-group .colors input + label {
+#dashboard .display .class form .form-group .colors input + label, #dashboard .display .add-class-btn form .form-group .colors input + label {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -562,8 +577,30 @@ html {
   cursor: pointer;
 }
 
-#dashboard .display .class form.add-class .form-group .colors input:checked + label, #dashboard .display .add-class-btn form.add-class .form-group .colors input:checked + label {
+#dashboard .display .class form .form-group .colors input:checked + label, #dashboard .display .add-class-btn form .form-group .colors input:checked + label {
   border: 4px solid #c1c1c1;
+}
+
+#dashboard .display .assignment {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  min-height: 100%;
+  width: 450px;
+  background-color: #fff;
+  -webkit-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
+  -moz-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
+}
+
+#dashboard .display .assignment h1 {
+  margin: 30px 15px 10px;
+  font-size: 26px;
+  font-size: 2.6rem;
+}
+
+#dashboard .display .assignment form input[type="text"], #dashboard .display .assignment .class form .form-group input[type="date"], #dashboard .display .class .assignment form .form-group input[type="date"], #dashboard .display .assignment .add-class-btn form .form-group input[type="date"], #dashboard .display .add-class-btn .assignment form .form-group input[type="date"] {
+  padding: 6px 4px;
 }
 
 #dashboard .display .class[color="red"].draggable .header:hover, #dashboard .display [color="red"].draggable.add-class-btn .header:hover {
@@ -587,15 +624,15 @@ html {
   color: #e91212;
 }
 
-#dashboard .display .class[color="red"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="red"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+#dashboard .display .class[color="red"] form .form-group input[type="text"]:focus, #dashboard .display [color="red"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="red"] form .form-group input[type="date"]:focus, #dashboard .display [color="red"].add-class-btn form .form-group input[type="date"]:focus {
   border: 1px solid #f03e3e;
 }
 
-#dashboard .display .class[color="red"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="red"].add-class-btn form.add-class .form-group input[name="add_class"] {
+#dashboard .display .class[color="red"] form .form-group input[name="add_class"], #dashboard .display [color="red"].add-class-btn form .form-group input[name="add_class"] {
   background-color: #f03e3e;
 }
 
-#dashboard .display .class[color="red"] form.add-class .form-group input[name="add_class"]:hover, #dashboard .display [color="red"].add-class-btn form.add-class .form-group input[name="add_class"]:hover {
+#dashboard .display .class[color="red"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="red"].add-class-btn form .form-group input[name="add_class"]:hover {
   background-color: #ed1818;
 }
 
@@ -628,15 +665,15 @@ html {
   color: #5521ee;
 }
 
-#dashboard .display .class[color="violet"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="violet"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+#dashboard .display .class[color="violet"] form .form-group input[type="text"]:focus, #dashboard .display [color="violet"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="violet"] form .form-group input[type="date"]:focus, #dashboard .display [color="violet"].add-class-btn form .form-group input[type="date"]:focus {
   border: 1px solid #7950f2;
 }
 
-#dashboard .display .class[color="violet"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="violet"].add-class-btn form.add-class .form-group input[name="add_class"] {
+#dashboard .display .class[color="violet"] form .form-group input[name="add_class"], #dashboard .display [color="violet"].add-class-btn form .form-group input[name="add_class"] {
   background-color: #7950f2;
 }
 
-#dashboard .display .class[color="violet"] form.add-class .form-group input[name="add_class"]:hover, #dashboard .display [color="violet"].add-class-btn form.add-class .form-group input[name="add_class"]:hover {
+#dashboard .display .class[color="violet"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="violet"].add-class-btn form .form-group input[name="add_class"]:hover {
   background-color: #5c2aef;
 }
 
@@ -669,15 +706,15 @@ html {
   color: #1670bf;
 }
 
-#dashboard .display .class[color="blue"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="blue"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+#dashboard .display .class[color="blue"] form .form-group input[type="text"]:focus, #dashboard .display [color="blue"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="blue"] form .form-group input[type="date"]:focus, #dashboard .display [color="blue"].add-class-btn form .form-group input[type="date"]:focus {
   border: 1px solid #228ae6;
 }
 
-#dashboard .display .class[color="blue"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="blue"].add-class-btn form.add-class .form-group input[name="add_class"] {
+#dashboard .display .class[color="blue"] form .form-group input[name="add_class"], #dashboard .display [color="blue"].add-class-btn form .form-group input[name="add_class"] {
   background-color: #228ae6;
 }
 
-#dashboard .display .class[color="blue"] form.add-class .form-group input[name="add_class"]:hover, #dashboard .display [color="blue"].add-class-btn form.add-class .form-group input[name="add_class"]:hover {
+#dashboard .display .class[color="blue"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="blue"].add-class-btn form .form-group input[name="add_class"]:hover {
   background-color: #1775c9;
 }
 
@@ -710,15 +747,15 @@ html {
   color: #0c6f7e;
 }
 
-#dashboard .display .class[color="cyan"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="cyan"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+#dashboard .display .class[color="cyan"] form .form-group input[type="text"]:focus, #dashboard .display [color="cyan"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="cyan"] form .form-group input[type="date"]:focus, #dashboard .display [color="cyan"].add-class-btn form .form-group input[type="date"]:focus {
   border: 1px solid #1098ad;
 }
 
-#dashboard .display .class[color="cyan"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="cyan"].add-class-btn form.add-class .form-group input[name="add_class"] {
+#dashboard .display .class[color="cyan"] form .form-group input[name="add_class"], #dashboard .display [color="cyan"].add-class-btn form .form-group input[name="add_class"] {
   background-color: #1098ad;
 }
 
-#dashboard .display .class[color="cyan"] form.add-class .form-group input[name="add_class"]:hover, #dashboard .display [color="cyan"].add-class-btn form.add-class .form-group input[name="add_class"]:hover {
+#dashboard .display .class[color="cyan"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="cyan"].add-class-btn form .form-group input[name="add_class"]:hover {
   background-color: #0d7788;
 }
 
@@ -751,15 +788,15 @@ html {
   color: #33ba4a;
 }
 
-#dashboard .display .class[color="green"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="green"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+#dashboard .display .class[color="green"] form .form-group input[type="text"]:focus, #dashboard .display [color="green"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="green"] form .form-group input[type="date"]:focus, #dashboard .display [color="green"].add-class-btn form .form-group input[type="date"]:focus {
   border: 1px solid #51cf66;
 }
 
-#dashboard .display .class[color="green"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="green"].add-class-btn form.add-class .form-group input[name="add_class"] {
+#dashboard .display .class[color="green"] form .form-group input[name="add_class"], #dashboard .display [color="green"].add-class-btn form .form-group input[name="add_class"] {
   background-color: #51cf66;
 }
 
-#dashboard .display .class[color="green"] form.add-class .form-group input[name="add_class"]:hover, #dashboard .display [color="green"].add-class-btn form.add-class .form-group input[name="add_class"]:hover {
+#dashboard .display .class[color="green"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="green"].add-class-btn form .form-group input[name="add_class"]:hover {
   background-color: #35c24d;
 }
 
@@ -792,15 +829,15 @@ html {
   color: #dfa903;
 }
 
-#dashboard .display .class[color="yellow"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="yellow"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+#dashboard .display .class[color="yellow"] form .form-group input[type="text"]:focus, #dashboard .display [color="yellow"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="yellow"] form .form-group input[type="date"]:focus, #dashboard .display [color="yellow"].add-class-btn form .form-group input[type="date"]:focus {
   border: 1px solid #fcc419;
 }
 
-#dashboard .display .class[color="yellow"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="yellow"].add-class-btn form.add-class .form-group input[name="add_class"] {
+#dashboard .display .class[color="yellow"] form .form-group input[name="add_class"], #dashboard .display [color="yellow"].add-class-btn form .form-group input[name="add_class"] {
   background-color: #fcc419;
 }
 
-#dashboard .display .class[color="yellow"] form.add-class .form-group input[name="add_class"]:hover, #dashboard .display [color="yellow"].add-class-btn form.add-class .form-group input[name="add_class"]:hover {
+#dashboard .display .class[color="yellow"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="yellow"].add-class-btn form .form-group input[name="add_class"]:hover {
   background-color: #e9b003;
 }
 
@@ -833,15 +870,15 @@ html {
   color: #f77800;
 }
 
-#dashboard .display .class[color="orange"] form.add-class .form-group input[type="text"]:focus, #dashboard .display [color="orange"].add-class-btn form.add-class .form-group input[type="text"]:focus {
+#dashboard .display .class[color="orange"] form .form-group input[type="text"]:focus, #dashboard .display [color="orange"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="orange"] form .form-group input[type="date"]:focus, #dashboard .display [color="orange"].add-class-btn form .form-group input[type="date"]:focus {
   border: 1px solid #ff922b;
 }
 
-#dashboard .display .class[color="orange"] form.add-class .form-group input[name="add_class"], #dashboard .display [color="orange"].add-class-btn form.add-class .form-group input[name="add_class"] {
+#dashboard .display .class[color="orange"] form .form-group input[name="add_class"], #dashboard .display [color="orange"].add-class-btn form .form-group input[name="add_class"] {
   background-color: #ff922b;
 }
 
-#dashboard .display .class[color="orange"] form.add-class .form-group input[name="add_class"]:hover, #dashboard .display [color="orange"].add-class-btn form.add-class .form-group input[name="add_class"]:hover {
+#dashboard .display .class[color="orange"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="orange"].add-class-btn form .form-group input[name="add_class"]:hover {
   background-color: #ff7d02;
 }
 

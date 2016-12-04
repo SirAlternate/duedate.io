@@ -400,7 +400,7 @@ html {
                     }
 
                     &.selected {
-                        background-color: darken(#f8f8f8, 8%);
+                        background-color: darken(#f8f8f8, 4%);
 
                         &:hover {
                             background-color: darken(#f8f8f8, 8%);
@@ -465,6 +465,19 @@ html {
                             background-color: lighten(#a7adb4, 15%);
                         }
                     }
+                    &.selected {
+                        background-color: inherit;
+
+                        span.icon {
+                            background-color: lighten(#a7adb4, 5%);
+                        }
+
+                        &:hover {
+                            span.icon {
+                                background-color: darken(#a7adb4, 2%);
+                            }
+                        }
+                    }
 
                     span.icon {
                         display: block;
@@ -479,13 +492,14 @@ html {
                 }
             }
 
-            form.add-class {
+            form {
                 width: 100%;
                 margin-top: 20px;
                 padding-bottom: 10px;
-                border-bottom: 1px solid #e4e4e4;
 
                 .form-group {
+                    padding: 0 10px;
+
                     label {
                         color: #9a9a9a;
                         @include font-size(15px);
@@ -506,7 +520,11 @@ html {
                         }
                     }
 
-                    input[name="add_class"] {
+                    input[type="date"] {
+                        @extend input[type="text"];
+                    }
+
+                    input[type="submit"] {
                         width: 100%;
                         margin-top: 25px;
                         padding: 18px 10px;
@@ -545,6 +563,28 @@ html {
                 }
             }
         }
+
+        .assignment {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            min-height: 100%;
+            width: 450px;
+            background-color: #fff;
+            @include box-shadow(2px, 2px, 2px, 3px, rgba(0,0,0,0.04));
+
+            h1 {
+                margin: 30px 15px 10px;
+                @include font-size(26px);
+            }
+
+            form {
+                input[type="text"] {
+                    padding: 6px 4px;
+                }
+            }
+        }
+
         @import "colors";
 
         .add-class-btn {
