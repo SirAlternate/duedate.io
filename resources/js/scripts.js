@@ -80,9 +80,11 @@ $(function() {
             if (item.hasClass('selected')) {
                 hide_assignment_form(item);
             } else {
-                close_assignments();
-                hide_assignment_form($('#dashboard .class .add-btn'));
                 show_assignment_form(item);
+
+                item.parent().delay(100).animate({
+                    scrollTop: item.parent().height()
+                }, 300);
             }
         });
 
@@ -97,7 +99,7 @@ $(function() {
 
             // Otherwise we want to open it
             else {
-                // Close any open assignments / forms 
+                // Close any open assignments / forms
                 close_assignments();
                 hide_assignment_form(item.parent().find('.add-btn'));
 
@@ -113,7 +115,7 @@ $(function() {
         });
 
         // Handle adding new assignments
-        $('body').on('submit', '.display .assignment form.add-assignment', function(e) {
+        $('body').on('submit', '.display .class form.add-assignment', function(e) {
             e.preventDefault(); // Prevent default form reloading
 
             // Tell the server create the new class
@@ -121,7 +123,7 @@ $(function() {
                 action: 'add',
                 type: 'assignment',
                 data: {
-                    class_id: $(this).attr("class_id"),
+                    class_id: $(this).parent().parent().attr("class-id"),
                     title: $(this).find("input[name='assg_title']").val(),
                     due_date: $(this).find("input[name='assg_due']").val(),
                     desc: $(this).find("input[name='assg_desc']").val()
@@ -129,7 +131,6 @@ $(function() {
             }, function(response) {
                 // Reload page if we were successful so that we can see the
                 // new assignment we just added
-                console.log(response);
                 if (response == true) {
                     location.reload();
                 }
@@ -188,36 +189,17 @@ function show_assignment_form(btn) {
     // Set text to minus
     btn.find('span').text('-');
 
-    // Generate the add-class form
-    var class_id = btn.parent().parent().attr('class-id');
-    btn.after('\
-        <form class="add-assignment" method="post" class_id="' + class_id + '">\
-            <div class="form-group">\
-                <label for="assg_title">Title:</label></br>\
-                <input type="text" name="assg_title" required="required" />\
-            </div>\
-            <div class="form-group">\
-                <label for="assg_due">Due:</label></br>\
-                <input type="date" name="assg_due" />\
-            </div>\
-            <div class="form-group">\
-                <label for="assg_desc">Description:</label></br>\
-                <input type="text" name="assg_desc" />\
-            </div>\
-            <div class="form-group">\
-                <input type="submit" name="add_assg" value="Create Assignment" />\
-            </div>\
-        </form>\
-    ');
+    // Show the form
+    btn.parent().find('form.add-assignment').attr('hide', 'false');
 }
 
 function hide_assignment_form(btn) {
-    // Remove the form
-    btn.parent().find('form.add-assignment').remove();
-
     // Un-select this item
     btn.removeClass('selected');
 
     // Set text to plus
     btn.find('span').text('+');
+
+    // Hide the form
+    btn.parent().find('form.add-assignment').attr('hide', 'true');
 }

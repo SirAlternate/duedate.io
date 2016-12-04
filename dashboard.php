@@ -91,10 +91,9 @@ $user = get_user_info($_SESSION['email']);
                             <p class="due">Due
                                 <?php
                                 $due = strtotime($assignment['due_date']);
-
-                                if (date('W', $due) == date('W'))
+                                if ($due <= strtotime('next saturday'))
                                     echo "<b>this</b> " . date("l", $due);
-                                else if (date('W', $due) == date('W')+1)
+                                else if ($due < strtotime('next saturday', strtotime('next saturday')))
                                     echo "<em>next</em> " . date("l", $due);
                                 else
                                     echo date("l n/j", $due);
@@ -111,6 +110,23 @@ $user = get_user_info($_SESSION['email']);
                             }
 						}
 					?>
+                    <form class="add-assignment" method="post" hide="true">
+                        <div class="form-group">
+                            <label for="assg_title">Title:</label></br>
+                            <input type="text" name="assg_title" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="assg_due">Due:</label></br>
+                            <input type="date" name="assg_due" />
+                        </div>
+                        <div class="form-group">
+                            <label for="assg_desc">Description:</label></br>
+                            <input type="text" name="assg_desc" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="add_assg" value="Create Assignment" />
+                        </div>
+                    </form>
                     <li class="add-btn">
                         <span class="icon">&plus;</span>
                     </li>
