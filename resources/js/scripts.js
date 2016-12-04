@@ -80,6 +80,7 @@ $(function() {
             if (item.hasClass('selected')) {
                 hide_assignment_form(item);
             } else {
+                close_assignments();
                 show_assignment_form(item);
 
                 item.parent().delay(100).animate({
@@ -99,7 +100,7 @@ $(function() {
 
             // Otherwise we want to open it
             else {
-                // Close any open assignments / forms
+                // Close any open assignments / this class's add form
                 close_assignments();
                 hide_assignment_form(item.parent().find('.add-btn'));
 
