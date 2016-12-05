@@ -397,24 +397,6 @@ html {
                     border-bottom: 1px solid #e4e4e4;
                     @include transition( background 0.05s ease-out );
 
-                    // &:hover {
-                    //     background-color: #f8f8f8;
-                    //     cursor: pointer;
-                    // }
-
-                    // &.selected {
-                    //     background-color: darken(#f8f8f8, 4%);
-                    //
-                    //     &:hover {
-                    //         background-color: darken(#f8f8f8, 8%);
-                    //     }
-                    //
-                    //     span.arrow {
-                    //         // background-color: darken(#d0d6da, 8%);
-                    //         background: url('../img/arrow_selected.png') no-repeat center;
-                    //     }
-                    // }
-
                     .tab {
                         float: left;
                         display: flex;
@@ -484,18 +466,6 @@ html {
                             color: #787c81;
                             @include font-size(14px);
                         }
-
-                        // span.arrow {
-                        //     position: absolute;
-                        //     right: 15px;
-                        //     top: 50%;
-                        //     bottom: 0;
-                        //     width: 8px;
-                        //     height: 32px;
-                        //     margin-top: -15px;
-                        //     // background-color: #d0d6da;
-                        //     background: url('../img/arrow.png') no-repeat center;
-                        // }
                     }
                 }
 
