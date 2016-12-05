@@ -98,10 +98,11 @@ if (isset($_POST['register_submit'])) {
     </header>
     <div class="container page">
         <div class="row">
-            <div class="col-md-7">
-                <!-- TODO: Add blurb about what duedate.io is and how it can help students/teachers -->
+            <div class="col-md-6 index_blurb">
+                <h1>About duedate.io</h1>
+                <p>duedate.io is a web-based assignment manager that aids students in keeping track of their classes and assignments. Don't let the hectic nature of college life wear you down, let duedate.io help you sort out the chaos.</p>     
             </div>
-            <form class="col-md-5 register" method="post"> <!-- TODO: Proper form validation (probably use validator.js) -->
+            <form class="col-md-5 col-md-offset-1 register" method="post"> <!-- TODO: Proper form validation (probably use validator.js) -->
                 <h1>Sign up now</h1>
                 <div class="form-group">
                     <label for="register_firstname">First Name:</label></br>
