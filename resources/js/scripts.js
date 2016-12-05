@@ -238,7 +238,7 @@ function hide_assignment_form(btn) {
     btn.removeClass('selected');
 
     // Switch span text to plus sign
-    btn.find('i').text('close');
+    btn.find('i').text('add');
 
     // Hide the form
     btn.parent().find('form.add-assignment').attr('hide', 'true');
