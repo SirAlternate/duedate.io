@@ -95,7 +95,6 @@ $user = get_user_info($_SESSION['email']);
                       <span class="caret"></span></button>
                       <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="?logout=1" id="logout_button">Log out</a></li>
-						<li><a href="?deleteaccount=1" id = "delete_account_button">Delete Account</a></li>
 						<li><a href="?dashboard=1" id="dashboard_button" >Go To Dashboard</a></li>
                     </ul>
                 </div>
@@ -137,6 +136,15 @@ $user = get_user_info($_SESSION['email']);
 					
 				</form>
             </div>
+			
+			<div class="class">
+                <div class="header" background="cyan">
+                    <h1>Delete Account</h1>
+					
+                </div>
+                <a href="?deleteaccount=1" id = "delete_account_button" ><button>Delete Account</button></a>
+            </div>
+			
 		</div>
        
     </div>
