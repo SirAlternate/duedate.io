@@ -129,7 +129,7 @@ $user = get_user_info($_SESSION['email']);
 					<label for="new_pass">New Password:</label>
 					<input type = "password" name="new_pass" />
 					<br />
-					<label for="new_passc">Confirm New Password:</label>
+					<label for="new_passc">Confirm Password:</label>
 					<input type = "password" name="new_passc" />
 					<br />
 					<input type = "submit" value ="Change Password" />
