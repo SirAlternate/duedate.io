@@ -498,8 +498,9 @@ div.alert + .navbar + .display {
                             height: 0;
                             border: none;
                         }
-                        .edit,
-                        .delete {
+
+                        .delete,
+                        .edit {
                             width: 50%;
                             height: 100%;
                             vertical-align: top;
@@ -513,6 +514,7 @@ div.alert + .navbar + .display {
                             &:hover {
                                 color: #161515;
                             }
+
                             i {
                                 display: inline-block;
                                 height: 20px;
@@ -521,6 +523,7 @@ div.alert + .navbar + .display {
                                 margin-right: 8px;
                                 @include font-size(20px);
                             }
+
                             p {
                                 vertical-align: top;
                                 display: inline-block;
@@ -528,9 +531,11 @@ div.alert + .navbar + .display {
                                 text-transform: uppercase;
                             }
                         }
+
                         .edit {
                             background-color: lighten(#edbe5e, 15%);
                         }
+
                         .delete {
                             background-color: lighten(#61d174, 15%);
                         }

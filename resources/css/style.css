@@ -524,8 +524,8 @@ div.alert + .navbar + .display {
   border: none;
 }
 
-#dashboard .display .class ul li .expand .edit, #dashboard .display .add-class-btn ul li .expand .edit,
-#dashboard .display .class ul li .expand .delete, #dashboard .display .add-class-btn ul li .expand .delete {
+#dashboard .display .class ul li .expand .delete, #dashboard .display .add-class-btn ul li .expand .delete,
+#dashboard .display .class ul li .expand .edit, #dashboard .display .add-class-btn ul li .expand .edit {
   width: 50%;
   height: 100%;
   vertical-align: top;
@@ -537,13 +537,13 @@ div.alert + .navbar + .display {
   color: rgba(22, 21, 21, 0.8);
 }
 
-#dashboard .display .class ul li .expand .edit:hover, #dashboard .display .add-class-btn ul li .expand .edit:hover,
-#dashboard .display .class ul li .expand .delete:hover, #dashboard .display .add-class-btn ul li .expand .delete:hover {
+#dashboard .display .class ul li .expand .delete:hover, #dashboard .display .add-class-btn ul li .expand .delete:hover,
+#dashboard .display .class ul li .expand .edit:hover, #dashboard .display .add-class-btn ul li .expand .edit:hover {
   color: #161515;
 }
 
-#dashboard .display .class ul li .expand .edit i, #dashboard .display .add-class-btn ul li .expand .edit i,
-#dashboard .display .class ul li .expand .delete i, #dashboard .display .add-class-btn ul li .expand .delete i {
+#dashboard .display .class ul li .expand .delete i, #dashboard .display .add-class-btn ul li .expand .delete i,
+#dashboard .display .class ul li .expand .edit i, #dashboard .display .add-class-btn ul li .expand .edit i {
   display: inline-block;
   height: 20px;
   width: 20px;
@@ -553,8 +553,8 @@ div.alert + .navbar + .display {
   font-size: 2rem;
 }
 
-#dashboard .display .class ul li .expand .edit p, #dashboard .display .add-class-btn ul li .expand .edit p,
-#dashboard .display .class ul li .expand .delete p, #dashboard .display .add-class-btn ul li .expand .delete p {
+#dashboard .display .class ul li .expand .delete p, #dashboard .display .add-class-btn ul li .expand .delete p,
+#dashboard .display .class ul li .expand .edit p, #dashboard .display .add-class-btn ul li .expand .edit p {
   vertical-align: top;
   display: inline-block;
   font-size: 14px;
