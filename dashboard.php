@@ -1,6 +1,5 @@
 <?php require_once('resources/library/load.php');
 
-$_SESSION['state'] = 'new_user';
 // If user is not logged in send them to the index page
 if(!isset($_SESSION['user_id']))
     header('Location: index.php');
