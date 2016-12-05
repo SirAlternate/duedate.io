@@ -1,4 +1,4 @@
-<?php require_once('load.php');
+<?php require_once('resources/library/load.php');
 
 // Connect to the database (false means we are just connecting)
 db_connect(false);
@@ -54,7 +54,6 @@ $db_connection->exec("CREATE TABLE IF NOT EXISTS `assignments` (
     `class_id` int(7) NOT NULL,
     `title` varchar(32) NOT NULL,
     `desc` varchar(256) NULL,
-    `post_date` date NULL,
     `due_date` date NOT NULL,
     `duration` time NULL,
     FOREIGN KEY (`class_id`)

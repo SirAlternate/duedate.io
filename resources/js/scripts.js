@@ -124,29 +124,29 @@ $(function() {
         //         });
         //     }
         // });
-        //
-        // // Handle adding new assignments
-        // $('body').on('submit', '.display .class form.add-assignment', function(e) {
-        //     e.preventDefault(); // Prevent default form reloading
-        //
-        //     // Tell the server create the new class
-        //     $.post('resources/library/actions.php', {
-        //         action: 'add',
-        //         type: 'assignment',
-        //         data: {
-        //             class_id: $(this).parent().parent().attr("class-id"),
-        //             title: $(this).find("input[name='assg_title']").val(),
-        //             due_date: $(this).find("input[name='assg_due']").val(),
-        //             desc: $(this).find("input[name='assg_desc']").val()
-        //         }
-        //     }, function(response) {
-        //         // Reload page if we were successful so that we can see the
-        //         // new assignment we just added
-        //         if (response == true) {
-        //             location.reload();
-        //         }
-        //     });
-        // });
+
+        // Handle adding new assignments
+        $('body').on('submit', '.display .class form.add-assignment', function(e) {
+            e.preventDefault(); // Prevent default form reloading
+
+            // Tell the server create the new class
+            $.post('resources/library/actions.php', {
+                action: 'add',
+                type: 'assignment',
+                data: {
+                    class_id: $(this).parent().parent().attr("class-id"),
+                    title: $(this).find("input[name='assg_title']").val(),
+                    due_date: $(this).find("input[name='assg_due']").val(),
+                    desc: $(this).find("input[name='assg_desc']").val()
+                }
+            }, function(response) {
+                // Reload page if we were successful so that we can see the
+                // new assignment we just added
+                if (response == true) {
+                    location.reload();
+                }
+            });
+        });
     }
 });
 

@@ -1,7 +1,7 @@
 <?php
 
 // Create a new assignment and add it to the `assignments` database
-function create_assignment($class_id, $title, $post_date, $due_date, $desc, $duration = null) {
+function create_assignment($class_id, $title, $due_date, $desc, $duration = null) {
     global $db_connection;
 
     // Fail-safe
@@ -10,9 +10,9 @@ function create_assignment($class_id, $title, $post_date, $due_date, $desc, $dur
 
     // Inset the new assignment into the `assignments` database
     $db_connection->exec("INSERT INTO `assignments`
-    ( `class_id`, `title`, `desc`, `post_date`, `due_date`, `duration` )
+    ( `class_id`, `title`, `desc`, `due_date`, `duration` )
     VALUES
-    ( '$class_id', '$title', '$desc', '$post_date', '$due_date', '$duration' )");
+    ( '$class_id', '$title', '$desc', '$due_date', '$duration' )");
 
     // If we made it this far we were successful
     return true;

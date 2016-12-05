@@ -30,7 +30,7 @@ if (isset($_POST['action']) && isset($_POST['type'])) {
                     $due_date = isset($_POST['data']['due_date']) ? make_safe($_POST['data']['due_date']) : '';
                     $desc = isset($_POST['data']['desc']) ? make_safe($_POST['data']['desc']) : '';
 
-                    if (create_assignment($class_id, $title, null, $due_date, $desc)) { echo true; }
+                    if (create_assignment($class_id, $title, $due_date, $desc)) { echo true; }
                     else { echo false; }
                     break;
                 }

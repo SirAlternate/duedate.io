@@ -83,8 +83,6 @@ $user = get_user_info($_SESSION['email']);
 					<?php
                         $assignments = get_assignments($class_id);
 						foreach ($assignments as $assignment) {
-                            $post_date = isset($assignments['post_date']) ? strtotime($assignments['post_date']) : '';
-                            if ($post_date == '' || $post_date > strtotime('today')) {
                         ?>
                         <li class="item" assg-id="<?php echo $assignment['assg_id'] ?>">
                             <div class="tab">
@@ -114,7 +112,6 @@ $user = get_user_info($_SESSION['email']);
                             </div>
                         </li>
 					<?php
-                            }
 						}
 					?>
                     <form class="add-assignment" method="post" hide="true">

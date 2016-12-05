@@ -1,7 +1,7 @@
 $colors: ( red: #f03e3e, violet: #7950f2, blue: #228ae6, cyan: #1098ad, green: #51cf66, yellow: #fcc419, orange: #ff922b );
 @each $name, $color in $colors {
     $color: lighten($color, 5%);
-    
+
     .class[color="#{$name}"] {
         &.draggable {
             .header {
@@ -23,16 +23,16 @@ $colors: ( red: #f03e3e, violet: #7950f2, blue: #228ae6, cyan: #1098ad, green: #
         ul li {
             p.due {
                 b {
-                    background-color: $color;
+                    background-color: rgba($color, 0.8);
                 }
 
                 em {
-                    color: darken($color, 10%);
+                    color: darken($rgba($color, 0.8), 10%);
                 }
             }
 
             .tab input[type="checkbox"]:checked + label {
-                background-color: rgba($color, 0.6);
+                background-color: rgba($color, 0.8);
             }
         }
 
