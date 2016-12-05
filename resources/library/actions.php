@@ -44,6 +44,11 @@ if (isset($_POST['action']) && isset($_POST['type'])) {
                     else { echo false; }
                     break;
                 }
+                case 'unfinish': {
+                    if (unfinish_assignment($_POST['id'])) { echo true; }
+                    else { echo false; }
+                    break;
+                }
             }
             break;
         }

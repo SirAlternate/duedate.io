@@ -30,18 +30,6 @@ function get_assignments($class_id) {
     return $assignments;
 }
 
-// Get the information for a given assignment
-function get_assignment($assg_id) {
-    global $db_connection;
-
-    // Query 'assignmnets' for entrys with this this assg_id
-    $query = $db_connection->query("SELECT * FROM `assignments` WHERE `assg_id`='$assg_id';");
-    $assignment = $query->fetchAll(PDO::FETCH_ASSOC)[0];
-
-    // Return the array to caller
-    return $assignment;
-}
-
 // Deletes given assignment
 function remove_assignment($assg_id) {
     global $db_connection;
@@ -69,7 +57,7 @@ function finish_assignment($assg_id) {
     global $db_connection;
 
     // Fail-safe
-    if ($assg_id == '' || $_SESSION['user_id'])
+    if ($assg_id == '' || !isset($_SESSION['user_id']))
         return false;
 
     // Get current user id
@@ -79,8 +67,48 @@ function finish_assignment($assg_id) {
     $db_connection->exec("INSERT INTO `assignments-cmpl`
     ( `assg_id`, `user_id`, `timestamp` )
     VALUES
-    ( '$assg_id', '$user_id', date('Y-m-d H:i:s'))");
+    ( '$assg_id', '$user_id',  NOW())");
 
     // If we made it this far we were successful
     return true;
+}
+
+// Removes complete marker for this assignment
+function unfinish_assignment($assg_id) {
+    global $db_connection;
+
+    // Fail-safe
+    if ($assg_id == '' || !isset($_SESSION['user_id']))
+        return false;
+
+    // Get current user id
+    $user_id = $_SESSION['user_id'];
+
+    // Remove any matching entries
+    $db_connection->exec("DELETE FROM `assignments-cmpl` WHERE `assg_id`='$assg_id' AND `user_id`='$user_id';");
+
+    // If we made it this far we were successful
+    return true;
+}
+
+// Returns if a given assignment is complete for the current user
+function is_complete($assg_id) {
+    global $db_connection;
+
+    // Fail-safe
+    if ($assg_id == '' || !isset($_SESSION['user_id']))
+        return false;
+
+    // Get current user id
+    $user_id = $_SESSION['user_id'];
+
+    // Query database for a user with the given email
+    $query = $db_connection->query("SELECT * FROM `assignments-cmpl` WHERE `assg_id`='$assg_id' AND `user_id`='$user_id';");
+    $complete = $query->fetch(PDO::FETCH_ASSOC);
+
+    // Check if we found any users and return accordingly
+    if (count($complete) > 1)
+        return true;
+    else
+        return false;
 }

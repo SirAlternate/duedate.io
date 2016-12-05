@@ -92,39 +92,6 @@ $(function() {
             }
         });
 
-        // // Handle opening/closing assignments
-        // $('body').on('click', '.display .class ul li.item', function(e) {
-        //     var item = $(e.target).closest('li');
-        //
-        //     // Close any open assignment forms
-        //     hide_all_assignment_forms();
-        //
-        //     // If the item is already selected hide the open assignment
-        //     if (item.hasClass('selected')) {
-        //         close_assignment(item);
-        //     }
-        //
-        //     else if (item.parent().find('li.item.selected').length > 0) {
-        //         var old_item = item.parent().find('li.item.selected');
-        //         var old_id = old_item.attr('assg-id');
-        //         var page = $('.display .assignment[assg-id="'+old_id+'"]');
-        //
-        //         // Open assignment into page
-        //         open_assignment(item, page);
-        //
-        //         // Un-select old item
-        //         old_item.removeClass('selected');
-        //     }
-        //
-        //     // Otherwise we want to open the assignment normally
-        //     else {
-        //         // Close any open assignments / forms
-        //         close_all_assignments(function() {
-        //             open_assignment(item);
-        //         });
-        //     }
-        // });
-
         // Handle adding new assignments
         $('body').on('submit', '.display .class form.add-assignment', function(e) {
             e.preventDefault(); // Prevent default form reloading
@@ -146,6 +113,40 @@ $(function() {
                     location.reload();
                 }
             });
+        });
+
+        // Handle marking assignments as finished
+        $('body').on('click', '.display .class ul li.item .tab input[type="checkbox"]', function(e) {
+            e.preventDefault(); // Prevent default checking the box
+
+            // Handle marking assignments as complete
+            if ($(e.target).is(':checked')) {
+                // Tell the server create the new class
+                $.post('resources/library/actions.php', {
+                    action: 'finish',
+                    type: 'assignment',
+                    id: $(e.target).closest('li').attr("assg-id")
+                }, function(response) {
+                    if (response == true) {
+                        $(e.target).prop('checked', true);
+                    }
+                });
+            }
+
+            // Handle marking assignments as incomplete
+            else {
+                // Tell the server create the new class
+                $.post('resources/library/actions.php', {
+                    action: 'unfinish',
+                    type: 'assignment',
+                    id: $(e.target).closest('li').attr("assg-id")
+                }, function(response) {
+                    if (response == true) {
+                        $(e.target).prop('checked', false);
+                    }
+                });
+            }
+
         });
     }
 });
@@ -184,73 +185,6 @@ function hide_class_form() {
     add_class_form.find('input[name="class_desc"]').val('');
     add_class_form.parent().removeAttr('color')
 }
-
-// function open_assignment(item, replace) {
-//     $.get('resources/library/actions.php', {
-//         type: 'assignment',
-//         id: item.attr('assg-id')
-//     }, function(response) {
-//         var data = $.parseJSON(response);
-//
-//         if (data) {
-//             var elem = '\
-//                 <div class="assignment" assg-id="'+item.attr('assg-id')+'" hide="true">\
-//                     <h1>'+data.title+'</h1>\
-//                     <h2>'+data.due_date+'</h2>\
-//                 </div>\
-//             ';
-//
-//             if (replace == undefined) {
-//                 // Generate assignment page and insert after current class
-//                 item.closest('.class').after(elem);
-//             } else {
-//                 // Generate assignment page and insert after current class
-//                 replace.replaceWith(elem);
-//             }
-//
-//             // Make assignment visible
-//             var assg = $('.assignment[assg-id="'+item.attr('assg-id')+'"]');
-//             if (assg.hasClass('assignment')) {
-//                 assg.focus().attr('hide', 'false');
-//             }
-//
-//             // Select this item
-//             item.addClass('selected');
-//         }
-//     });
-// }
-//
-// function close_assignment(item, cb) {
-//     var assg = $('.assignment[assg-id="'+item.attr('assg-id')+'"]');
-//
-//     // Hide the assignment page
-//     assg.attr('hide', 'true').delay(300).hide(0, function() {
-//         $(this).remove();
-//
-//         if (typeof cb === "function") {
-//             cb();
-//         }
-//     });
-//
-//     // Un-select this item
-//     item.removeClass('selected');
-// }
-//
-// function close_all_assignments(cb) {
-//     var items = $('.display').find('ul li.item.selected');
-//
-//     // Hide all open assignments
-//     close_assignment(items, function() {
-//         if (typeof cb === "function") {
-//             cb();
-//         }
-//     });
-//
-//     // If not assignments are open just call callback
-//     if (items.length == 0 && typeof cb === "function") {
-//         cb();
-//     }
-// }
 
 function show_assignment_form(btn) {
     // Select this item

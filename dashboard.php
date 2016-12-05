@@ -86,7 +86,7 @@ $user = get_user_info($_SESSION['email']);
                         ?>
                         <li class="item" assg-id="<?php echo $assignment['assg_id'] ?>">
                             <div class="tab">
-                                <input id="checkbox-<?php echo $assignment['assg_id'] ?>" type="checkbox">
+                                <input id="checkbox-<?php echo $assignment['assg_id'] ?>" type="checkbox" <?php if (is_complete($assignment['assg_id'])) { echo 'checked'; } ?>>
                                 <label for="checkbox-<?php echo $assignment['assg_id'] ?>"></label>
                             </div>
                             <div class="content">
@@ -94,7 +94,7 @@ $user = get_user_info($_SESSION['email']);
                                 <p class="due">
                                     <?php
                                     $due = strtotime($assignment['due_date']);
-                                    
+
                                     // Past due
                                     if ($due < strtotime('today'))
                                         echo "Past Due (" . date("l n/j", $due) . ")";
