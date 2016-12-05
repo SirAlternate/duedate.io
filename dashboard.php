@@ -52,11 +52,11 @@
                                         echo "Due" . date("l n/j", $due);
                                     ?>
                                 </p>
-                                <p class='duration'>
+                                <!-- <p class='duration'>
                                 <?php if (isset($assignment['duration'])) {
                                     echo "Est Time: " . $assignment['duration'];
                                 } ?>
-                                </p>
+                                </p> -->
                             </div>
                             <div class="expand" hide="true">
                                 <div class="edit">
