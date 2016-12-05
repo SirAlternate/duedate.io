@@ -15,6 +15,20 @@ if (isset($_GET["dashboard"]) && $_GET["dashboard"] == 1)
 if(!isset($_SESSION['user_id']))
     header('Location: index.php');
 
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+	$new_email = $_POST['new_email'];
+	$new_emailc = $_POST['new_emailc'];
+	$user_id= $_SESSION['user_id'];
+if ($new_email != '' && isset($_SESSION['user_id']) && $new_email == $new_emailc){
+      global $db_connection;	  
+	  
+	  $sql = "UPDATE `users` SET `email` = '$new_email' WHERE `user_id` = $user_id";
+    // Update the info in the database
+    $db_connection->exec($sql);
+    
+    // If we made it this far we were successful
+} 
+}
 // Get current user's information for populating page
 $user = get_user_info($_SESSION['email']);
 ?>
@@ -65,16 +79,13 @@ $user = get_user_info($_SESSION['email']);
                     
                 </div>
                 <form  class = "col-md-5 change-email" method = "post" >
-					<label for="old_email">Old Email:</label>
-					<input type = "email" name="old_email" />
-					<br />
 					<label for="new_email">New Email:</label>
 					<input type = "email" name="new_email" />
 					<br />
 					<label for="new_emailc">Confirm New Email:</label>
 					<input type = "email" name="new_emailc" />
 					<br />
-					<input type = "submit" value ="Change Email"/>
+					<input type = "submit" name="change-email" value ="Change Email" />
 					
 				</form>
             </div>
@@ -93,7 +104,7 @@ $user = get_user_info($_SESSION['email']);
 					<label for="new_passc">Confirm New Password:</label>
 					<input type = "password" name="new_passc" />
 					<br />
-					<input type = "submit" value ="Change Password"/>
+					<input type = "submit" value ="Change Password" />
 					
 				</form>
             </div>
