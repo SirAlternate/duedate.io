@@ -296,6 +296,8 @@ html {
         }
 
         .class {
+            $default_color: #a7adb4;
+
             position: relative;
             display: inline-block;
             vertical-align: top;
@@ -326,7 +328,7 @@ html {
                 width: 100%;
                 height: 50px;
                 padding: 0 20px;
-                background-color: #a7adb4;
+                background-color: $default_color;
                 border-bottom: 1px solid #b0b3b9;
                 @include transition( background 0.5s ease-out );
 
@@ -367,6 +369,7 @@ html {
                     border: none;
                     background-color: #ffffff;
                     font-weight: 600;
+                    color: $default_color;
                     @include transition(color 0.5s ease-out);
 
                     &:hover {
@@ -388,95 +391,137 @@ html {
 
                 li {
                     position: relative;
+                    width: 100%;
                     height: 90px;
                     list-style: none;
-                    padding: 10px 15px;
                     border-bottom: 1px solid #e4e4e4;
                     @include transition( background 0.05s ease-out );
 
-                    &:hover {
-                        background-color: #f8f8f8;
-                        cursor: pointer;
-                    }
+                    // &:hover {
+                    //     background-color: #f8f8f8;
+                    //     cursor: pointer;
+                    // }
 
-                    &.selected {
-                        background-color: darken(#f8f8f8, 4%);
+                    // &.selected {
+                    //     background-color: darken(#f8f8f8, 4%);
+                    //
+                    //     &:hover {
+                    //         background-color: darken(#f8f8f8, 8%);
+                    //     }
+                    //
+                    //     span.arrow {
+                    //         // background-color: darken(#d0d6da, 8%);
+                    //         background: url('../img/arrow_selected.png') no-repeat center;
+                    //     }
+                    // }
 
-                        &:hover {
-                            background-color: darken(#f8f8f8, 8%);
-                        }
-
-                        span.arrow {
-                            // background-color: darken(#d0d6da, 8%);
-                            background: url('../img/arrow_selected.png') no-repeat center;
-                        }
-                    }
-
-                    p.title {
-                        margin-bottom: 5px;
-                        @include font-size(15px);
-                        font-weight: 600;
-                    }
-
-                    p.due {
+                    .tab {
+                        float: left;
+                        display: flex;
+                        align-items: center;
+                        width: 35px;
+                        height: 90px;
                         margin: 0;
-                        color: #787c81;
-                        @include font-size(14px);
+                        background-color: rgba($default_color, 0.2);
+                        border: 1px solid darken(#f8f8f8, 10%);
 
-                        b {
-                            color: #ffffff;
-                            padding: 1px 5px;
-                            background-color: #a7adb4;
-                            border-radius: 6px;
+                        input[type="checkbox"] {
+                            display: none;
                         }
 
-                        em {
-                            color: #a7adb4;
+                        input[type="checkbox"] + label {
+                            width: 20px;
+                            height: 20px;
+                            margin: 0 auto;
+                            background-color: lighten($default_color, 14%);
+
+                            &:hover {
+                                background-color: lighten($default_color, 7%);
+                                cursor: pointer;
+                            }
+                        }
+
+                        input[type="checkbox"]:checked + label {
+                            background-color: $default_color;
+                            background: url('../img/checkmark.svg') no-repeat center;
+                            background-size: 15px 15px;
+                        }
+                    }
+
+                    .content {
+                        float: left;
+                        vertical-align: top;
+                        height: 90px;
+                        padding: 10px 12px;
+
+                        p.title {
+                            margin-bottom: 5px;
+                            @include font-size(15px);
                             font-weight: 600;
-                            font-style: normal;
                         }
-                    }
 
-                    p.duration {
-                        margin-bottom: 4px;
-                        color: #787c81;
-                        @include font-size(14px);
-                    }
+                        p.due {
+                            margin: 0;
+                            color: #787c81;
+                            @include font-size(14px);
 
-                    span.arrow {
-                        position: absolute;
-                        right: 15px;
-                        top: 50%;
-                        bottom: 0;
-                        width: 8px;
-                        height: 32px;
-                        margin-top: -15px;
-                        // background-color: #d0d6da;
-                        background: url('../img/arrow.png') no-repeat center;
+                            b {
+                                color: #ffffff;
+                                padding: 1px 5px;
+                                background-color: $default_color;
+                                border-radius: 6px;
+                            }
+
+                            em {
+                                color: $default_color;
+                                font-weight: 600;
+                                font-style: normal;
+                            }
+                        }
+
+                        p.duration {
+                            margin-bottom: 4px;
+                            color: #787c81;
+                            @include font-size(14px);
+                        }
+
+                        // span.arrow {
+                        //     position: absolute;
+                        //     right: 15px;
+                        //     top: 50%;
+                        //     bottom: 0;
+                        //     width: 8px;
+                        //     height: 32px;
+                        //     margin-top: -15px;
+                        //     // background-color: #d0d6da;
+                        //     background: url('../img/arrow.png') no-repeat center;
+                        // }
                     }
                 }
 
                 li.add-btn {
                     height: auto;
                     border: none;
+                    padding: 10px 15px;
 
                     &:hover {
                         background-color: inherit;
+                        cursor: pointer;
 
                         span.icon {
-                            background-color: lighten(#a7adb4, 15%);
+                            background-color: lighten($default_color, 15%);
                         }
                     }
                     &.selected {
                         background-color: inherit;
 
                         span.icon {
-                            background-color: lighten(#a7adb4, 5%);
+                            background-color: lighten($default_color, 5%);
                         }
 
                         &:hover {
                             span.icon {
-                                background-color: darken(#a7adb4, 2%);
+                                background-color: darken($default_color, 2%);
                             }
                         }
                     }
@@ -484,7 +529,7 @@ html {
                     span.icon {
                         display: block;
                         margin: 8px auto;
-                        background-color: lighten(#a7adb4, 20%);
+                        background-color: lighten($default_color, 20%);
                         color: #ffffff;
                         @include font-size(26px);
                         font-weight: 600;
@@ -517,7 +562,7 @@ html {
                         @include font-size(15px);
 
                         &:focus {
-                            border: 1px solid #a7adb4;
+                            border: 1px solid $default_color;
                             outline: 0;
                         }
                     }
@@ -526,8 +571,8 @@ html {
                         width: 100%;
                         margin-top: 25px;
                         padding: 18px 10px;
-                        border: 1px solid #a7adb4;
-                        background-color: #a7adb4;
+                        border: 1px solid $default_color;
+                        background-color: $default_color;
                         color: #ffffff;
                         @include font-size(17px);
                         text-transform: uppercase;
@@ -535,7 +580,7 @@ html {
                         @include transition( background 0.5s ease-out );
 
                         &:hover {
-                            background-color: darken(#a7adb4, 8%);
+                            background-color: darken($default_color, 8%);
                         }
                     }
 
@@ -549,7 +594,7 @@ html {
                             width: 40px;
                             height: 40px;
                             margin-right: 11px;
-                            background-color: #a7adb4;
+                            background-color: $default_color;
                             border: 4px solid #dadada;
                             cursor: pointer;
                         }
@@ -564,16 +609,16 @@ html {
             form.add-assignment {
                 height: 370px;
                 width: 100%;
-                background-color: lighten(#a7adb4, 25%);
-                border-right: 1px solid lighten(#a7adb4, 15%);
-                border-left: 1px solid lighten(#a7adb4, 15%);
+                background-color: lighten($default_color, 25%);
+                border-top: 1px solid lighten($default_color, 5%);
+                border-right: 1px solid lighten($default_color, 15%);
+                border-left: 1px solid lighten($default_color, 15%);
                 overflow: hidden;
-                @include transition(opacity 0.3s ease-out, height 0.3s ease-out);
-                @include opacity(1);
+                @include transition(height 0.3s ease-out);
 
                 &[hide="true"] {
                     height: 0;
-                    @include opacity(0);
+                    border: none;
                 }
 
                 .form-group {
@@ -600,7 +645,7 @@ html {
                         @include font-size(15px);
 
                         &:focus {
-                            border: 1px solid #a7adb4;
+                            border: 1px solid $default_color;
                             outline: 0;
                         }
                     }
@@ -613,8 +658,8 @@ html {
                         width: 100%;
                         margin-top: 10px;
                         padding: 12px 8px;
-                        border: 1px solid #a7adb4;
-                        background-color: #a7adb4;
+                        border: 1px solid $default_color;
+                        background-color: $default_color;
                         color: #ffffff;
                         @include font-size(15px);
                         text-transform: uppercase;
@@ -622,34 +667,34 @@ html {
                         @include transition( background 0.5s ease-out );
 
                         &:hover {
-                            background-color: darken(#a7adb4, 8%);
+                            background-color: darken($default_color, 8%);
                         }
                     }
                 }
             }
         }
 
-        .assignment {
-            position: relative;
-            display: inline-block;
-            vertical-align: top;
-            min-height: 100%;
-            width: 450px;
-            background-color: #fff;
-            @include box-shadow(2px, 2px, 2px, 3px, rgba(0,0,0,0.04));
-            @include transition(width 0.3s ease-out, opacity 0.3s ease-out);
-            @include opacity(1);
-
-            &[hide="true"] {
-                width: 0;
-                @include opacity(0);
-            }
-
-            h1 {
-                margin: 30px 15px 10px;
-                @include font-size(26px);
-            }
-        }
+        // .assignment {
+        //     position: relative;
+        //     display: inline-block;
+        //     vertical-align: top;
+        //     min-height: 100%;
+        //     width: 450px;
+        //     background-color: #fff;
+        //     @include box-shadow(2px, 2px, 2px, 3px, rgba(0,0,0,0.04));
+        //     @include transition(width 0.3s ease-out, opacity 0.3s ease-out);
+        //     @include opacity(1);
+        //
+        //     &[hide="true"] {
+        //         width: 0;
+        //         @include opacity(0);
+        //     }
+        //
+        //     h1 {
+        //         margin: 30px 15px 10px;
+        //         @include font-size(26px);
+        //     }
+        // }
 
         @import "colors";
 

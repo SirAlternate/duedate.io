@@ -87,24 +87,31 @@ $user = get_user_info($_SESSION['email']);
                             if ($post_date == '' || $post_date > strtotime('today')) {
                         ?>
                         <li class="item" assg-id="<?php echo $assignment['assg_id'] ?>">
-                            <p class="title"><?php echo $assignment['title'] ?></p>
-                            <p class="due">Due
-                                <?php
-                                $due = strtotime($assignment['due_date']);
-                                if ($due <= strtotime('next saturday'))
-                                    echo "<b>this</b> " . date("l", $due);
-                                else if ($due < strtotime('next saturday', strtotime('next saturday')))
-                                    echo "<em>next</em> " . date("l", $due);
-                                else
-                                    echo date("l n/j", $due);
-                                ?>
-                            </p>
-                            <p class='duration'>
-                            <?php if (isset($assignment['duration'])) {
-                                echo "Est Time: " . $assignment['duration'];
-                            } ?>
-                        </p>
-                            <span class="arrow"></span>
+                            <div class="tab">
+                                <input id="checkbox-<?php echo $assignment['assg_id'] ?>" type="checkbox">
+                                <label for="checkbox-<?php echo $assignment['assg_id'] ?>"></label>
+                            </div>
+                            <div class="content">
+                                <p class="title"><?php echo $assignment['title'] ?></p>
+                                <p class="due">
+                                    <?php
+                                    $due = strtotime($assignment['due_date']);
+                                    if ($due < strtotime('today'))
+                                        echo "Past Due (" . date("l n/j", $due) . ")";
+                                    else if ($due <= strtotime('next saturday'))
+                                        echo "Due <b>this</b> " . date("l", $due);
+                                    else if ($due < strtotime('next saturday', strtotime('next saturday')))
+                                        echo "Due <em>next</em> " . date("l", $due);
+                                    else
+                                        echo "Due" . date("l n/j", $due);
+                                    ?>
+                                </p>
+                                <p class='duration'>
+                                <?php if (isset($assignment['duration'])) {
+                                    echo "Est Time: " . $assignment['duration'];
+                                } ?>
+                                </p>
+                            </div>
                         </li>
 					<?php
                             }

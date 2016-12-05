@@ -369,6 +369,7 @@ html {
   border: none;
   background-color: #ffffff;
   font-weight: 600;
+  color: #a7adb4;
   -webkit-transition: color 0.5s ease-out;
   -moz-transition: color 0.5s ease-out;
   -ms-transition: color 0.5s ease-out;
@@ -395,9 +396,9 @@ html {
 
 #dashboard .display .class ul li, #dashboard .display .add-class-btn ul li {
   position: relative;
+  width: 100%;
   height: 90px;
   list-style: none;
-  padding: 10px 15px;
   border-bottom: 1px solid #e4e4e4;
   -webkit-transition: background 0.05s ease-out;
   -moz-transition: background 0.05s ease-out;
@@ -406,75 +407,89 @@ html {
   transition: background 0.05s ease-out;
 }
 
-#dashboard .display .class ul li:hover, #dashboard .display .add-class-btn ul li:hover {
-  background-color: #f8f8f8;
+#dashboard .display .class ul li .tab, #dashboard .display .add-class-btn ul li .tab {
+  float: left;
+  display: flex;
+  align-items: center;
+  width: 35px;
+  height: 90px;
+  margin: 0;
+  background-color: rgba(167, 173, 180, 0.2);
+  border: 1px solid #dfdfdf;
+}
+
+#dashboard .display .class ul li .tab input[type="checkbox"], #dashboard .display .add-class-btn ul li .tab input[type="checkbox"] {
+  display: none;
+}
+
+#dashboard .display .class ul li .tab input[type="checkbox"] + label, #dashboard .display .add-class-btn ul li .tab input[type="checkbox"] + label {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+  background-color: #ced1d5;
+}
+
+#dashboard .display .class ul li .tab input[type="checkbox"] + label:hover, #dashboard .display .add-class-btn ul li .tab input[type="checkbox"] + label:hover {
+  background-color: #babfc4;
   cursor: pointer;
 }
 
-#dashboard .display .class ul li.selected, #dashboard .display .add-class-btn ul li.selected {
-  background-color: #eeeeee;
+#dashboard .display .class ul li .tab input[type="checkbox"]:checked + label, #dashboard .display .add-class-btn ul li .tab input[type="checkbox"]:checked + label {
+  background-color: #a7adb4;
+  background: url("../img/checkmark.svg") no-repeat center;
+  background-size: 15px 15px;
 }
 
-#dashboard .display .class ul li.selected:hover, #dashboard .display .add-class-btn ul li.selected:hover {
-  background-color: #e4e4e4;
+#dashboard .display .class ul li .content, #dashboard .display .add-class-btn ul li .content {
+  float: left;
+  vertical-align: top;
+  height: 90px;
+  padding: 10px 12px;
 }
 
-#dashboard .display .class ul li.selected span.arrow, #dashboard .display .add-class-btn ul li.selected span.arrow {
-  background: url("../img/arrow_selected.png") no-repeat center;
-}
-
-#dashboard .display .class ul li p.title, #dashboard .display .add-class-btn ul li p.title {
+#dashboard .display .class ul li .content p.title, #dashboard .display .add-class-btn ul li .content p.title {
   margin-bottom: 5px;
   font-size: 15px;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
-#dashboard .display .class ul li p.due, #dashboard .display .add-class-btn ul li p.due {
+#dashboard .display .class ul li .content p.due, #dashboard .display .add-class-btn ul li .content p.due {
   margin: 0;
   color: #787c81;
   font-size: 14px;
   font-size: 1.4rem;
 }
 
-#dashboard .display .class ul li p.due b, #dashboard .display .add-class-btn ul li p.due b {
+#dashboard .display .class ul li .content p.due b, #dashboard .display .add-class-btn ul li .content p.due b {
   color: #ffffff;
   padding: 1px 5px;
   background-color: #a7adb4;
   border-radius: 6px;
 }
 
-#dashboard .display .class ul li p.due em, #dashboard .display .add-class-btn ul li p.due em {
+#dashboard .display .class ul li .content p.due em, #dashboard .display .add-class-btn ul li .content p.due em {
   color: #a7adb4;
   font-weight: 600;
   font-style: normal;
 }
 
-#dashboard .display .class ul li p.duration, #dashboard .display .add-class-btn ul li p.duration {
+#dashboard .display .class ul li .content p.duration, #dashboard .display .add-class-btn ul li .content p.duration {
   margin-bottom: 4px;
   color: #787c81;
   font-size: 14px;
   font-size: 1.4rem;
 }
 
-#dashboard .display .class ul li span.arrow, #dashboard .display .add-class-btn ul li span.arrow {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  bottom: 0;
-  width: 8px;
-  height: 32px;
-  margin-top: -15px;
-  background: url("../img/arrow.png") no-repeat center;
-}
-
 #dashboard .display .class ul li.add-btn, #dashboard .display .add-class-btn ul li.add-btn {
   height: auto;
   border: none;
+  padding: 10px 15px;
 }
 
 #dashboard .display .class ul li.add-btn:hover, #dashboard .display .add-class-btn ul li.add-btn:hover {
   background-color: inherit;
+  cursor: pointer;
 }
 
 #dashboard .display .class ul li.add-btn:hover span.icon, #dashboard .display .add-class-btn ul li.add-btn:hover span.icon {
@@ -585,22 +600,20 @@ html {
   height: 370px;
   width: 100%;
   background-color: #ecedef;
+  border-top: 1px solid #b5bac0;
   border-right: 1px solid #d0d3d7;
   border-left: 1px solid #d0d3d7;
   overflow: hidden;
-  -webkit-transition: opacity 0.3s ease-out, height 0.3s ease-out;
-  -moz-transition: opacity 0.3s ease-out, height 0.3s ease-out;
-  -ms-transition: opacity 0.3s ease-out, height 0.3s ease-out;
-  -o-transition: opacity 0.3s ease-out, height 0.3s ease-out;
-  transition: opacity 0.3s ease-out, height 0.3s ease-out;
-  opacity: 1;
-  filter: alpha(opacity=100);
+  -webkit-transition: height 0.3s ease-out;
+  -moz-transition: height 0.3s ease-out;
+  -ms-transition: height 0.3s ease-out;
+  -o-transition: height 0.3s ease-out;
+  transition: height 0.3s ease-out;
 }
 
 #dashboard .display .class form.add-assignment[hide="true"], #dashboard .display .add-class-btn form.add-assignment[hide="true"] {
   height: 0;
-  opacity: 0;
-  filter: alpha(opacity=0);
+  border: none;
 }
 
 #dashboard .display .class form.add-assignment .form-group, #dashboard .display .add-class-btn form.add-assignment .form-group {
@@ -659,322 +672,319 @@ html {
   background-color: #9198a1;
 }
 
-#dashboard .display .assignment {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  min-height: 100%;
-  width: 450px;
-  background-color: #fff;
-  -webkit-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
-  -moz-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
-  box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.04);
-  -webkit-transition: width 0.3s ease-out, opacity 0.3s ease-out;
-  -moz-transition: width 0.3s ease-out, opacity 0.3s ease-out;
-  -ms-transition: width 0.3s ease-out, opacity 0.3s ease-out;
-  -o-transition: width 0.3s ease-out, opacity 0.3s ease-out;
-  transition: width 0.3s ease-out, opacity 0.3s ease-out;
-  opacity: 1;
-  filter: alpha(opacity=100);
-}
-
-#dashboard .display .assignment[hide="true"] {
-  width: 0;
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-
-#dashboard .display .assignment h1 {
-  margin: 30px 15px 10px;
-  font-size: 26px;
-  font-size: 2.6rem;
-}
-
 #dashboard .display .class[color="red"].draggable .header:hover, #dashboard .display [color="red"].draggable.add-class-btn .header:hover {
-  background-color: #ed1818;
+  background-color: #ef3030;
   cursor: pointer;
 }
 
 #dashboard .display .class[color="red"] .header, #dashboard .display [color="red"].add-class-btn .header {
-  background-color: #f03e3e;
-}
-
-#dashboard .display .class[color="red"] .header a.close-btn, #dashboard .display [color="red"].add-class-btn .header a.close-btn {
-  color: #f03e3e;
-}
-
-#dashboard .display .class[color="red"] ul li p.due b, #dashboard .display [color="red"].add-class-btn ul li p.due b {
-  background-color: #f03e3e;
-}
-
-#dashboard .display .class[color="red"] ul li p.due em, #dashboard .display [color="red"].add-class-btn ul li p.due em {
-  color: #e91212;
-}
-
-#dashboard .display .class[color="red"] form .form-group input[type="text"]:focus, #dashboard .display [color="red"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="red"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="red"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
-  border: 1px solid #f03e3e;
-}
-
-#dashboard .display .class[color="red"] form .form-group input[name="add_class"], #dashboard .display [color="red"].add-class-btn form .form-group input[name="add_class"] {
-  background-color: #f03e3e;
-}
-
-#dashboard .display .class[color="red"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="red"].add-class-btn form .form-group input[name="add_class"]:hover {
-  background-color: #ed1818;
-}
-
-#dashboard .display .class.new form.add-class .form-group .colors label[for="red"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="red"] {
   background-color: #f25656;
 }
 
+#dashboard .display .class[color="red"] .header a.close-btn, #dashboard .display [color="red"].add-class-btn .header a.close-btn {
+  color: #f25656;
+}
+
+#dashboard .display .class[color="red"] ul li p.due b, #dashboard .display [color="red"].add-class-btn ul li p.due b {
+  background-color: #f25656;
+}
+
+#dashboard .display .class[color="red"] ul li p.due em, #dashboard .display [color="red"].add-class-btn ul li p.due em {
+  color: #ee2626;
+}
+
+#dashboard .display .class[color="red"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="red"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
+  background-color: rgba(242, 86, 86, 0.6);
+}
+
+#dashboard .display .class[color="red"] form .form-group input[type="text"]:focus, #dashboard .display [color="red"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="red"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="red"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
+  border: 1px solid #f25656;
+}
+
+#dashboard .display .class[color="red"] form .form-group input[name="add_class"], #dashboard .display [color="red"].add-class-btn form .form-group input[name="add_class"] {
+  background-color: #f25656;
+}
+
+#dashboard .display .class[color="red"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="red"].add-class-btn form .form-group input[name="add_class"]:hover {
+  background-color: #ef3030;
+}
+
+#dashboard .display .class.new form.add-class .form-group .colors label[for="red"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="red"] {
+  background-color: #f46d6d;
+}
+
 #dashboard .display .class.new form.add-class .form-group .colors input:checked + label[for="red"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors input:checked + label[for="red"] {
-  background-color: #f03e3e;
+  background-color: #f25656;
 }
 
 #dashboard .display .class[color="violet"].draggable .header:hover, #dashboard .display [color="violet"].draggable.add-class-btn .header:hover {
-  background-color: #5c2aef;
+  background-color: #6e42f1;
   cursor: pointer;
 }
 
 #dashboard .display .class[color="violet"] .header, #dashboard .display [color="violet"].add-class-btn .header {
-  background-color: #7950f2;
-}
-
-#dashboard .display .class[color="violet"] .header a.close-btn, #dashboard .display [color="violet"].add-class-btn .header a.close-btn {
-  color: #7950f2;
-}
-
-#dashboard .display .class[color="violet"] ul li p.due b, #dashboard .display [color="violet"].add-class-btn ul li p.due b {
-  background-color: #7950f2;
-}
-
-#dashboard .display .class[color="violet"] ul li p.due em, #dashboard .display [color="violet"].add-class-btn ul li p.due em {
-  color: #5521ee;
-}
-
-#dashboard .display .class[color="violet"] form .form-group input[type="text"]:focus, #dashboard .display [color="violet"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="violet"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="violet"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
-  border: 1px solid #7950f2;
-}
-
-#dashboard .display .class[color="violet"] form .form-group input[name="add_class"], #dashboard .display [color="violet"].add-class-btn form .form-group input[name="add_class"] {
-  background-color: #7950f2;
-}
-
-#dashboard .display .class[color="violet"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="violet"].add-class-btn form .form-group input[name="add_class"]:hover {
-  background-color: #5c2aef;
-}
-
-#dashboard .display .class.new form.add-class .form-group .colors label[for="violet"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="violet"] {
   background-color: #8b68f4;
 }
 
+#dashboard .display .class[color="violet"] .header a.close-btn, #dashboard .display [color="violet"].add-class-btn .header a.close-btn {
+  color: #8b68f4;
+}
+
+#dashboard .display .class[color="violet"] ul li p.due b, #dashboard .display [color="violet"].add-class-btn ul li p.due b {
+  background-color: #8b68f4;
+}
+
+#dashboard .display .class[color="violet"] ul li p.due em, #dashboard .display [color="violet"].add-class-btn ul li p.due em {
+  color: #6738f0;
+}
+
+#dashboard .display .class[color="violet"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="violet"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
+  background-color: rgba(139, 104, 244, 0.6);
+}
+
+#dashboard .display .class[color="violet"] form .form-group input[type="text"]:focus, #dashboard .display [color="violet"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="violet"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="violet"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
+  border: 1px solid #8b68f4;
+}
+
+#dashboard .display .class[color="violet"] form .form-group input[name="add_class"], #dashboard .display [color="violet"].add-class-btn form .form-group input[name="add_class"] {
+  background-color: #8b68f4;
+}
+
+#dashboard .display .class[color="violet"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="violet"].add-class-btn form .form-group input[name="add_class"]:hover {
+  background-color: #6e42f1;
+}
+
+#dashboard .display .class.new form.add-class .form-group .colors label[for="violet"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="violet"] {
+  background-color: #9d7ff6;
+}
+
 #dashboard .display .class.new form.add-class .form-group .colors input:checked + label[for="violet"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors input:checked + label[for="violet"] {
-  background-color: #7950f2;
+  background-color: #8b68f4;
 }
 
 #dashboard .display .class[color="blue"].draggable .header:hover, #dashboard .display [color="blue"].draggable.add-class-btn .header:hover {
-  background-color: #1775c9;
+  background-color: #1982df;
   cursor: pointer;
 }
 
 #dashboard .display .class[color="blue"] .header, #dashboard .display [color="blue"].add-class-btn .header {
-  background-color: #228ae6;
-}
-
-#dashboard .display .class[color="blue"] .header a.close-btn, #dashboard .display [color="blue"].add-class-btn .header a.close-btn {
-  color: #228ae6;
-}
-
-#dashboard .display .class[color="blue"] ul li p.due b, #dashboard .display [color="blue"].add-class-btn ul li p.due b {
-  background-color: #228ae6;
-}
-
-#dashboard .display .class[color="blue"] ul li p.due em, #dashboard .display [color="blue"].add-class-btn ul li p.due em {
-  color: #1670bf;
-}
-
-#dashboard .display .class[color="blue"] form .form-group input[type="text"]:focus, #dashboard .display [color="blue"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="blue"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="blue"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
-  border: 1px solid #228ae6;
-}
-
-#dashboard .display .class[color="blue"] form .form-group input[name="add_class"], #dashboard .display [color="blue"].add-class-btn form .form-group input[name="add_class"] {
-  background-color: #228ae6;
-}
-
-#dashboard .display .class[color="blue"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="blue"].add-class-btn form .form-group input[name="add_class"]:hover {
-  background-color: #1775c9;
-}
-
-#dashboard .display .class.new form.add-class .form-group .colors label[for="blue"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="blue"] {
   background-color: #3996e9;
 }
 
+#dashboard .display .class[color="blue"] .header a.close-btn, #dashboard .display [color="blue"].add-class-btn .header a.close-btn {
+  color: #3996e9;
+}
+
+#dashboard .display .class[color="blue"] ul li p.due b, #dashboard .display [color="blue"].add-class-btn ul li p.due b {
+  background-color: #3996e9;
+}
+
+#dashboard .display .class[color="blue"] ul li p.due em, #dashboard .display [color="blue"].add-class-btn ul li p.due em {
+  color: #187dd6;
+}
+
+#dashboard .display .class[color="blue"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="blue"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
+  background-color: rgba(57, 150, 233, 0.6);
+}
+
+#dashboard .display .class[color="blue"] form .form-group input[type="text"]:focus, #dashboard .display [color="blue"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="blue"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="blue"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
+  border: 1px solid #3996e9;
+}
+
+#dashboard .display .class[color="blue"] form .form-group input[name="add_class"], #dashboard .display [color="blue"].add-class-btn form .form-group input[name="add_class"] {
+  background-color: #3996e9;
+}
+
+#dashboard .display .class[color="blue"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="blue"].add-class-btn form .form-group input[name="add_class"]:hover {
+  background-color: #1982df;
+}
+
+#dashboard .display .class.new form.add-class .form-group .colors label[for="blue"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="blue"] {
+  background-color: #50a2eb;
+}
+
 #dashboard .display .class.new form.add-class .form-group .colors input:checked + label[for="blue"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors input:checked + label[for="blue"] {
-  background-color: #228ae6;
+  background-color: #3996e9;
 }
 
 #dashboard .display .class[color="cyan"].draggable .header:hover, #dashboard .display [color="cyan"].draggable.add-class-btn .header:hover {
-  background-color: #0d7788;
+  background-color: #0f8c9f;
   cursor: pointer;
 }
 
 #dashboard .display .class[color="cyan"] .header, #dashboard .display [color="cyan"].add-class-btn .header {
-  background-color: #1098ad;
-}
-
-#dashboard .display .class[color="cyan"] .header a.close-btn, #dashboard .display [color="cyan"].add-class-btn .header a.close-btn {
-  color: #1098ad;
-}
-
-#dashboard .display .class[color="cyan"] ul li p.due b, #dashboard .display [color="cyan"].add-class-btn ul li p.due b {
-  background-color: #1098ad;
-}
-
-#dashboard .display .class[color="cyan"] ul li p.due em, #dashboard .display [color="cyan"].add-class-btn ul li p.due em {
-  color: #0c6f7e;
-}
-
-#dashboard .display .class[color="cyan"] form .form-group input[type="text"]:focus, #dashboard .display [color="cyan"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="cyan"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="cyan"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
-  border: 1px solid #1098ad;
-}
-
-#dashboard .display .class[color="cyan"] form .form-group input[name="add_class"], #dashboard .display [color="cyan"].add-class-btn form .form-group input[name="add_class"] {
-  background-color: #1098ad;
-}
-
-#dashboard .display .class[color="cyan"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="cyan"].add-class-btn form .form-group input[name="add_class"]:hover {
-  background-color: #0d7788;
-}
-
-#dashboard .display .class.new form.add-class .form-group .colors label[for="cyan"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="cyan"] {
   background-color: #12adc4;
 }
 
+#dashboard .display .class[color="cyan"] .header a.close-btn, #dashboard .display [color="cyan"].add-class-btn .header a.close-btn {
+  color: #12adc4;
+}
+
+#dashboard .display .class[color="cyan"] ul li p.due b, #dashboard .display [color="cyan"].add-class-btn ul li p.due b {
+  background-color: #12adc4;
+}
+
+#dashboard .display .class[color="cyan"] ul li p.due em, #dashboard .display [color="cyan"].add-class-btn ul li p.due em {
+  color: #0e8396;
+}
+
+#dashboard .display .class[color="cyan"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="cyan"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
+  background-color: rgba(18, 173, 196, 0.6);
+}
+
+#dashboard .display .class[color="cyan"] form .form-group input[type="text"]:focus, #dashboard .display [color="cyan"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="cyan"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="cyan"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
+  border: 1px solid #12adc4;
+}
+
+#dashboard .display .class[color="cyan"] form .form-group input[name="add_class"], #dashboard .display [color="cyan"].add-class-btn form .form-group input[name="add_class"] {
+  background-color: #12adc4;
+}
+
+#dashboard .display .class[color="cyan"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="cyan"].add-class-btn form .form-group input[name="add_class"]:hover {
+  background-color: #0f8c9f;
+}
+
+#dashboard .display .class.new form.add-class .form-group .colors label[for="cyan"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="cyan"] {
+  background-color: #14c1dc;
+}
+
 #dashboard .display .class.new form.add-class .form-group .colors input:checked + label[for="cyan"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors input:checked + label[for="cyan"] {
-  background-color: #1098ad;
+  background-color: #12adc4;
 }
 
 #dashboard .display .class[color="green"].draggable .header:hover, #dashboard .display [color="green"].draggable.add-class-btn .header:hover {
-  background-color: #35c24d;
+  background-color: #45cc5b;
   cursor: pointer;
 }
 
 #dashboard .display .class[color="green"] .header, #dashboard .display [color="green"].add-class-btn .header {
-  background-color: #51cf66;
-}
-
-#dashboard .display .class[color="green"] .header a.close-btn, #dashboard .display [color="green"].add-class-btn .header a.close-btn {
-  color: #51cf66;
-}
-
-#dashboard .display .class[color="green"] ul li p.due b, #dashboard .display [color="green"].add-class-btn ul li p.due b {
-  background-color: #51cf66;
-}
-
-#dashboard .display .class[color="green"] ul li p.due em, #dashboard .display [color="green"].add-class-btn ul li p.due em {
-  color: #33ba4a;
-}
-
-#dashboard .display .class[color="green"] form .form-group input[type="text"]:focus, #dashboard .display [color="green"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="green"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="green"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
-  border: 1px solid #51cf66;
-}
-
-#dashboard .display .class[color="green"] form .form-group input[name="add_class"], #dashboard .display [color="green"].add-class-btn form .form-group input[name="add_class"] {
-  background-color: #51cf66;
-}
-
-#dashboard .display .class[color="green"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="green"].add-class-btn form .form-group input[name="add_class"]:hover {
-  background-color: #35c24d;
-}
-
-#dashboard .display .class.new form.add-class .form-group .colors label[for="green"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="green"] {
   background-color: #65d578;
 }
 
+#dashboard .display .class[color="green"] .header a.close-btn, #dashboard .display [color="green"].add-class-btn .header a.close-btn {
+  color: #65d578;
+}
+
+#dashboard .display .class[color="green"] ul li p.due b, #dashboard .display [color="green"].add-class-btn ul li p.due b {
+  background-color: #65d578;
+}
+
+#dashboard .display .class[color="green"] ul li p.due em, #dashboard .display [color="green"].add-class-btn ul li p.due em {
+  color: #3dc954;
+}
+
+#dashboard .display .class[color="green"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="green"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
+  background-color: rgba(101, 213, 120, 0.6);
+}
+
+#dashboard .display .class[color="green"] form .form-group input[type="text"]:focus, #dashboard .display [color="green"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="green"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="green"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
+  border: 1px solid #65d578;
+}
+
+#dashboard .display .class[color="green"] form .form-group input[name="add_class"], #dashboard .display [color="green"].add-class-btn form .form-group input[name="add_class"] {
+  background-color: #65d578;
+}
+
+#dashboard .display .class[color="green"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="green"].add-class-btn form .form-group input[name="add_class"]:hover {
+  background-color: #45cc5b;
+}
+
+#dashboard .display .class.new form.add-class .form-group .colors label[for="green"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="green"] {
+  background-color: #79da89;
+}
+
 #dashboard .display .class.new form.add-class .form-group .colors input:checked + label[for="green"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors input:checked + label[for="green"] {
-  background-color: #51cf66;
+  background-color: #65d578;
 }
 
 #dashboard .display .class[color="yellow"].draggable .header:hover, #dashboard .display [color="yellow"].draggable.add-class-btn .header:hover {
-  background-color: #e9b003;
+  background-color: #fcc00a;
   cursor: pointer;
 }
 
 #dashboard .display .class[color="yellow"] .header, #dashboard .display [color="yellow"].add-class-btn .header {
-  background-color: #fcc419;
-}
-
-#dashboard .display .class[color="yellow"] .header a.close-btn, #dashboard .display [color="yellow"].add-class-btn .header a.close-btn {
-  color: #fcc419;
-}
-
-#dashboard .display .class[color="yellow"] ul li p.due b, #dashboard .display [color="yellow"].add-class-btn ul li p.due b {
-  background-color: #fcc419;
-}
-
-#dashboard .display .class[color="yellow"] ul li p.due em, #dashboard .display [color="yellow"].add-class-btn ul li p.due em {
-  color: #dfa903;
-}
-
-#dashboard .display .class[color="yellow"] form .form-group input[type="text"]:focus, #dashboard .display [color="yellow"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="yellow"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="yellow"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
-  border: 1px solid #fcc419;
-}
-
-#dashboard .display .class[color="yellow"] form .form-group input[name="add_class"], #dashboard .display [color="yellow"].add-class-btn form .form-group input[name="add_class"] {
-  background-color: #fcc419;
-}
-
-#dashboard .display .class[color="yellow"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="yellow"].add-class-btn form .form-group input[name="add_class"]:hover {
-  background-color: #e9b003;
-}
-
-#dashboard .display .class.new form.add-class .form-group .colors label[for="yellow"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="yellow"] {
   background-color: #fcca32;
 }
 
+#dashboard .display .class[color="yellow"] .header a.close-btn, #dashboard .display [color="yellow"].add-class-btn .header a.close-btn {
+  color: #fcca32;
+}
+
+#dashboard .display .class[color="yellow"] ul li p.due b, #dashboard .display [color="yellow"].add-class-btn ul li p.due b {
+  background-color: #fcca32;
+}
+
+#dashboard .display .class[color="yellow"] ul li p.due em, #dashboard .display [color="yellow"].add-class-btn ul li p.due em {
+  color: #f8bc03;
+}
+
+#dashboard .display .class[color="yellow"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="yellow"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
+  background-color: rgba(252, 202, 50, 0.6);
+}
+
+#dashboard .display .class[color="yellow"] form .form-group input[type="text"]:focus, #dashboard .display [color="yellow"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="yellow"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="yellow"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
+  border: 1px solid #fcca32;
+}
+
+#dashboard .display .class[color="yellow"] form .form-group input[name="add_class"], #dashboard .display [color="yellow"].add-class-btn form .form-group input[name="add_class"] {
+  background-color: #fcca32;
+}
+
+#dashboard .display .class[color="yellow"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="yellow"].add-class-btn form .form-group input[name="add_class"]:hover {
+  background-color: #fcc00a;
+}
+
+#dashboard .display .class.new form.add-class .form-group .colors label[for="yellow"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="yellow"] {
+  background-color: #fdd14b;
+}
+
 #dashboard .display .class.new form.add-class .form-group .colors input:checked + label[for="yellow"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors input:checked + label[for="yellow"] {
-  background-color: #fcc419;
+  background-color: #fcca32;
 }
 
 #dashboard .display .class[color="orange"].draggable .header:hover, #dashboard .display [color="orange"].draggable.add-class-btn .header:hover {
-  background-color: #ff7d02;
+  background-color: #ff8a1c;
   cursor: pointer;
 }
 
 #dashboard .display .class[color="orange"] .header, #dashboard .display [color="orange"].add-class-btn .header {
-  background-color: #ff922b;
-}
-
-#dashboard .display .class[color="orange"] .header a.close-btn, #dashboard .display [color="orange"].add-class-btn .header a.close-btn {
-  color: #ff922b;
-}
-
-#dashboard .display .class[color="orange"] ul li p.due b, #dashboard .display [color="orange"].add-class-btn ul li p.due b {
-  background-color: #ff922b;
-}
-
-#dashboard .display .class[color="orange"] ul li p.due em, #dashboard .display [color="orange"].add-class-btn ul li p.due em {
-  color: #f77800;
-}
-
-#dashboard .display .class[color="orange"] form .form-group input[type="text"]:focus, #dashboard .display [color="orange"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="orange"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="orange"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
-  border: 1px solid #ff922b;
-}
-
-#dashboard .display .class[color="orange"] form .form-group input[name="add_class"], #dashboard .display [color="orange"].add-class-btn form .form-group input[name="add_class"] {
-  background-color: #ff922b;
-}
-
-#dashboard .display .class[color="orange"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="orange"].add-class-btn form .form-group input[name="add_class"]:hover {
-  background-color: #ff7d02;
-}
-
-#dashboard .display .class.new form.add-class .form-group .colors label[for="orange"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="orange"] {
   background-color: #ff9f45;
 }
 
+#dashboard .display .class[color="orange"] .header a.close-btn, #dashboard .display [color="orange"].add-class-btn .header a.close-btn {
+  color: #ff9f45;
+}
+
+#dashboard .display .class[color="orange"] ul li p.due b, #dashboard .display [color="orange"].add-class-btn ul li p.due b {
+  background-color: #ff9f45;
+}
+
+#dashboard .display .class[color="orange"] ul li p.due em, #dashboard .display [color="orange"].add-class-btn ul li p.due em {
+  color: #ff8512;
+}
+
+#dashboard .display .class[color="orange"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="orange"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
+  background-color: rgba(255, 159, 69, 0.6);
+}
+
+#dashboard .display .class[color="orange"] form .form-group input[type="text"]:focus, #dashboard .display [color="orange"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="orange"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="orange"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
+  border: 1px solid #ff9f45;
+}
+
+#dashboard .display .class[color="orange"] form .form-group input[name="add_class"], #dashboard .display [color="orange"].add-class-btn form .form-group input[name="add_class"] {
+  background-color: #ff9f45;
+}
+
+#dashboard .display .class[color="orange"] form .form-group input[name="add_class"]:hover, #dashboard .display [color="orange"].add-class-btn form .form-group input[name="add_class"]:hover {
+  background-color: #ff8a1c;
+}
+
+#dashboard .display .class.new form.add-class .form-group .colors label[for="orange"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors label[for="orange"] {
+  background-color: #ffac5e;
+}
+
 #dashboard .display .class.new form.add-class .form-group .colors input:checked + label[for="orange"], #dashboard .display .new.add-class-btn form.add-class .form-group .colors input:checked + label[for="orange"] {
-  background-color: #ff922b;
+  background-color: #ff9f45;
 }
 
 #dashboard .display .add-class-btn {

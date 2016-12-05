@@ -1,5 +1,7 @@
 $colors: ( red: #f03e3e, violet: #7950f2, blue: #228ae6, cyan: #1098ad, green: #51cf66, yellow: #fcc419, orange: #ff922b );
 @each $name, $color in $colors {
+    $color: lighten($color, 5%);
+    
     .class[color="#{$name}"] {
         &.draggable {
             .header {
@@ -27,6 +29,10 @@ $colors: ( red: #f03e3e, violet: #7950f2, blue: #228ae6, cyan: #1098ad, green: #
                 em {
                     color: darken($color, 10%);
                 }
+            }
+
+            .tab input[type="checkbox"]:checked + label {
+                background-color: rgba($color, 0.6);
             }
         }
 
