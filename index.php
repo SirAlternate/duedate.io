@@ -102,7 +102,7 @@ if (isset($_POST['register_submit'])) {
                 <h1>About duedate.io</h1>
                 <p><b>duedate.io</b> is a web-based assignment manager that aids students in keeping track of their classes and assignments. Don't let the hectic nature of college life wear you down, let duedate.io help you sort out the chaos.</p>
                 </br>
-                <p><i>Site created by Dan Bruce, Viv Kunnath, Erik Saulnier, and Nathan Strelser for Web Systems Development at RPI Fall 2016.</i></p>
+                <p><i>Site created by Dan Bruce, Viv Kunnath, Erik Saulnier, and Nathan Strelser for Web Systems Development at RPI&mdash;Fall 2016.</i></p>
             </div>
             <form class="col-md-5 col-md-offset-1 register" method="post"> <!-- TODO: Proper form validation (probably use validator.js) -->
                 <h1>Sign up now</h1>
