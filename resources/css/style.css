@@ -385,6 +385,7 @@ div.alert + .navbar + .display {
   text-align: center;
   width: 20px;
   height: 20px;
+  padding-top: 1px;
   margin: -35px 0 0;
   border: none;
   background-color: #ffffff;
