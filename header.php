@@ -10,6 +10,10 @@ if (isset($_GET["logout"])) {
     header('Location: index.php?logged_out');
 }
 
+if (isset($_GET["changesettings"])){
+	header('Location: settings.php');
+}
+
 // Get current user's information for populating page
 $user = get_user_info($_SESSION['email']);
 ?>
