@@ -30,6 +30,18 @@ function get_assignments($class_id) {
     return $assignments;
 }
 
+// Get the information for a given assignment
+function get_assignment($assg_id) {
+    global $db_connection;
+
+    // Query 'assignmnets' for entrys with this this assg_id
+    $query = $db_connection->query("SELECT * FROM `assignments` WHERE `assg_id`='$assg_id';");
+    $assignment = $query->fetchAll(PDO::FETCH_ASSOC)[0];
+
+    // Return the array to caller
+    return $assignment;
+}
+
 // Deletes given assignment
 function remove_assignment($assg_id) {
     global $db_connection;

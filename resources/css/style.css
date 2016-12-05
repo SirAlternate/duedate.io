@@ -380,33 +380,16 @@ div.alert + .navbar + .display {
   text-overflow: ellipsis;
 }
 
-#dashboard .display .class .header a.settings-btn, #dashboard .display .add-class-btn .header a.settings-btn {
-  float: right;
-  width: 25px;
-  height: 8px;
-  padding: 0;
-  margin: 21px 0;
-  border: none;
-  background-color: #ffffff;
-}
-
-#dashboard .display .class .header a.settings-btn:hover, #dashboard .display .add-class-btn .header a.settings-btn:hover {
-  opacity: 0.9;
-  filter: alpha(opacity=90);
-  cursor: pointer;
-}
-
-#dashboard .display .class .header a.close-btn, #dashboard .display .add-class-btn .header a.close-btn {
+#dashboard .display .class .header .close-btn, #dashboard .display .add-class-btn .header .close-btn {
   float: right;
   text-align: center;
-  text-decoration: none;
   width: 20px;
   height: 20px;
-  padding: 0;
   margin: -35px 0 0;
   border: none;
   background-color: #ffffff;
-  font-weight: 600;
+  font-size: 18px;
+  font-size: 1.8rem;
   color: #a7adb4;
   -webkit-transition: color 0.5s ease-out;
   -moz-transition: color 0.5s ease-out;
@@ -415,7 +398,7 @@ div.alert + .navbar + .display {
   transition: color 0.5s ease-out;
 }
 
-#dashboard .display .class .header a.close-btn:hover, #dashboard .display .add-class-btn .header a.close-btn:hover {
+#dashboard .display .class .header .close-btn:hover, #dashboard .display .add-class-btn .header .close-btn:hover {
   opacity: 0.9;
   filter: alpha(opacity=90);
   cursor: pointer;
@@ -435,7 +418,7 @@ div.alert + .navbar + .display {
 #dashboard .display .class ul li, #dashboard .display .add-class-btn ul li {
   position: relative;
   width: 100%;
-  height: 90px;
+  min-height: 90px;
   list-style: none;
   border-bottom: 1px solid #e4e4e4;
   -webkit-transition: background 0.05s ease-out;
@@ -449,7 +432,7 @@ div.alert + .navbar + .display {
   float: left;
   display: flex;
   align-items: center;
-  width: 35px;
+  width: 10%;
   height: 90px;
   margin: 0;
   background-color: rgba(167, 173, 180, 0.15);
@@ -480,9 +463,11 @@ div.alert + .navbar + .display {
 
 #dashboard .display .class ul li .content, #dashboard .display .add-class-btn ul li .content {
   float: left;
+  width: 90%;
   vertical-align: top;
   height: 90px;
   padding: 10px 12px;
+  cursor: pointer;
 }
 
 #dashboard .display .class ul li .content p.title, #dashboard .display .add-class-btn ul li .content p.title {
@@ -519,6 +504,70 @@ div.alert + .navbar + .display {
   font-size: 1.4rem;
 }
 
+#dashboard .display .class ul li .expand, #dashboard .display .add-class-btn ul li .expand {
+  position: relative;
+  height: 35px;
+  clear: both;
+  -webkit-transition: height 0.3s ease-out;
+  -moz-transition: height 0.3s ease-out;
+  -ms-transition: height 0.3s ease-out;
+  -o-transition: height 0.3s ease-out;
+  transition: height 0.3s ease-out;
+  border-top: 1px solid #e4e4e4;
+  overflow: hidden;
+}
+
+#dashboard .display .class ul li .expand[hide="true"], #dashboard .display .add-class-btn ul li .expand[hide="true"] {
+  height: 0;
+  border: none;
+}
+
+#dashboard .display .class ul li .expand .edit, #dashboard .display .add-class-btn ul li .expand .edit,
+#dashboard .display .class ul li .expand .delete, #dashboard .display .add-class-btn ul li .expand .delete {
+  width: 50%;
+  height: 100%;
+  vertical-align: top;
+  display: inline-block;
+  margin-right: -4px;
+  text-align: center;
+  line-height: 35px;
+  cursor: pointer;
+  color: rgba(22, 21, 21, 0.8);
+}
+
+#dashboard .display .class ul li .expand .edit:hover, #dashboard .display .add-class-btn ul li .expand .edit:hover,
+#dashboard .display .class ul li .expand .delete:hover, #dashboard .display .add-class-btn ul li .expand .delete:hover {
+  color: #161515;
+}
+
+#dashboard .display .class ul li .expand .edit i, #dashboard .display .add-class-btn ul li .expand .edit i,
+#dashboard .display .class ul li .expand .delete i, #dashboard .display .add-class-btn ul li .expand .delete i {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-top: 7.5px;
+  margin-right: 8px;
+  font-size: 20px;
+  font-size: 2rem;
+}
+
+#dashboard .display .class ul li .expand .edit p, #dashboard .display .add-class-btn ul li .expand .edit p,
+#dashboard .display .class ul li .expand .delete p, #dashboard .display .add-class-btn ul li .expand .delete p {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 14px;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+#dashboard .display .class ul li .expand .edit, #dashboard .display .add-class-btn ul li .expand .edit {
+  background-color: #f5daa3;
+}
+
+#dashboard .display .class ul li .expand .delete, #dashboard .display .add-class-btn ul li .expand .delete {
+  background-color: #9ce2a8;
+}
+
 #dashboard .display .class ul li.add-btn, #dashboard .display .add-class-btn ul li.add-btn {
   height: auto;
   border: none;
@@ -546,14 +595,14 @@ div.alert + .navbar + .display {
   background-color: #a1a8af;
 }
 
-#dashboard .display .class ul li.add-btn span.icon, #dashboard .display .add-class-btn ul li.add-btn span.icon {
+#dashboard .display .class ul li.add-btn i, #dashboard .display .add-class-btn ul li.add-btn i {
   display: block;
   margin: 8px auto;
+  padding: 5px 0;
   background-color: #dee0e3;
   color: #ffffff;
-  font-size: 26px;
-  font-size: 2.6rem;
-  font-weight: 600;
+  font-size: 24px;
+  font-size: 2.4rem;
   text-align: center;
   -webkit-transition: background 0.1s ease-out;
   -moz-transition: background 0.1s ease-out;
@@ -718,7 +767,7 @@ div.alert + .navbar + .display {
   background-color: #f25656;
 }
 
-#dashboard .display .class[color="red"] .header a.close-btn, #dashboard .display [color="red"].add-class-btn .header a.close-btn {
+#dashboard .display .class[color="red"] .header .close-btn, #dashboard .display [color="red"].add-class-btn .header .close-btn {
   color: #f25656;
 }
 
@@ -763,7 +812,7 @@ div.alert + .navbar + .display {
   background-color: #8b68f4;
 }
 
-#dashboard .display .class[color="violet"] .header a.close-btn, #dashboard .display [color="violet"].add-class-btn .header a.close-btn {
+#dashboard .display .class[color="violet"] .header .close-btn, #dashboard .display [color="violet"].add-class-btn .header .close-btn {
   color: #8b68f4;
 }
 
@@ -808,7 +857,7 @@ div.alert + .navbar + .display {
   background-color: #3996e9;
 }
 
-#dashboard .display .class[color="blue"] .header a.close-btn, #dashboard .display [color="blue"].add-class-btn .header a.close-btn {
+#dashboard .display .class[color="blue"] .header .close-btn, #dashboard .display [color="blue"].add-class-btn .header .close-btn {
   color: #3996e9;
 }
 
@@ -853,7 +902,7 @@ div.alert + .navbar + .display {
   background-color: #12adc4;
 }
 
-#dashboard .display .class[color="cyan"] .header a.close-btn, #dashboard .display [color="cyan"].add-class-btn .header a.close-btn {
+#dashboard .display .class[color="cyan"] .header .close-btn, #dashboard .display [color="cyan"].add-class-btn .header .close-btn {
   color: #12adc4;
 }
 
@@ -898,7 +947,7 @@ div.alert + .navbar + .display {
   background-color: #65d578;
 }
 
-#dashboard .display .class[color="green"] .header a.close-btn, #dashboard .display [color="green"].add-class-btn .header a.close-btn {
+#dashboard .display .class[color="green"] .header .close-btn, #dashboard .display [color="green"].add-class-btn .header .close-btn {
   color: #65d578;
 }
 
@@ -943,7 +992,7 @@ div.alert + .navbar + .display {
   background-color: #fcca32;
 }
 
-#dashboard .display .class[color="yellow"] .header a.close-btn, #dashboard .display [color="yellow"].add-class-btn .header a.close-btn {
+#dashboard .display .class[color="yellow"] .header .close-btn, #dashboard .display [color="yellow"].add-class-btn .header .close-btn {
   color: #fcca32;
 }
 
@@ -988,7 +1037,7 @@ div.alert + .navbar + .display {
   background-color: #ff9f45;
 }
 
-#dashboard .display .class[color="orange"] .header a.close-btn, #dashboard .display [color="orange"].add-class-btn .header a.close-btn {
+#dashboard .display .class[color="orange"] .header .close-btn, #dashboard .display [color="orange"].add-class-btn .header .close-btn {
   color: #ff9f45;
 }
 
