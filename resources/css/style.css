@@ -600,20 +600,19 @@ html {
   height: 370px;
   width: 100%;
   background-color: #ecedef;
-  border-top: 1px solid #b5bac0;
-  border-right: 1px solid #d0d3d7;
-  border-left: 1px solid #d0d3d7;
+  border-top: 1px solid #c3c7cb;
+  border-bottom: 1px solid #c3c7cb;
   overflow: hidden;
-  -webkit-transition: height 0.3s ease-out;
-  -moz-transition: height 0.3s ease-out;
-  -ms-transition: height 0.3s ease-out;
-  -o-transition: height 0.3s ease-out;
-  transition: height 0.3s ease-out;
+  -webkit-transition: height 0.3s ease-out, border 0.3s ease-out;
+  -moz-transition: height 0.3s ease-out, border 0.3s ease-out;
+  -ms-transition: height 0.3s ease-out, border 0.3s ease-out;
+  -o-transition: height 0.3s ease-out, border 0.3s ease-out;
+  transition: height 0.3s ease-out, border 0.3s ease-out;
 }
 
 #dashboard .display .class form.add-assignment[hide="true"], #dashboard .display .add-class-btn form.add-assignment[hide="true"] {
   height: 0;
-  border: none;
+  border: 0px solid rgba(181, 186, 192, 0);
 }
 
 #dashboard .display .class form.add-assignment .form-group, #dashboard .display .add-class-btn form.add-assignment .form-group {
