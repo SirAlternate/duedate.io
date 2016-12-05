@@ -169,6 +169,7 @@ div.alert + .navbar + .display {
                 @include font-size(15px);
 
                 i {
+                    color: #878787;
                     @include font-size(14px);
                 }
             }

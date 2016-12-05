@@ -158,6 +158,7 @@ div.alert + .navbar + .display {
 }
 
 #index .page .blurb p i {
+  color: #878787;
   font-size: 14px;
   font-size: 1.4rem;
 }
