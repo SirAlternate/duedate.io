@@ -63,20 +63,19 @@ function logout() {
 
     // Destroy session
     session_destroy();
-    header('Location: index.php?logged_out=1');
 }
 
 
 function delete_account($user_id){
-	
-	
-	
+
+
+
 	global $db_connection;
 	$sql = "DELETE FROM `users` WHERE `users`.`user_id` = '$user_id'";
 	$db_connection->exec($sql);
-	
-	
-	
+
+
+
 	 // Unset session variables
     unset($_SESSION['user_id']);
     unset($_SESSION['email']);
@@ -87,7 +86,7 @@ function delete_account($user_id){
     // Destroy session
     session_destroy();
     header('Location: index.php?logged_out=2');
-	
+
 }
 
 
@@ -135,19 +134,19 @@ function change_email($old_email, $new_email, $new_emailc) {
     // Fail-safe
     if ($new_email == '')
         return false;
-	
+
 	if ($new_email != $new_emailc)
 		return false;
-	
-	
-    
+
+
+
     if (!user_exists($old_email))
 		return false;
 
 	 $db_connection->exec("UPDATE `users`
 		SET 'email' = '$new_email'
 		WHERE 'email' = '$old_email'");
-    
+
     // If we made it this far we were successful
     return true;
 }

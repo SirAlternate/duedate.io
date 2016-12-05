@@ -54,13 +54,3 @@ if (isset($_POST['action']) && isset($_POST['type'])) {
         }
     }
 }
-
-// Handle getting info
-if (isset($_GET['type'])) {
-    switch ($_GET['type']) {
-        case 'assignment': {
-            echo json_encode(get_assignment($_GET['id']));
-            break;
-        }
-    }
-}

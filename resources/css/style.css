@@ -7,27 +7,45 @@ html {
 }
 
 .alert {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
+  height: 50px;
+  margin: 0;
+  line-height: 20px;
+  box-sizing: border-box;
+  border-radius: 0;
 }
 
-.alert span {
-  color: #2b542c;
+.alert .close {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.alert .close:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 
 .alert.alert-success {
-  color: #2b542c;
-  background-color: rgba(178, 219, 161, 0.9);
+  color: #237731;
+  background-color: #c4eecb;
   border-color: #d6e9c6;
 }
 
+.alert.alert-success .close span {
+  color: #237731;
+}
+
 .alert.alert-info {
-  color: #31708f;
-  background-color: rgba(154, 207, 234, 0.9);
-  border-color: #bce8f1;
+  color: #a07112;
+  background-color: #faecd1;
+  border-color: #d6e9c6;
+}
+
+.alert.alert-info .close span {
+  color: #a07112;
+}
+
+div.alert + .navbar + .display {
+  top: 110px !important;
 }
 
 #index {

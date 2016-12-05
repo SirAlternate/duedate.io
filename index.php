@@ -41,7 +41,8 @@ if (isset($_POST['register_submit'])) {
     } else {
         if (create_user($first_name, $last_name, $email, $password)) {
             if (login($email, $password)) {
-                header('Location: dashboard.php?new_user=1');
+                $_SESSION["state"] = "new_user";
+                header('Location: dashboard.php');
             }
         } else {
             echo "<script>alert( 'Woops! Something seems to have went wrong' );</script>";
@@ -64,7 +65,8 @@ if (isset($_POST['register_submit'])) {
     <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body id="index">
-    <?php if (isset($_GET["logged_out"]) && $_GET["logged_out"] == 1) { ?>
+    <?php if (isset($_GET["logged_out"])) {
+    ?>
     <div class="alert alert-info alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

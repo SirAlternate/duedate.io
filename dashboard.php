@@ -1,9 +1,14 @@
 <?php require_once('resources/library/load.php');
 
+$_SESSION['state'] = 'new_user';
+// If user is not logged in send them to the index page
+if(!isset($_SESSION['user_id']))
+    header('Location: index.php');
+
 // Handle user logging out
-if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
+if (isset($_GET["logout"])) {
     logout();
-    header("Location: index.php?logged_out=1");
+    header('Location: index.php?logged_out');
 }
 
 // Handle user deleting account
@@ -13,10 +18,6 @@ if (isset($_GET["deleteaccount"]) && $_GET["deleteaccount"] == 1)
 // Handle redirecting to settings TODO: can probably just be link?
 if (isset($_GET["changesettings"]) && $_GET["changesettings"] == 1)
     header('Location: settings.php');
-
-// If user is not logged in send them to the index page
-if(!isset($_SESSION['user_id']))
-    header('Location: index.php');
 
 // Get current user's information for populating page
 $user = get_user_info($_SESSION['email']);
@@ -37,7 +38,9 @@ $user = get_user_info($_SESSION['email']);
     <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body id="dashboard">
-    <?php if (isset($_GET["new_user"]) && $_GET["new_user"] == 1) { ?>
+    <?php if (isset($_SESSION["state"]) && $_SESSION["state"] == "new_user") {
+        unset($_SESSION["state"]);
+    ?>
     <div class="alert alert-success alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -59,7 +62,7 @@ $user = get_user_info($_SESSION['email']);
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-gear"></i>
                       <span class="caret"></span></button>
                       <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="?logout=1" id="logout_button">Log out</a></li>
+                        <li><a href="?logout" id="logout_button">Log out</a></li>
                         <!-- <li><a href="?deleteaccount=1" id = "delete_account_button">Delete Account</a></li> -->
 						<li><a href="?changesettings=1" id = "change_settings_button">Account Settings</a></li>
                     </ul>

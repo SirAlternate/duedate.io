@@ -31,27 +31,43 @@ html {
 }
 
 .alert {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
+    height: 50px;
+    margin: 0;
+    line-height: 20px;
+    box-sizing: border-box;
+    border-radius: 0;
 
-    span {
-        color: #2b542c;
+    .close {
+        @include opacity(0.8);
+
+        &:hover {
+            @include opacity(1);
+        }
     }
 
     &.alert-success {
-        color: #2b542c;
-        background-color: rgba(178,219,161,.9);
+        color: darken(#61d174, 30%);
+        background-color: lighten(#61d174, 25%);
         border-color: #d6e9c6;
+
+        .close span {
+            color: darken(#61d174, 30%);
+        }
     }
 
     &.alert-info {
-        color: #31708f;
-        background-color: rgba(154,207,234,.9);
-        border-color: #bce8f1;
+        color: darken(#edbe5e, 30%);
+        background-color: lighten(#edbe5e, 25%);
+        border-color: #d6e9c6;
+
+        .close span {
+            color: darken(#edbe5e, 30%);
+        }
     }
+}
+
+div.alert + .navbar + .display {
+    top: 110px !important; // Sorry mom
 }
 
 #index {
