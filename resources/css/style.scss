@@ -419,7 +419,8 @@ div.alert + .navbar + .display {
                         height: 90px;
                         margin: 0;
                         background-color: rgba($default_color, 0.15);
-                        border: 1px solid darken(#f8f8f8, 10%);
+                        border-right: 1px solid darken(#f8f8f8, 10%);
+                        border-left: 1px solid darken(#f8f8f8, 10%);
 
                         input[type="checkbox"] {
                             display: none;
