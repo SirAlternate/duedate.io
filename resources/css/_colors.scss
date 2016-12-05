@@ -23,16 +23,16 @@ $colors: ( red: #f03e3e, violet: #7950f2, blue: #228ae6, cyan: #1098ad, green: #
         ul li {
             p.due {
                 b {
-                    background-color: rgba($color, 0.8);
+                    background-color: rgba($color, 0.9);
                 }
 
                 em {
-                    color: darken($rgba($color, 0.8), 10%);
+                    color: darken(rgba($color, 0.9), 10%);
                 }
             }
 
             .tab input[type="checkbox"]:checked + label {
-                background-color: rgba($color, 0.8);
+                background-color: rgba($color, 0.9);
             }
         }
 

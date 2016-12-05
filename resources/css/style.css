@@ -686,15 +686,15 @@ html {
 }
 
 #dashboard .display .class[color="red"] ul li p.due b, #dashboard .display [color="red"].add-class-btn ul li p.due b {
-  background-color: #f25656;
+  background-color: rgba(242, 86, 86, 0.9);
 }
 
 #dashboard .display .class[color="red"] ul li p.due em, #dashboard .display [color="red"].add-class-btn ul li p.due em {
-  color: #ee2626;
+  color: rgba(238, 38, 38, 0.9);
 }
 
 #dashboard .display .class[color="red"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="red"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
-  background-color: rgba(242, 86, 86, 0.8);
+  background-color: rgba(242, 86, 86, 0.9);
 }
 
 #dashboard .display .class[color="red"] form .form-group input[type="text"]:focus, #dashboard .display [color="red"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="red"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="red"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
@@ -731,15 +731,15 @@ html {
 }
 
 #dashboard .display .class[color="violet"] ul li p.due b, #dashboard .display [color="violet"].add-class-btn ul li p.due b {
-  background-color: #8b68f4;
+  background-color: rgba(139, 104, 244, 0.9);
 }
 
 #dashboard .display .class[color="violet"] ul li p.due em, #dashboard .display [color="violet"].add-class-btn ul li p.due em {
-  color: #6738f0;
+  color: rgba(103, 56, 240, 0.9);
 }
 
 #dashboard .display .class[color="violet"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="violet"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
-  background-color: rgba(139, 104, 244, 0.8);
+  background-color: rgba(139, 104, 244, 0.9);
 }
 
 #dashboard .display .class[color="violet"] form .form-group input[type="text"]:focus, #dashboard .display [color="violet"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="violet"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="violet"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
@@ -776,15 +776,15 @@ html {
 }
 
 #dashboard .display .class[color="blue"] ul li p.due b, #dashboard .display [color="blue"].add-class-btn ul li p.due b {
-  background-color: #3996e9;
+  background-color: rgba(57, 150, 233, 0.9);
 }
 
 #dashboard .display .class[color="blue"] ul li p.due em, #dashboard .display [color="blue"].add-class-btn ul li p.due em {
-  color: #187dd6;
+  color: rgba(24, 125, 214, 0.9);
 }
 
 #dashboard .display .class[color="blue"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="blue"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
-  background-color: rgba(57, 150, 233, 0.8);
+  background-color: rgba(57, 150, 233, 0.9);
 }
 
 #dashboard .display .class[color="blue"] form .form-group input[type="text"]:focus, #dashboard .display [color="blue"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="blue"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="blue"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
@@ -821,15 +821,15 @@ html {
 }
 
 #dashboard .display .class[color="cyan"] ul li p.due b, #dashboard .display [color="cyan"].add-class-btn ul li p.due b {
-  background-color: #12adc4;
+  background-color: rgba(18, 173, 196, 0.9);
 }
 
 #dashboard .display .class[color="cyan"] ul li p.due em, #dashboard .display [color="cyan"].add-class-btn ul li p.due em {
-  color: #0e8396;
+  color: rgba(14, 131, 150, 0.9);
 }
 
 #dashboard .display .class[color="cyan"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="cyan"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
-  background-color: rgba(18, 173, 196, 0.8);
+  background-color: rgba(18, 173, 196, 0.9);
 }
 
 #dashboard .display .class[color="cyan"] form .form-group input[type="text"]:focus, #dashboard .display [color="cyan"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="cyan"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="cyan"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
@@ -866,15 +866,15 @@ html {
 }
 
 #dashboard .display .class[color="green"] ul li p.due b, #dashboard .display [color="green"].add-class-btn ul li p.due b {
-  background-color: #65d578;
+  background-color: rgba(101, 213, 120, 0.9);
 }
 
 #dashboard .display .class[color="green"] ul li p.due em, #dashboard .display [color="green"].add-class-btn ul li p.due em {
-  color: #3dc954;
+  color: rgba(61, 201, 84, 0.9);
 }
 
 #dashboard .display .class[color="green"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="green"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
-  background-color: rgba(101, 213, 120, 0.8);
+  background-color: rgba(101, 213, 120, 0.9);
 }
 
 #dashboard .display .class[color="green"] form .form-group input[type="text"]:focus, #dashboard .display [color="green"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="green"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="green"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
@@ -911,15 +911,15 @@ html {
 }
 
 #dashboard .display .class[color="yellow"] ul li p.due b, #dashboard .display [color="yellow"].add-class-btn ul li p.due b {
-  background-color: #fcca32;
+  background-color: rgba(252, 202, 50, 0.9);
 }
 
 #dashboard .display .class[color="yellow"] ul li p.due em, #dashboard .display [color="yellow"].add-class-btn ul li p.due em {
-  color: #f8bc03;
+  color: rgba(248, 188, 3, 0.9);
 }
 
 #dashboard .display .class[color="yellow"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="yellow"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
-  background-color: rgba(252, 202, 50, 0.8);
+  background-color: rgba(252, 202, 50, 0.9);
 }
 
 #dashboard .display .class[color="yellow"] form .form-group input[type="text"]:focus, #dashboard .display [color="yellow"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="yellow"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="yellow"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {
@@ -956,15 +956,15 @@ html {
 }
 
 #dashboard .display .class[color="orange"] ul li p.due b, #dashboard .display [color="orange"].add-class-btn ul li p.due b {
-  background-color: #ff9f45;
+  background-color: rgba(255, 159, 69, 0.9);
 }
 
 #dashboard .display .class[color="orange"] ul li p.due em, #dashboard .display [color="orange"].add-class-btn ul li p.due em {
-  color: #ff8512;
+  color: rgba(255, 133, 18, 0.9);
 }
 
 #dashboard .display .class[color="orange"] ul li .tab input[type="checkbox"]:checked + label, #dashboard .display [color="orange"].add-class-btn ul li .tab input[type="checkbox"]:checked + label {
-  background-color: rgba(255, 159, 69, 0.8);
+  background-color: rgba(255, 159, 69, 0.9);
 }
 
 #dashboard .display .class[color="orange"] form .form-group input[type="text"]:focus, #dashboard .display [color="orange"].add-class-btn form .form-group input[type="text"]:focus, #dashboard .display .class[color="orange"] form.add-assignment .form-group input[type="date"]:focus, #dashboard .display [color="orange"].add-class-btn form.add-assignment .form-group input[type="date"]:focus {

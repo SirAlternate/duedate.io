@@ -94,12 +94,28 @@ $user = get_user_info($_SESSION['email']);
                                 <p class="due">
                                     <?php
                                     $due = strtotime($assignment['due_date']);
+                                    
+                                    // Past due
                                     if ($due < strtotime('today'))
                                         echo "Past Due (" . date("l n/j", $due) . ")";
+
+                                    // Today
+                                    else if ($due === strtotime('today'))
+                                        echo "Due <b>today</b>";
+
+                                    // Tomorrow
+                                    else if ($due === strtotime('tomorrow'))
+                                        echo "Due <b>tomorrow</b>";
+
+                                    // This week
                                     else if ($due <= strtotime('next saturday'))
                                         echo "Due <b>this</b> " . date("l", $due);
+
+                                    // Next week
                                     else if ($due < strtotime('next saturday', strtotime('next saturday')))
                                         echo "Due <em>next</em> " . date("l", $due);
+
+                                    // Everything else
                                     else
                                         echo "Due" . date("l n/j", $due);
                                     ?>
