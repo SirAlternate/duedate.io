@@ -16,10 +16,14 @@ if(!isset($_SESSION['user_id']))
     header('Location: index.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
+	
+	$user_id= $_SESSION['user_id'];
+	
+	if (isset($_POST['new_email'])){
 	$new_email = $_POST['new_email'];
 	$new_emailc = $_POST['new_emailc'];
-	$user_id= $_SESSION['user_id'];
-if ($new_email != '' && isset($_SESSION['user_id']) && $new_email == $new_emailc){
+	
+	if ($new_email != '' && isset($_SESSION['user_id']) && $new_email == $new_emailc){
       global $db_connection;	  
 	  
 	  $sql = "UPDATE `users` SET `email` = '$new_email' WHERE `user_id` = $user_id";
@@ -27,7 +31,34 @@ if ($new_email != '' && isset($_SESSION['user_id']) && $new_email == $new_emailc
     $db_connection->exec($sql);
     
     // If we made it this far we were successful
-} 
+	}
+	
+	}
+	 if (isset($_POST['new_pass'])){
+	
+	$new_pass = $_POST['new_pass'];
+	$new_passc = $_POST['new_passc'];
+	
+	if ($new_pass != '' &&  isset($_SESSION['user_id']) && $new_pass == $new_passc){
+	
+	// Generate random salt
+    $salt = hash('sha256', uniqid(mt_rand(), true));
+
+    // Prepend the salt to the password and hash it
+    $salted = hash('sha256', $salt . $new_pass);
+	
+	
+	$sql = "UPDATE `users` SET `password` = '$salted', `salt` = '$salt' WHERE `users`.`user_id` = $user_id";
+	
+	$db_connection->exec($sql);
+}
+	
+	}
+	
+
+
+
+logout();
 }
 // Get current user's information for populating page
 $user = get_user_info($_SESSION['email']);
@@ -95,9 +126,7 @@ $user = get_user_info($_SESSION['email']);
                     <h1>Change Password</h1>
                 </div>
                 <form  class = "col-md-5 change-password" method = "post" >
-					<label for="old_pass">Old Password:</label>
-					<input type = "password" name="old_pass" />
-					<br />
+					
 					<label for="new_pass">New Password:</label>
 					<input type = "password" name="new_pass" />
 					<br />
