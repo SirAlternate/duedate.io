@@ -49,7 +49,7 @@ div.alert + .navbar + .display {
 }
 
 #index {
-  background: url("../img/background.jpg");
+  background: url("../img/background.jpg") no-repeat center;
   background-size: cover;
 }
 
@@ -127,8 +127,39 @@ div.alert + .navbar + .display {
   margin: 40px auto;
 }
 
+#index .page h1 {
+  width: 230px;
+  margin: 0 auto 20px;
+  padding-bottom: 15px;
+  color: #23282d;
+  font-size: 22px;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: 1px solid #d6dbdf;
+}
+
 #index .page .row {
   margin: 0;
+}
+
+#index .page .blurb {
+  margin-bottom: 20px;
+  padding: 50px 30px 40px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+#index .page .blurb p {
+  font-size: 15px;
+  font-size: 1.5rem;
+}
+
+#index .page .blurb p i {
+  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 #index .page form.register {
@@ -137,18 +168,6 @@ div.alert + .navbar + .display {
   -webkit-box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
   box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
-}
-
-#index .page form.register h1 {
-  width: 230px;
-  margin: 0 auto;
-  padding-bottom: 15px;
-  color: #23282d;
-  font-size: 22px;
-  font-size: 2.2rem;
-  text-transform: uppercase;
-  text-align: center;
-  border-bottom: 1px solid #d6dbdf;
 }
 
 #index .page form.register .form-group {
@@ -630,7 +649,7 @@ div.alert + .navbar + .display {
 
 #dashboard .display .class form.add-assignment[hide="true"], #dashboard .display .add-class-btn form.add-assignment[hide="true"] {
   height: 0;
-  border: 0px solid rgba(181, 186, 192, 0);
+  border: 0 solid rgba(181, 186, 192, 0);
 }
 
 #dashboard .display .class form.add-assignment .form-group, #dashboard .display .add-class-btn form.add-assignment .form-group {
@@ -1015,29 +1034,6 @@ div.alert + .navbar + .display {
 
 #dashboard .display .add-class-btn:hover {
   cursor: pointer;
-}
-
-.index_blurb {
-  background-color: rgba(255,255,255,.8);
-  font-size: 16px;
-  color: #666;
-  padding: 50px 30px 40px;
-}
-
-.index_blurb h1 {
-  width: 230px;
-  margin: 0 auto;
-  padding-bottom: 15px;
-  color: #23282d;
-  font-size: 22px;
-  font-size: 2.2rem;
-  text-transform: uppercase;
-  text-align: center;
-  border-bottom: 1px solid #d6dbdf;
-}
-
-.index_blurb p {
-  margin-top: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */

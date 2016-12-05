@@ -98,9 +98,11 @@ if (isset($_POST['register_submit'])) {
     </header>
     <div class="container page">
         <div class="row">
-            <div class="col-md-6 index_blurb">
+            <div class="col-md-6 blurb">
                 <h1>About duedate.io</h1>
-                <p>duedate.io is a web-based assignment manager that aids students in keeping track of their classes and assignments. Don't let the hectic nature of college life wear you down, let duedate.io help you sort out the chaos.</p>     
+                <p><b>duedate.io</b> is a web-based assignment manager that aids students in keeping track of their classes and assignments. Don't let the hectic nature of college life wear you down, let duedate.io help you sort out the chaos.</p>
+                </br>
+                <p><i>Site created by Dan Bruce, Viv Kunnath, Erik Saulnier, and Nathan Strelser for Web Systems Development at RPI Fall 2016.</i></p>
             </div>
             <form class="col-md-5 col-md-offset-1 register" method="post"> <!-- TODO: Proper form validation (probably use validator.js) -->
                 <h1>Sign up now</h1>
@@ -129,6 +131,7 @@ if (isset($_POST['register_submit'])) {
                     <p class="terms">By signing up, you agree to the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a>.</p>
                 </div>
             </form>
+            <div style="clear: both;"></div>
         </div>
     </div>
 
