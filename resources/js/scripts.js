@@ -172,7 +172,7 @@ $(function() {
         // Handle editing assignments
         $('body').on('click', '.display .class ul li.item .expand .edit', function(e) {
             var item = $(e.target).closest('li');
-
+            alert('Feature not yet implemented');
         });
     }
 });
